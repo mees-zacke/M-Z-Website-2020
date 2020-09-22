@@ -1,0 +1,65 @@
+.ce_text {
+  p, h1, h2, h3, h4, h5, h6 {
+    & + ul, & + ol {
+      margin-top: -1em;
+    }
+  }
+
+  ul, ol {
+    > li {
+      line-height: 1.5;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  ul {
+    > li {
+      padding-left: 1.5rem;
+
+      &:before {
+        content: '›';
+        color: $color1;
+        font-size: 1.5rem;
+        display: inline-block;
+        margin-right: 1rem;
+        margin-left: -1rem;
+        width: 0;
+      }
+    }
+  }
+
+  a {
+    color: lighten($linkColorHover, 20%);
+    border-bottom: 1px solid transparent;
+
+    &:hover, &:focus {
+      color: $linkColorHover;
+      border-color: $linkColorHover;
+    }
+  }
+
+  @include image();
+
+  figure {
+    margin-bottom: 1em;
+
+    &.float_left {
+      float: left;
+      margin-right: 2em;
+    }
+
+    &.float_right {
+      float: right;
+      margin-left: 2em;
+    }
+
+    &.float_left, &.float_right {
+      max-width: 45%;
+      margin-top: 0.3125em;
+      @media screen and (max-width: 650px) {
+        max-width: 100%;
+        float: none;
+      }
+    }
+  }
+}

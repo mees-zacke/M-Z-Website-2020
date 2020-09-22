@@ -1,0 +1,58 @@
+body, div, h1, h2, h3, h4, h5, h6, p, blockquote, pre, code, ul, li, dl, dt, dd, figure, table, th, td, form, fieldset, legend, input, textarea {
+  margin: 0;
+  padding: 0;
+}
+
+abbr, acronym {
+  font-variant: normal;
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+fieldset, img {
+  border: 0;
+}
+
+sup {
+  vertical-align: text-top;
+}
+
+sub {
+  vertical-align: text-bottom;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+ins {
+  text-decoration: none;
+}
+
+header, footer, nav, section, aside, article, figure, figcaption {
+  display: block;
+}
+
+body {
+  font: 100% Verdana, sans-serif;
+  color: #000;
+}
+
+input, button, textarea, select {
+  font-family: inherit;
+  font-size: 99%;
+  font-weight: inherit;
+}
+
+ul {
+  list-style-type: none;
+}
+
+* {
+   box-sizing: border-box;
+   outline: none;
+ }

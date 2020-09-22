@@ -1,0 +1,13 @@
+.ce_accordionSingle, .ce_accordionStart {
+  .ui-accordion{
+    &-header{
+      @include accordion-head();
+      &-icon{
+        display: none;
+      }
+    }
+    &-content{
+      @include accordion-body();
+    }
+  }
+}

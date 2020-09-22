@@ -1,0 +1,16 @@
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #ea5901;
+      }
+    </style>
+  </defs>
+  <title>radio-button</title>
+  <circle class="cls-1" cx="100" cy="100" r="100"/>
+  <circle class="cls-2" cx="100" cy="100.2" r="57.16"/>
+</svg>

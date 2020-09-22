@@ -1,0 +1,38 @@
+.ui-autocomplete {
+  $border: 1px solid $white;
+  position: absolute;
+  z-index: 700;
+
+  .ui-menu-item {
+    border-left: $border;
+    border-right: $border;
+    background-color: #fff;
+    text-indent: 2px;
+    cursor: pointer;
+    color: black;
+
+    &:first-of-type {
+      border-top: $border;
+    }
+
+    &:last-of-type {
+      border-bottom: $border;
+    }
+  }
+
+  .ui-menu-item-wrapper {
+    border: $border;
+  }
+
+  .ui-menu-divider {
+    border: 2px solid $black;
+  }
+
+  .ui-state-focus, .ui-state-hover, .ui-state-active {
+    background-color: $color1;
+  }
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}

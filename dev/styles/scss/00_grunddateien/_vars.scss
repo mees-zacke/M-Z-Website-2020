@@ -1,0 +1,199 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////// VARIABLEN /////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////
+/////////// Breakpoints ///////////
+///////////////////////////////////
+$break1: 30em; // 480px
+$break2: 48em; // 768px
+$break3: 64em; // 1024px
+$break4: 90em; // 1920px
+
+
+/////////////////////////////////////
+/////////// Inhaltsgrößen ///////////
+/////////////////////////////////////
+$pageWidth: 100rem;
+$abstandAussen: 0.75rem;
+$abstandElemente: 1rem;
+
+
+///////////////////////////////////
+/////////// Animationen ///////////
+///////////////////////////////////
+$transitionTime: 0.3s;
+$buttonPushScale: 0.8;
+$imageHoverScale: 1.2;
+
+
+////////////////////////////////
+/////////// Farben /////////////
+////////////////////////////////
+$color1: red;
+$color2: green;
+$color3: blue;
+$color4: cyan;
+$color5: magenta;
+$color6: yellow;
+$color7: black;
+$white: white;
+$black: black;
+$backgroundColor1: $white;
+
+
+////////////////////////////////
+/////////// Schrift ////////////
+////////////////////////////////
+$font1: 'Open Sans', Helvetica, sans-serif;
+$font2: 'Anton', Verdana, sans-serif;
+
+/////////// Fließtext ///////////
+////// Fließtext Größen //////
+// Fließtext //
+$max-fontSize: 18;
+$min-fontSize: 16;
+
+// Teaser //
+$max-teaserSize: 23;
+$min-teaserSize: 18;
+
+// Link //
+$max-linkSize: 16;
+$min-linkSize: 14;
+
+////// Fließtext Farben //////
+$fontColor: scale-color($black, $lightness: +5%);
+$fontColor2: $fontColor;
+
+$linkColor: $color1;
+$linkColorHover: $color2;
+
+$colorImageCaption: $fontColor;
+
+$fontWidth: 400;
+$lineHeight: 150%;
+$fontSpacing: 0.05em;
+/////////// Überschriften ///////////
+////// Überschriften Größen //////
+// h1 //
+$max-h1Size: 46;
+$min-h1Size: 38;
+
+// h2 //
+$max-h2Size: 36;
+$min-h2Size: 28;
+
+// h3 //
+$max-h3Size: 26;
+$min-h3Size: 20;
+
+// h4 //
+$max-h4Size: $max-teaserSize;
+$min-h4Size: $min-teaserSize;
+
+// h5 //
+$max-h5Size: $max-fontSize;
+$min-h5Size: $min-fontSize;
+
+// h6 //
+$max-h6Size: $max-linkSize;
+$min-h6Size: $min-linkSize;
+
+$hWidth: 600;
+$hLineHeight: 1.5;
+
+////// Überschriften Farben //////
+$hColor: $fontColor;
+$hColor2: $hColor;
+
+
+/////////////////////////////
+/////////// SVGs ////////////
+/////////////////////////////
+$lupeColor: $fontColor;
+$checkboxHakenColor: $fontColor;
+$radioColor: $fontColor;
+
+$minusColor: $color1;
+$plusColor: $color1;
+
+$lightboxIconColor: $white;
+$lightboxIconWidth: 10;
+
+@import "_vars-berechnungen";
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////// Allg. MIXINS //////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+@mixin pageWidth {
+  max-width: $pageWidth;
+  margin: 0 auto;
+  padding-left: $abstandAussen;
+  padding-right: $abstandAussen;
+}
+
+@mixin transition($time:$transitionTime) {
+  transition: ease all $time;
+}
+
+@mixin button-push($time:$transitionTime,$scale:$buttonPushScale) {
+  transition: transform ease-out $time;
+  &:active {
+    transform: scale($scale);
+  }
+}
+
+@mixin button-push-inner($time:$transitionTime,$scale:$buttonPushScale) {
+  > * {
+    transition: transform ease-out $time;
+  }
+  &:active {
+    > * {
+      transform: scale($scale);
+    }
+  }
+}
+
+@mixin aspect-ratio($width,$aspectRatio) {
+  width: $width;
+  height: calc(#{$width} / #{$aspectRatio});
+}
+
+@mixin link($color:$linkColor, $colorHover:$linkColorHover, $colorActive:darken($linkColorHover, 40%)) {
+  @include transition();
+  cursor: pointer;
+  border-bottom: none;
+  color: $linkColor;
+  text-decoration: none;
+  font-weight: 400;
+
+  &:hover, &:focus {
+    color: $linkColorHover;
+  }
+  &:active {
+    color: $colorActive;
+  }
+}
+
+@mixin hover-scale-up($time:$transitionTime,$scale:$imageHoverScale) {
+  transition: transform ease-out $time;
+  position: relative;
+  &:hover, &:focus {
+    z-index: 5;
+    transform: scale($scale);
+  }
+}
+
+@mixin hover-scale-up-inner($time:$transitionTime,$scale:$imageHoverScale) {
+  > * {
+    position: relative;
+    transition: transform ease-out $time;
+  }
+  &:hover, &:focus {
+    > * {
+      z-index: 5;
+      transform: scale($scale);
+    }
+  }
+}

@@ -1,0 +1,87 @@
+@mixin navigation-horizontal($justify-content:left,$abstandItems:1rem,$trenner:true,$trennerColor:$color1) {
+  overflow: visible;
+  .level_1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify-content;
+
+    >li {
+      z-index: 4;
+
+
+      .active, .trail {
+        color: $linkColorHover;
+      }
+      @if($trenner){
+        &:after{
+          content: "|";
+          color: $trennerColor;
+          margin-left: ($abstandItems / 2);
+          margin-right: ($abstandItems / 2);
+        }
+        &:last-of-type{
+          &:after{
+            display: none;
+          }
+        }
+      }
+      @else{
+        margin-left: $abstandItems;
+        &:first-of-type{
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+@mixin dropdown-submenu($abstandItems:1rem,$paddingSubmenu:0.5em,$borderColor:$black,$backgroundColor:$white) {
+  position: relative;
+  ul {
+    @include transition();
+    position: absolute;
+    padding: $paddingSubmenu;
+    background-color: $backgroundColor;
+    border: 1px solid $borderColor;
+    width: max-content;
+  }
+  .level_2 {
+    top: 100%;
+    left: -($paddingSubmenu);
+    transform: scaleY(0);
+    transform-origin: top;
+
+    li {
+      position: relative;
+      margin-left: 0;
+      margin-bottom: ($abstandItems / 2);
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    > li {
+      margin-left: 0;
+
+      .level_3 {
+        transform-origin: left;
+        transform: scaleX(0);
+        left: calc(100% + #{$paddingSubmenu});
+        top: calc(-#{$paddingSubmenu} - 1px);
+      }
+
+      &:hover, &:focus, &:focus-within {
+        .level_3 {
+          transform: scaleX(1);
+        }
+      }
+    }
+
+  }
+  &:hover, &:focus, &:focus-within {
+    .level_2 {
+      transform: scaleY(1);
+    }
+  }
+}

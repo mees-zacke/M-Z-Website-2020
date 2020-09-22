@@ -1,0 +1,33 @@
+
+<ul class="cols_<?= $this->perRow ?>" itemscope itemtype="http://schema.org/ImageGallery">
+  <?php foreach ($this->body as $class => $row): ?>
+    <?php foreach ($row as $col): ?>
+      <?php if ($col->addImage): ?>
+        <li class="<?= $class ?> <?= $col->class ?>">
+          <figure class="image_container"<?php if ($col->margin): ?> style="<?= $col->margin ?>"<?php endif; ?>>
+
+          <?php if ($col->href): ?>
+          <a href="<?= $col->href ?>"<?= $col->attributes ?><?php if ($col->linkTitle): ?> title="<?= $col->linkTitle ?>"<?php endif; ?>>
+           <div class="image-content">
+          <?php endif; ?>
+
+          <?php $this->insert('picture_default', $col->picture); ?>
+            <?php if ($col->caption): ?>
+              <figcaption class="caption"><?= $col->caption ?></figcaption>
+            <?php endif; ?>
+          <?php if ($col->copyright): ?>
+          <span class="imageCopy">&copy; <?= $col->copyright ?></span>
+          <?php endif; ?>
+
+
+
+          <?php if ($col->href): ?>
+              </div>
+            </a>
+          <?php endif; ?>
+          </figure>
+        </li>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  <?php endforeach; ?>
+</ul>

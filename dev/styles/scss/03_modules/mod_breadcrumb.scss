@@ -1,0 +1,42 @@
+.mod_breadcrumb {
+  display: none;
+  @media all and (min-width: $break2){
+    display: block;
+    font-size: 0.875rem;
+    margin: 0 0 20px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin: 1vw 0;
+
+      > span {
+        margin-right: 0.5rem;
+      }
+
+      li {
+        color: $fontColor;
+        &:first-of-type{
+          display: none;
+        }
+        &:nth-of-type(2){
+          &:before{
+            display: none;
+          }
+        }
+
+        &:before {
+          content: '/';
+          margin: 0 0.5rem;
+        }
+        &.active{
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

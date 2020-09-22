@@ -1,0 +1,4 @@
+.akkordeon-start ,.akkordeon-end{
+  @include link;
+  transition: color ease 0.2s;
+}

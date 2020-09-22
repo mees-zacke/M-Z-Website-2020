@@ -1,0 +1,30 @@
+.pagination {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+
+    li {
+      a, strong {
+        padding: 1rem;
+      }
+
+      &:first-of-type {
+        a, strong {
+          padding-left: 0;
+        }
+      }
+
+      &:last-of-type {
+        a, strong {
+          padding-right: 0;
+        }
+      }
+
+      &.first, &.previous, &.next, &.last {
+        a {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

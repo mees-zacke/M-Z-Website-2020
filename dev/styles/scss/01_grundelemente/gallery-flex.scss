@@ -1,0 +1,141 @@
+@mixin gallery-flex($counter: 12, $direction: row, $content: flex-start, $items: flex-start, $abstand: 2%, $abstandRow:$abstand) {
+  $abstandReal: ($abstand/2);
+  overflow: visible;
+  @for $i from 1 through $counter {
+    .cols_#{$i} {
+      display: flex;
+      flex-direction: #{$direction};
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: #{$content};
+      align-items: #{$items};
+      overflow: visible;
+      @include image();
+
+      figure {
+        figcaption {
+          position: absolute;
+          bottom: 5px;
+          left: 5px;
+          font-size: 40%;
+          color: $white;
+        }
+      }
+
+      li{
+        > * {
+          margin-bottom: $abstandRow;
+        }
+      }
+      @if ($i % 2 != 0){
+        li{
+          width: (100% / 3);
+
+          @for $x from 1 through 2 {
+            &:nth-of-type( 3n+#{$x}) {
+
+              > * {
+                margin-right: (($abstandReal * 2)*((3 - $x)/3));
+                margin-left: (($abstandReal * 2)*(($x - 1)/3));
+              }
+            }
+          }
+          @for $y from 1 through 1 {
+            $z: ($y - 1);
+            &:nth-of-type(3n - #{$z}) {
+
+              > * {
+                margin-left: (($abstandReal * 2)*((3 - $y)/3));
+                margin-right: (($abstandReal * 2)*(($y - 1)/3));
+              }
+            }
+          }
+
+        }
+      }
+      @else{
+        li{
+          width: 50%;
+          @for $x from 1 through 1 {
+            &:nth-of-type(2n+#{$x}) {
+              > * {
+                margin-right: (($abstandReal * 2)*((2 - $x)/2));
+                margin-left: (($abstandReal * 2)*(($x - 1)/2));
+              }
+            }
+          }
+          @for $y from 1 through 1 {
+            $z: ($y - 1);
+            &:nth-of-type(2n - #{$z}) {
+
+              > * {
+                margin-left: (($abstandReal * 2)*((2 - $y)/2));
+                margin-right: (($abstandReal * 2)*(($y - 1)/2));
+              }
+            }
+          }
+        }
+      }
+
+      @media all and (min-width: $break2) {
+        li {
+          width: (100% / $i);
+
+          @if ($i % 2 != 0) {
+            @for $x from 1 through (($i+1)/2) {
+              &:nth-of-type(#{$i}*n+#{$x}) {
+
+                > * {
+                  margin-right: (($abstandReal * 2)*(($i - $x)/$i));
+                  margin-left: (($abstandReal * 2)*(($x - 1)/$i));
+                }
+              }
+            }
+            @for $y from 1 through (($i - 1)/2) {
+              $z: ($y - 1);
+              &:nth-of-type(#{$i}*n - #{$z}) {
+
+                > * {
+                  margin-left: (($abstandReal * 2)*(($i - $y)/$i));
+                  margin-right: (($abstandReal * 2)*(($y - 1)/$i));
+                }
+              }
+            }
+          } @else {
+            @for $x from 1 through ($i/2) {
+              &:nth-of-type(#{$i}*n+#{$x}) {
+                > * {
+                  margin-right: (($abstandReal * 2)*(($i - $x)/$i));
+                  margin-left: (($abstandReal * 2)*(($x - 1)/$i));
+                }
+              }
+            }
+            @for $y from 1 through ($i /2) {
+              $z: ($y - 1);
+              &:nth-of-type(#{$i}*n - #{$z}) {
+
+                > * {
+                  margin-left: (($abstandReal * 2)*(($i - $y)/$i));
+                  margin-right: (($abstandReal * 2)*(($y - 1)/$i));
+                }
+              }
+            }
+          }
+
+          &:nth-of-type(#{$i}*n) {
+            > * {
+              margin-right: 0;
+            }
+          }
+
+          &:nth-of-type(#{$i}*n+1) {
+            > * {
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

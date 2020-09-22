@@ -1,0 +1,8 @@
+.mod_navigation:not(.vertical){
+    @include navigation-horizontal();
+    .level_1{
+        >li{
+            @include dropdown-submenu();
+        }
+    }
+}

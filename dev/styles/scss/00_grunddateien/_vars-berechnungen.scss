@@ -1,0 +1,100 @@
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////// Berechnungen //////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////
+/////////// Schriftgrößen ////////////
+//////////////////////////////////////
+/////////// Fließtext ///////////
+$max-fontSize-rem-base: ($max-fontSize / 16);
+$max-fontSize-rem: #{$max-fontSize-rem-base}rem;
+$min-fontSize-rem-base: ($min-fontSize / 16);
+$min-fontSize-rem: #{$min-fontSize-rem-base}rem;
+$fontSize: calc(#{$min-fontSize}px + (#{$max-fontSize} - #{$min-fontSize}) * ((100vw - 320px) / (1600 - 300)));
+/////////// Teasertext ///////////
+$max-teaserSize-rem-base: ($max-teaserSize / 16);
+$max-teaserSize-rem: #{$max-teaserSize-rem-base}rem;
+$min-teaserSize-rem-base: ($min-teaserSize / 16);
+$min-teaserSize-rem: #{$min-teaserSize-rem-base}rem;
+$teaserSize: calc(#{$min-teaserSize}px + (#{$max-teaserSize} - #{$min-teaserSize}) * ((100vw - 320px) / (1600 - 300)));
+/////////// Link ///////////
+$max-linkSize-rem-base: ($max-linkSize / 16);
+$max-linkSize-rem: #{$max-linkSize-rem-base}rem;
+$min-linkSize-rem-base: ($min-linkSize / 16);
+$min-linkSize-rem: #{$min-linkSize-rem-base}rem;
+$linkSize: calc(#{$min-linkSize}px + (#{$max-linkSize} - #{$min-linkSize}) * ((100vw - 320px) / (1600 - 300)));
+/////////// Überschriften ///////////
+////// h1 //////
+$max-h1Size-rem-base: ($max-h1Size / 16);
+$max-h1Size-rem: #{$max-h1Size-rem-base}rem;
+$min-h1Size-rem-base: ($min-h1Size / 16);
+$min-h1Size-rem: #{$min-h1Size-rem-base}rem;
+$h1Size: calc(#{$min-h1Size}px + (#{$max-h1Size} - #{$min-h1Size}) * ((100vw - 320px) / (1600 - 300)));
+////// h2 //////
+$max-h2Size-rem-base: ($max-h2Size / 16);
+$max-h2Size-rem: #{$max-h2Size-rem-base}rem;
+$min-h2Size-rem-base: ($min-h2Size / 16);
+$min-h2Size-rem: #{$min-h2Size-rem-base}rem;
+$h2Size: calc(#{$min-h2Size}px + (#{$max-h2Size} - #{$min-h2Size}) * ((100vw - 320px) / (1600 - 300)));
+////// h3 //////
+$max-h3Size-rem-base: ($max-h3Size / 16);
+$max-h3Size-rem: #{$max-h3Size-rem-base}rem;
+$min-h3Size-rem-base: ($min-h3Size / 16);
+$min-h3Size-rem: #{$min-h3Size-rem-base}rem;
+$h3Size: calc(#{$min-h3Size}px + (#{$max-h3Size} - #{$min-h3Size}) * ((100vw - 320px) / (1600 - 300)));
+////// h4 //////
+$max-h4Size-rem-base: ($max-h4Size / 16);
+$max-h4Size-rem: #{$max-h4Size-rem-base}rem;
+$min-h4Size-rem-base: ($min-h4Size / 16);
+$min-h4Size-rem: #{$min-h4Size-rem-base}rem;
+$h4Size: calc(#{$min-h4Size}px + (#{$max-h4Size} - #{$min-h4Size}) * ((100vw - 320px) / (1600 - 300)));
+////// h5 //////
+$max-h5Size-rem-base: ($max-h5Size / 16);
+$max-h5Size-rem: #{$max-h5Size-rem-base}rem;
+$min-h5Size-rem-base: ($min-h5Size / 16);
+$min-h5Size-rem: #{$min-h5Size-rem-base}rem;
+$h5Size: calc(#{$min-h5Size}px + (#{$max-h5Size} - #{$min-h5Size}) * ((100vw - 320px) / (1600 - 300)));
+////// h6 //////
+$max-h6Size-rem-base: ($max-h6Size / 16);
+$max-h6Size-rem: #{$max-h6Size-rem-base}rem;
+$min-h6Size-rem-base: ($min-h6Size / 16);
+$min-h6Size-rem: #{$min-h6Size-rem-base}rem;
+$h6Size: calc(#{$min-h6Size}px + (#{$max-h6Size} - #{$min-h6Size}) * ((100vw - 320px) / (1600 - 300)));
+
+///////////////////////////////////
+/////////// SVG-Farben ////////////
+///////////////////////////////////
+
+/// DATA URLs generiert mit https://yoksel.github.io/url-encoder/ ///
+
+/////////// Lupe für Suche ///////////
+$lupeColorIEHex: ie_hex_str($lupeColor);
+$lupeColorFinal:unquote(str_slice($lupeColorIEHex, 4));
+$lupe: url("data:image/svg+xml,%3Csvg id='Ebene_1' data-name='Ebene 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 421.21 421.21'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23#{$lupeColorFinal};%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Elupe%3C/title%3E%3Cpath class='cls-1' d='M421.21,378.79,321.06,278.63a176.65,176.65,0,1,0-42.43,42.43L378.79,421.21ZM176.7,284.4A107.7,107.7,0,1,1,284.4,176.7,107.68,107.68,0,0,1,176.7,284.4Z'/%3E%3C/svg%3E");
+/////////// Checkbox ///////////
+$checkboxHakenColorIEHex: ie_hex_str($checkboxHakenColor);
+$checkboxHakenColorFinal: unquote(str_slice($checkboxHakenColorIEHex, 4));
+$checkboxHaken: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 251.3 347.9'%3E%3Cstyle type='text/css'%3E .st1%7Bfill:%23#{$checkboxHakenColorFinal};%7D%0A%3C/style%3E%3Ctitle%3E checkbox-haken%3C/title%3E%3Cg class='st0'%3E%3Cpath class='st1' d='M234.2 35.6l5.5 7.8c-22.3 16.8-47.1 42.6-74.3 77.5 -27.3 34.9-48.1 67.5-62.5 97.8l-11.6 7.8c-9.6 6.7-16.1 11.6-19.5 14.8 -1.4-4.9-4.3-12.9-8.9-24l-4.4-10.1c-6.2-14.6-12.1-25.3-17.4-32.3 -5.4-7-11.4-11.6-18-13.9C34.4 149 44.7 143.1 54 143.1c8 0 16.9 10.9 26.7 32.6l4.8 10.9c17.6-29.7 40.2-58.5 67.8-86.5C180.9 72.1 207.9 50.6 234.2 35.6z'/%3E%3C/g%3E%3C/svg%3E");
+
+/////////// Radio-Button ///////////
+$radioColorIEHex: ie_hex_str($radioColor);
+$radioColorFinal:unquote(str_slice($radioColorIEHex, 4));
+$radio: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 200 200'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: none; %7D .cls-2 %7B fill: %23#{$radioColorFinal}; %7D %3C/style%3E%3C/defs%3E%3Ctitle%3E radio-button%3C/title%3E%3Ccircle class='cls-1' cx='100' cy='100' r='100'/%3E%3Ccircle class='cls-2' cx='100' cy='100.2' r='57.2'/%3E%3C/svg%3E");
+
+/////////// Akkordeon-Minus ///////////
+$minusColorIEHex: ie_hex_str($minusColor);
+$minusColorFinal:unquote(str_slice($minusColorIEHex, 4));
+$minus: url("data:image/svg+xml,%3Csvg id='Ebene_1' data-name='Ebene 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200.5 200'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: none; %7D .cls-2 %7B fill: %23#{$minusColorFinal}; %7D %3C/style%3E%3C/defs%3E%3Ctitle%3Eminus%3C/title%3E%3Crect class='cls-1' width='200' height='200'/%3E%3Crect class='cls-2' x='0.5' y='80' width='200' height='41'/%3E%3C/svg%3E%0A");
+
+/////////// Akkordeon-Plus ///////////
+$plusColorIEHex: ie_hex_str($plusColor);
+$plusColorFinal:unquote(str_slice($plusColorIEHex, 4));
+$plus: url("data:image/svg+xml,%3Csvg id='Ebene_1' data-name='Ebene 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200.5 200.5'%3E%3Cdefs%3E%3Cstyle%3E .cls-1 %7B fill: none; %7D .cls-2 %7B fill: %23#{$plusColorFinal} %7D %3C/style%3E%3C/defs%3E%3Ctitle%3Eplus%3C/title%3E%3Crect class='cls-1' width='200' height='200'/%3E%3Cpolygon class='cls-2' points='200.5 80 121 80 121 0.5 80 0.5 80 80 0.5 80 0.5 121 80 121 80 200.5 121 200.5 121 121 200.5 121 200.5 80'/%3E%3C/svg%3E%0A");
+
+/////////// Lightbox-Pfeil ///////////
+
+$lightboxIconColorIEHex: ie_hex_str($lightboxIconColor);
+$lightboxIconColorFinal:unquote(str_slice($lightboxIconColorIEHex, 4));
+$lightboxPfeilNext: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59.11 104.07'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='none' stroke='%23#{$lightboxIconColorFinal}' stroke-miterlimit='#{$lightboxIconWidth}' stroke-width='#{$lightboxIconWidth}' d='M3.54 3.54l48.5 48.5-48.5 48.5' data-name='Ebene 1'/%3E%3C/g%3E%3C/svg%3E%0A");
+$lightboxPfeilPrevious: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59.11 104.07'%3E%3Cg data-name='Ebene 2'%3E%3Cg data-name='Ebene 1'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='none' stroke='%23#{$lightboxIconColorFinal}' stroke-miterlimit='#{$lightboxIconWidth}' stroke-width='#{$lightboxIconWidth}' d='M55.57 100.54l-48.5-48.5 48.5-48.5' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+$lightboxClose: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Ebene_1' data-name='Ebene 1' viewBox='0 0 107.57 107.57'%3E%3Cdefs%3E%3Cstyle%3E .cls-1%7Bfill:none;stroke:%23#{$lightboxIconColorFinal};stroke-miterlimit:#{$lightboxIconWidth};stroke-width:#{$lightboxIconWidth}px%7D %3C/style%3E%3C/defs%3E%3Cpath d='M3.54 3.54l100.5 100.5M104.04 3.54L3.54 104.04' class='cls-1'/%3E%3C/svg%3E");

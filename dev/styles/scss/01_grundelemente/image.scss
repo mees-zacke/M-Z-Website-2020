@@ -1,0 +1,46 @@
+@mixin image($pushTime:$transitionTime,$pushScale:$buttonPushScale,$hoverTime:$transitionTime,$hoverScale:$imageHoverScale){
+  figure{
+    line-height: 0;
+    margin-bottom: 0.5rem;
+    position: relative;
+    img{
+      position: relative;
+      box-sizing: border-box;
+      max-width: 100%;
+      height: auto;
+    }
+    figcaption{
+      @include transition();
+      margin-top: 5px;
+      color: $colorImageCaption;
+      font-size: 0.75rem;
+      line-height: 1.3;
+
+    }
+    .imageCopy {
+      font-size: 40%;
+      line-height: 1em;
+      position: absolute;
+      right: 0.25rem;
+      top: 0.25rem;
+      padding: 0.125em 0.25em;
+      display: inline-block;
+      color: rgb(230,230,230);
+      text-shadow: 0 0 0.125em black;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      @media (min-width: $break2) {
+        right: initial;
+        left: 0.25rem;
+        writing-mode: initial;
+        transform: rotate(0deg);
+      }
+    }
+    a{
+      display: block;
+      position: relative;
+      @include hover-scale-up-inner($time:$hoverTime,$scale:$hoverScale);
+      @include button-push-inner($time:$pushTime,$scale:$pushScale);
+    }
+  }
+}

@@ -1,0 +1,77 @@
+@media print {
+  *, body {
+    font: 10pt Arial, Verdana, sans-serif;
+  }
+  img {
+    filter: grayscale(100%);
+
+  }
+  h1,h2,h3,h4,h5,h6 {
+    color: black!important;
+  }
+  .meta, .headersection-1-social, .headersection-2-menu {
+    display: none!important;
+  }
+  .imageCopy {
+    left: 0;
+    right: initial;
+  }
+  .partner-wrapper {
+    img {
+      max-width: 200px;
+    }
+  }
+  .headersection-1-wrapper {
+    float: left;
+  }
+  .headersection-2-wrapper {
+    background: none!important;
+    img {
+      filter: invert(1);
+    }
+  }
+  .mitHintergrundbild {
+    background: linear-gradient(black, black), url("/files/daten/hintergrundbilder/Kopfbild-KI.jpg")!important;
+    background-blend-mode: saturation!important;
+  }
+  .leaflet-container {
+    img {
+      filter: grayscale(1)!important;
+    }
+  }
+  body {
+    #wrapper {
+      #header {
+        .inside {
+          .mod_article {
+            display: none;
+          }
+        }
+
+      }
+
+      #footer {
+        background-color: initial!important;
+        color: black!important;
+        .inside {
+          display: block!important;
+          >* {
+            float: left;
+            margin-right: 20px;
+          }
+          .bildAnsprechpartner {
+            img {
+              max-width: 80px;
+            }
+          }
+          .traeger {
+            img {
+              filter: invert(1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

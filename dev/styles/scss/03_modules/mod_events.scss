@@ -1,0 +1,134 @@
+.mod_eventlist {
+  .layout_teaser{
+    a{
+    display: flex;
+    width: 100%;
+    .datenblock{
+      @include transition();
+      width: 6rem;
+      min-height: 6rem;
+      background-color: $color7;
+      padding: 10px;
+      text-align: center;
+      .tag{
+        color: white;
+        font-weight: 600;
+        font-size: $teaserSize;
+      }
+      .jahr{
+        color: white;
+        font-weight: 600;
+        font-size: $fontSize;
+      }
+      .ort{
+        font-weight: 600;
+        font-size: $linkSize;
+        color: $black;
+      }
+    }
+    .titel{
+      @include transition();
+      padding: 10px 1rem;
+      font-weight: 600;
+      color: $black;
+      width: 100%;
+    }
+  }
+    &:hover{
+      .datenblock{
+        background-color: $color2;
+      }
+      .titel{
+        background-color: $black;
+      }
+    }
+  }
+}
+
+.mod_eventreader {
+  .layout_full{
+    .head{
+      @include grid();
+      h1{
+        grid-column: span 9;
+        font-weight: 400;
+      }
+      a{
+        background-color: $color7;
+        color: $black;
+        grid-column: span 3;
+        border: 1px solid $white;
+        padding: 1rem;
+        align-self: flex-start;
+        font-weight: 600;
+        text-align: center;
+        &:hover, &:focus{
+          background-color: $white;
+          color: $color7;
+          border-color: $color7;
+        }
+      }
+    }
+    .information-container{
+      @include grid();
+      position: relative;
+      .information{
+        border-top: 1px solid $black;
+        border-bottom: 1px solid $black;
+        padding: 1rem 0;
+        grid-column: span 9;
+        .datum-zeit-container{
+          display: flex;
+          font-size: $linkSize;
+          margin-bottom: 1rem;
+          *{
+            font-weight: 600;
+          }
+          .datum{
+            &:after{
+              content: "|";
+              margin: 0 0.5em 0 0.4em;
+            }
+          }
+        }
+        .ort-container{
+          p{
+            margin-bottom: 0;
+          }
+          .ort{
+            font-weight: 600;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+      .ansprechpartner{
+        grid-column: span 3;
+        p:first-of-type{
+          font-size: $linkSize;
+        }
+      }
+    }
+    .details{
+      margin-top: 1rem;
+      @include grid();
+      >*{
+        grid-column: span 9;
+      }
+    }
+  }
+  .back{
+    margin-top: 1rem;
+    a{
+      display: inline;
+      padding: 0.5em;
+      background-color: $black;
+      color: $black;
+      border: 1px solid $white;
+      &:hover, &:focus{
+        background-color: $white;
+        color: $black;
+        border-color: $black;
+      }
+    }
+  }
+}

@@ -1,0 +1,143 @@
+.mod_newslist {
+  grid-column: span 12;
+
+  .datenblock {
+    @include grid();
+    padding: 1rem;
+    background-color: $color1;
+    color: $fontColor;
+
+    p {
+      margin-bottom: 0;
+      font-size: 0.875em;
+    }
+
+  }
+
+  .layout_latest {
+    a {
+      padding-top: 1em;
+      padding-bottom: 0.5em;
+      border-bottom: 1px solid $color1;
+      display: block;
+
+      > h3 {
+        text-decoration: none;
+        color: $fontColor;
+        font-family: $font1;
+        font-weight: 600;
+        margin-bottom: 0.5em;
+        padding: 0 1rem;
+      }
+
+      .teaser-logo-container {
+        margin-bottom: 1em;
+        @include grid();
+
+        p {
+          padding: 0 1rem;
+          grid-column: span 12;
+          color: $fontColor;
+          margin-bottom: 0;
+
+          .weiterlesen {
+            color: $color1;
+            font-weight: 600;
+            @include transition();
+          }
+        }
+
+        .image_container {
+          grid-column: span 4;
+          padding: 0 1rem;
+          margin-bottom: 0;
+        }
+      }
+
+      &:hover, &:focus {
+        background-color: $color1;
+
+      }
+    }
+
+    @media all and (min-width: $break3) {
+      a {
+        .teaser-logo-container {
+          grid-template-columns: repeat(8, 1fr);
+
+          p {
+            grid-column: span 6;
+            padding-right: 0;
+          }
+
+          .image_container {
+            grid-column: span 2;
+            padding-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.mod_newsreader {
+  grid-column: span 12;
+
+  .layout_full {
+    @include grid();
+    margin-top: 1em;
+
+    > h1 {
+      margin: 0;
+      padding-bottom: 1em;
+      border-bottom: 2px solid $color1;
+    }
+    .rechte-spalte {
+      background-color: $color1;
+      padding: 1rem;
+      .info {
+        font-size: 0.875rem;
+      }
+      .image_container {
+        max-width: 50%;
+      }
+      .enclosure {
+        margin-top: 2rem;
+      }
+
+    }
+
+    @media all and (min-width: $break3) {
+      .linke-spalte {
+        grid-column: span 8;
+      }
+      .rechte-spalte {
+        grid-column: span 4;
+        .image_container {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+  .back {
+    margin-top: 1rem;
+    a {
+      display: block;
+      width: 100%;
+      padding: 0.5em;
+      background-color: $color1;
+      color: white;
+      font-weight: 600;
+      border: 1px solid white;
+
+      &:hover, &:focus {
+        background-color: white;
+        border-color: $color1;
+        color: $color1;
+      }
+
+    }
+  }
+
+
+}

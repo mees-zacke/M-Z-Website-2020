@@ -1,0 +1,19 @@
+@mixin gallery-grid ($counter: 12, $direction: row, $content: flex-start, $items: flex-start, $abstand: 2%, $abstandRow:$abstand) {
+  $abstandReal: ($abstand/2);
+  @for $i from 1 through $counter {
+    .cols_#{$i} {
+      display: grid;
+      flex-wrap: wrap;
+      grid-template-columns: repeat($i , 1fr);
+      align-content: #{$content};
+      align-items: #{$items};
+      grid-column-gap: $abstand;
+      grid-row-gap: $abstandRow;
+      @include image();
+      figure{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
