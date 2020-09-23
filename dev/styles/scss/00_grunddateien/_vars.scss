@@ -26,12 +26,15 @@ $transitionTime: 0.3s;
 $buttonPushScale: 0.8;
 $imageHoverScale: 1.2;
 
+/////////// Galerien ///////////
+$galerieAbstand: 2%;
+$galerieAbstandRow: $galerieAbstand;
 
 ////////////////////////////////
 /////////// Farben /////////////
 ////////////////////////////////
-$color1: red;
-$color2: green;
+$color1: #E2000F;
+$color2: #6E706F;
 $color3: blue;
 $color4: cyan;
 $color5: magenta;
@@ -194,6 +197,79 @@ $lightboxIconWidth: 10;
     > * {
       z-index: 5;
       transform: scale($scale);
+    }
+  }
+}
+
+@mixin hover-overlay-full($bgColor:$color1,$color:$white,$vertikal:center,$horizontal:center) {
+  /////// Benötigt Element mit Klasse "hover" innerhalb von auslösendem Element ///////
+  .hover {
+    @include transition();
+    position: absolute;
+    display: flex;
+    align-items: $vertikal;
+    height: 100%;
+    width: 100%;
+    text-align: $horizontal;
+    top: 0;
+    left: 0;
+    padding: $abstandElemente;
+    opacity: 0;
+    background-color: transparentize($bgColor, 0.5);
+
+    * {
+      margin: 0;
+      color: $color;
+    }
+  }
+  &:hover, &:focus {
+    .hover {
+      opacity: 1;
+    }
+  }
+  &:active {
+    .hover {
+      background-color: $bgColor;
+    }
+  }
+}
+
+@mixin hover-overlay-content($bgColor:$color1,$color:$white,$vertikal:flex-end,$horizontal:center) {
+  /////// Benötigt Element mit Klasse "hover" innerhalb von auslösendem Element ///////
+  .hover {
+    position: absolute;
+    display: flex;
+    align-items: $vertikal;
+    height: 100%;
+    width: 100%;
+    text-align: $horizontal;
+    top: 0;
+    left: 0;
+
+    > * {
+      @include transition();
+      padding: $abstandElemente;
+      opacity: 0;
+      background-color: transparentize($bgColor, 0.5);
+    }
+
+    * {
+      margin: 0;
+      color: $color;
+    }
+  }
+  &:hover, &:focus {
+    .hover {
+      > * {
+        opacity: 1;
+      }
+    }
+  }
+  &:active {
+    .hover {
+      > * {
+        background-color: $bgColor;
+      }
     }
   }
 }

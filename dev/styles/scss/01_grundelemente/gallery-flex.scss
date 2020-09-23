@@ -1,4 +1,4 @@
-@mixin gallery-flex($counter: 12, $direction: row, $content: flex-start, $items: flex-start, $abstand: 2%, $abstandRow:$abstand) {
+@mixin gallery-flex($counter: 12, $direction: row, $content: flex-start, $items: flex-start, $abstand:$galerieAbstand, $abstandRow:$galerieAbstandRow) {
   $abstandReal: ($abstand/2);
   overflow: visible;
   @for $i from 1 through $counter {

@@ -2,7 +2,6 @@
 // Author: Jerome Wein //
 // Firma: Mees + Zacke + Naumann Gbr. //
 
-@import "00_grunddateien/_root-vars";
 @import "00_grunddateien/_fonts";
 @import "00_grunddateien/_vars";
 @import "00_grunddateien/_reset";
@@ -23,6 +22,7 @@
 @import "01_grundelemente/pagination";
 @import "01_grundelemente/accordion";
 @import "01_grundelemente/navigation-horizontal";
+@import "01_grundelemente/newslist";
 @import "tinymce";
 
 // CE_´s
@@ -42,6 +42,7 @@
 @import "03_modules/mod_news";
 @import "03_modules/mod_events";
 @import "03_modules/mod_login";
+@import "03_modules/mod_catalog_list";
 
 // J´s
 @import "04-jquery/j_colorbox";

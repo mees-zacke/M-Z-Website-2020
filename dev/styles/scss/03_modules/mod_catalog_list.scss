@@ -1,0 +1,27 @@
+.mod_catalogUniversalView{
+  .ctlg_view_{
+    &teaser-list{
+      @include news-list();
+      a{
+        @include hover-overlay-full();
+        .kunde {
+          position: relative;
+
+          figure {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  &.active{
+    >*{
+      display: flex;
+    }
+  }
+  &.inactive{
+    >*{
+      display: none;
+    }
+  }
+}

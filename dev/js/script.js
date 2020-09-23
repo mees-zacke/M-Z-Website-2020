@@ -18,8 +18,15 @@ jQuery(function ($) {
   }
 ////////////////////////////////////////////////////////////
 
+  // Listen nach Leistung filtern
+  var leistungen = ['all','print','web','360grad',]
 
-
+  leistungen.forEach(function(leistung){
+    $('.leistungen .' + leistung).on('click' , function(){
+      $('.mod_catalogUniversalView.' + leistung).removeClass('inactive').addClass('active');
+      $('.mod_catalogUniversalView').not('.' + leistung).removeClass( 'active').addClass('inactive');
+    });
+  });
 
 
 ////////////////////////////////////////////////////////////
