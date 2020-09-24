@@ -23,6 +23,26 @@ body {
     ////////// CUSTOM //////////
     ////////////////////////////
 
+    #startseiten-slider{
+      position: relative;
+      >* {
+        grid-column: 1/15;
+      }
+      .mod_rocksolid_slider{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .ce_player{
+        figure{
+          height: 500px;
+          video{
+            width: 100%;
+          }
+        }
+      }
+    }
+
     /////////////////////////////
     //////// CONTAINER ////////
     ////////////////////////////

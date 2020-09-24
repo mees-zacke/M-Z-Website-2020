@@ -1,0 +1,104 @@
+#startseiten-slider {
+  .rsts-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ce_text {
+      overflow: visible;
+
+      >*{
+        font-size: $h3Size;
+        font-family: $font1;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      h2 {
+        background-color: transparentize($white, 0.1);
+        border-radius: 2px;
+        padding: $abstandElemente;
+        min-width: 40vw;
+        position: relative;
+        margin-right: 20vw;
+        filter: drop-shadow(0 1px 2px transparentize($black, 0.3));
+
+        &:before {
+          $MZplusColor: $color1;
+          $MZplusColorIEHex: ie_hex_str($MZplusColor);
+          $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
+          $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
+          content: $MZplus;
+          position: absolute;
+          $position: calc(-2.5rem - 10px);
+          top: $position;
+          left: $position;
+          width: 5rem;
+          height: 5rem;
+        }
+      }
+
+      p {
+        strong{
+          display: inline-block;
+          background-color: $color1;
+          color: $white;
+          padding: $abstandElemente;
+          box-shadow: 0 1px 2px transparentize($black , 0.3);
+        }
+        &:nth-of-type(1){
+          margin-left: 20vw;
+        }
+        &:nth-of-type(2){
+          margin-left: 10vw;
+          margin-right: 10vw;
+        }
+      }
+    }
+  }
+  .rsts-nav{
+    &-bullets{
+      right: 0;
+      left: 0;
+      text-align: center;
+      ul{
+        .rsts-nav-item{
+          a{
+            $MZplusColor: $white;
+            $MZplusColorIEHex: ie_hex_str($MZplusColor);
+            $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
+            $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
+            background-image: $MZplus;
+            border-radius: 0;
+            outline: none;
+            border: none;
+            background-repeat: no-repeat;
+            width: 1.5rem;
+            height: 1.5rem;
+            margin: 10px;
+            box-shadow: none;
+            filter: drop-shadow(0 1px 2px transparentize($black, 0.3));
+            background-color: transparent;
+            &.active{
+              $MZplusColor: $color1;
+              $MZplusColorIEHex: ie_hex_str($MZplusColor);
+              $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
+              $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
+              background-image: $MZplus;
+            }
+            &:not(.active){
+              @include button-push();
+              &:hover{
+                $MZplusColor: lighten($color1 , 45% );
+                $MZplusColorIEHex: ie_hex_str($MZplusColor);
+                $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
+                $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
+                background-image: $MZplus;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

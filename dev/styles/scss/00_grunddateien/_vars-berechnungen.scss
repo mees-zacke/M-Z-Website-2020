@@ -98,3 +98,9 @@ $lightboxIconColorFinal:unquote(str_slice($lightboxIconColorIEHex, 4));
 $lightboxPfeilNext: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59.11 104.07'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='none' stroke='%23#{$lightboxIconColorFinal}' stroke-miterlimit='#{$lightboxIconWidth}' stroke-width='#{$lightboxIconWidth}' d='M3.54 3.54l48.5 48.5-48.5 48.5' data-name='Ebene 1'/%3E%3C/g%3E%3C/svg%3E%0A");
 $lightboxPfeilPrevious: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59.11 104.07'%3E%3Cg data-name='Ebene 2'%3E%3Cg data-name='Ebene 1'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='none' stroke='%23#{$lightboxIconColorFinal}' stroke-miterlimit='#{$lightboxIconWidth}' stroke-width='#{$lightboxIconWidth}' d='M55.57 100.54l-48.5-48.5 48.5-48.5' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
 $lightboxClose: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='Ebene_1' data-name='Ebene 1' viewBox='0 0 107.57 107.57'%3E%3Cdefs%3E%3Cstyle%3E .cls-1%7Bfill:none;stroke:%23#{$lightboxIconColorFinal};stroke-miterlimit:#{$lightboxIconWidth};stroke-width:#{$lightboxIconWidth}px%7D %3C/style%3E%3C/defs%3E%3Cpath d='M3.54 3.54l100.5 100.5M104.04 3.54L3.54 104.04' class='cls-1'/%3E%3C/svg%3E");
+
+/////////// Mees-Zacke Plus ///////////
+  $MZplusColorIEHex: ie_hex_str($MZplusColor);
+  $MZplusColorFinal:unquote(str_slice($MZplusColorIEHex, 4));
+  $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
+
