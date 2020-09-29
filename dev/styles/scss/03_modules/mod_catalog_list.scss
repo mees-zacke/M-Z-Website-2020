@@ -25,3 +25,35 @@
     }
   }
 }
+
+.mod_catalogMasterView{
+  grid-column: 1/15;
+  .ctlg_master{
+    @include grid();
+    >*:not(.head){
+      grid-column: 2/14;
+    }
+    .head{
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      #kopfbild{
+        >*{
+          height: 100%;
+        }
+      }
+      .kunde-title{
+        background-color: $color1;
+        width: 100%;
+        position: relative;
+        margin-top: -5px;
+        padding: $abstandElemente;
+        *{
+          color: $white;
+        }
+      }
+    }
+  }
+}

@@ -89,6 +89,10 @@ mark {
   overflow: hidden;
 }
 
+figure{
+  overflow: hidden;
+}
+
 .invisible {
   border: 0;
   clip: rect(0 0 0 0);
@@ -100,7 +104,12 @@ mark {
   width: 1px;
 }
 
-
+.mod_article{
+  @include grid();
+  >*{
+    grid-column: 2/14;
+  }
+}
 
 // Copyright in den Kopfbilder
 #mainPicture {
