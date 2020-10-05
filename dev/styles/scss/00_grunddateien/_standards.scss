@@ -111,18 +111,6 @@ figure{
   }
 }
 
-// Copyright in den Kopfbilder
-#mainPicture {
-  .imageCopy {
-    bottom: 0;
-    top: initial;
-    @media (min-width: $break2) {
-      right: 0;
-      left: initial;
-    }
-  }
-}
-
 .image_container.float_left, .image_container.float_right {
   .imageCopy {
     @media (min-width: 550px) and (max-width: $break2) {

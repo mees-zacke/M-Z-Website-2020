@@ -1,0 +1,59 @@
+@mixin mobile-opener ($height-line: 4px, $height-icon: 25px,$width-line: 40px,$transition-time: 0.4s, $scale-line: (2/3)){
+  cursor: pointer;
+  .hamburger-icon-container {
+    display: block;
+
+    .hamburger-icon {
+      height: $height-icon;
+      width: $width-line;
+      position: relative;
+      display: block;
+      border-bottom: none;
+
+      .line {
+        display: block;
+        background: $color1;
+        height: $height-line;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        transition: all $transition-time;
+
+        &.line-1,&.line-3 {
+          transform: scaleX($scale-line);
+        }
+
+        &.line-1 {
+          top: 0;
+          transform-origin: left;
+        }
+
+        &.line-2 {
+          top: 50%;
+
+        }
+
+        &.line-3 {
+          top: 100%;
+          transform-origin: left;
+        }
+      }
+    }
+
+    &:hover,&:focus {
+        .hamburger-icon{
+          .line-1,.line-3 {
+            transform: scaleX(1);
+          }
+        }
+    }
+    @include button-push-inner();
+    >p{
+      transform: none !important;
+    }
+  }
+
+}
+.mobile-opener {
+  @include mobile-opener;
+}

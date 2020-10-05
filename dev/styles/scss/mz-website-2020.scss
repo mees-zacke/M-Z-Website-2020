@@ -1,18 +1,58 @@
 /**
     Author
     www.mees-zacke.de
-    Florian Krohmer
+    Jerome Wein
 **/
-body {
 
   #wrapper {
     overflow: hidden;
-    .inside{
-    }
+  }
     /////////////////////////////
     //////// HEADER ////////
     ////////////////////////////
-
+#header{
+  @include grid();
+ .inside{
+   grid-column: 2/14;
+   display: flex;
+   .linker-header{
+     padding: $abstandElemente $abstandElemente $abstandElemente 0;
+     width: 50%;
+     display: flex;
+     align-items: center;
+     .linker-header-container{
+       display: flex;
+       align-items: flex-end;
+       .mobile-opener{
+         margin-right: 2rem;
+         p{
+           margin-top: 16px;
+         }
+       }
+       p{
+         margin-bottom: 0;
+       }
+     }
+   }
+   .rechter-header{
+     padding: $abstandElemente 0 $abstandElemente $abstandElemente;
+     width: 50%;
+     .logo{
+       a{
+         display: block;
+         height: 120px;
+         width: 120px;
+         margin-left: auto;
+         svg{
+           height: 100%;
+           width: 100%;
+           object-fit: contain;
+         }
+       }
+     }
+   }
+ }
+}
     /////////////////////////////
     ////////// CUSTOM //////////
     ////////////////////////////
@@ -46,8 +86,3 @@ body {
     /////////////////////////////
     //////// FOOTER ////////
     ////////////////////////////
-
-  }
-
-  // Ende #wrapper
-}
