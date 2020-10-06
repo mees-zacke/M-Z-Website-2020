@@ -12,6 +12,13 @@
     ////////////////////////////
 #header{
   @include grid();
+  width: 100%;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: transparentize($white, 0.25);
+
  .inside{
    grid-column: 2/14;
    display: flex;
@@ -27,6 +34,55 @@
          margin-right: 2rem;
          p{
            margin-top: 16px;
+         }
+       }
+       .blog{
+         a {
+           circle {
+             transition: all ease 0.2s;
+             @keyframes wave {
+               0% {
+                 transform: translateX(0);
+                 animation-timing-function: linear;
+               }
+               25% {
+                 transform: translateX(2px);
+                 animation-timing-function: ease-in-out;
+               }
+               75% {
+                 transform: translateX(-2px);
+                 animation-timing-function: ease-in;
+               }
+               100% {
+                 transform: translateX(0);
+                 animation-timing-function: linear;
+               }
+             }
+           }
+
+           &:hover,&:focus {
+             #circle {
+               &-3 {
+                 circle {
+                   animation-delay: 0.5s;
+                 }
+               }
+
+               &-2 {
+                 circle {
+                   animation-delay: 0.25s;
+                 }
+               }
+             }
+
+             circle {
+               animation: wave 1s infinite;
+             }
+           }
+           @include button-push-inner();
+           >p{
+             transform: none !important;
+           }
          }
        }
        p{
@@ -68,7 +124,41 @@
           width: 100%;
           height: 100%;
         }
+        .ce_image{
+          height: 100vh;
+          position: relative;
+          img{
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+          }
+          &:after{
+            content: "";
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='104.07' height='52.04' data-name='Ebene 1'%3E%3Cpath fill='%23fff' d='M0 0l52.03 37.89L104.07 0 52.03 52.04 0 0z'/%3E%3C/svg%3E%0A");
+            opacity: 0.75;
+            width: 4rem;
+            height: 2rem;
+            position: absolute;
+            right: 0;
+            left: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            margin: auto;
+            filter: drop-shadow($shadow);
+            @keyframes slide-top {
+              0% {
+                bottom: 15px;
+              }
+              100% {
+                bottom: 5px;
+              }
+            }
+            animation: slide-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate both;
+
+          }
+        }
         .ce_player{
+          height: 100vh;
           figure{
             height: 500px;
             video{

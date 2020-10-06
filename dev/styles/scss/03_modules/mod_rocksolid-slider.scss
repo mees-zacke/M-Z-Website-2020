@@ -1,4 +1,16 @@
 #startseiten-slider {
+  .rsts-view{
+    height: 100%!important;
+    .rsts-crop{
+      height: 100% !important;
+      .rsts-slides{
+        height: 100% !important;
+        .rsts-slide{
+          height: 100% !important;
+        }
+      }
+    }
+  }
   .rsts-slide {
     display: flex;
     align-items: center;
@@ -20,7 +32,7 @@
         min-width: 40vw;
         position: relative;
         margin-right: 20vw;
-        filter: drop-shadow(0 1px 2px transparentize($black, 0.3));
+        filter: drop-shadow($shadow);
 
         &:before {
           $MZplusColor: $color1;
@@ -42,7 +54,7 @@
         background-color: $color1;
         color: $white;
         padding: $abstandElemente;
-        box-shadow: 0 1px 2px transparentize($black , 0.3);
+        box-shadow: $shadow;
         &:nth-of-type(1){
           margin-left: 20vw;
         }
@@ -57,6 +69,7 @@
     &-bullets{
       right: 0;
       left: 0;
+      bottom: 60px;
       text-align: center;
       ul{
         .rsts-nav-item{
@@ -74,7 +87,7 @@
             height: 1.5rem;
             margin: 10px;
             box-shadow: none;
-            filter: drop-shadow(0 1px 2px transparentize($black, 0.3));
+            filter: drop-shadow($shadow);
             background-color: transparent;
             &.active{
               $MZplusColor: $color1;

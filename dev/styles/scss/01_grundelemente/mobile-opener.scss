@@ -2,7 +2,10 @@
   cursor: pointer;
   .hamburger-icon-container {
     display: block;
-
+    >p{
+      @include transition();
+      color: $color2;
+    }
     .hamburger-icon {
       height: $height-icon;
       width: $width-line;
@@ -46,6 +49,9 @@
             transform: scaleX(1);
           }
         }
+      >p{
+        color: $color1;
+      }
     }
     @include button-push-inner();
     >p{
