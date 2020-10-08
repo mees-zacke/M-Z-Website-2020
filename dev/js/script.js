@@ -16,9 +16,20 @@ jQuery(function ($) {
   if (isIE()){
     alert('Ihr Browser wird nicht mehr Unterstützt. Bitte verwenden Sie einen neuen. Zum Beispiel: Microsoft Edge, Google Chrome oder Mozilla Firefox');
   }
-////////////////////////////////////////////////////////////
+//// JS-Module /////////////////////////////////////////////
+//// Funktionalität beim Scrollen ////
 
-  // Listen nach Leistung filtern
+  $(window).scroll(onScroll);
+
+  function onScroll (){
+    if ($(window).scrollTop() >= 1) {
+      $('body').addClass('onScroll');
+    } else {
+      $('body').removeClass('onScroll');
+    }
+  }
+//// Eigenes JS ////////////////////////////////////////////
+//// Listen nach Leistung filtern ////
   var leistungen = ['all','print','web','360grad',];
   var hash = $(location).prop('hash').substr(1);
 

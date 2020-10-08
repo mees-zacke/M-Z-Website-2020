@@ -141,8 +141,8 @@ $MZplusColor: $color2;
   padding-right: $abstandAussen;
 }
 
-@mixin transition($time:$transitionTime) {
-  transition: ease all $time;
+@mixin transition($affects:all,$time:$transitionTime) {
+  transition: ease $affects $time;
 }
 
 @mixin button-push($time:$transitionTime,$scale:$buttonPushScale) {

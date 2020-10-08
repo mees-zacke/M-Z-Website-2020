@@ -98,6 +98,7 @@
             }
             &:not(.active){
               @include button-push();
+              @include transition();
               &:hover{
                 $MZplusColor: lighten($color1 , 45% );
                 $MZplusColorIEHex: ie_hex_str($MZplusColor);

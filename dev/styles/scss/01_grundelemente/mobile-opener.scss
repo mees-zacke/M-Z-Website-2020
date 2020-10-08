@@ -1,17 +1,14 @@
-@mixin mobile-opener ($height-line: 4px, $height-icon: 25px,$width-line: 40px,$transition-time: 0.4s, $scale-line: (2/3)){
+@mixin mobile-opener ($height-line: 5px, $height-icon: 26px,$width-line: 40px,$transition-time: 0.4s, $scale-line: (2/3)){
   cursor: pointer;
   .hamburger-icon-container {
     display: block;
-    >p{
-      @include transition();
-      color: $color2;
-    }
     .hamburger-icon {
       height: $height-icon;
       width: $width-line;
       position: relative;
       display: block;
       border-bottom: none;
+      margin-bottom: $height-line;
 
       .line {
         display: block;
@@ -49,6 +46,18 @@
             transform: scaleX(1);
           }
         }
+    }
+  }
+
+}
+.mobile-opener {
+  @include mobile-opener;
+  .hamburger-icon-container{
+    >p{
+      @include transition($affects:color);
+      color: $color2;
+    }
+    &:hover, &:focus{
       >p{
         color: $color1;
       }
@@ -58,8 +67,4 @@
       transform: none !important;
     }
   }
-
-}
-.mobile-opener {
-  @include mobile-opener;
 }
