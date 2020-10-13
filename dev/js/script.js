@@ -47,6 +47,45 @@ jQuery(function ($) {
     })
   });
 
+//// Leistungsvorschau ////
+  var trigger = $(".leistung-trigger"),
+      content = $(".leistung-content");
+
+  $(window).ready(function (){
+    trigger.parent().first().children(trigger).attr("direction", "active");
+    content.parent().first().addClass("active").removeClass("right");
+    $('.ctlg_view_teaser_leist_content').css("height", 0)
+  });
+
+  trigger.on('click keypress' , function (){
+    if ($(this).attr("direction") == "right"){
+      trigger.filter("[direction = 'active']").attr("direction", "left");
+      $(this).attr("direction", "active");
+      content.parent(".active").addClass("left");
+      content.filter("." + $(this).attr("trigger")).parent().removeClass("right");
+    }
+    else if ($(this).attr("direction") == "left"){
+      trigger.filter("[direction = 'active']").attr("direction", "right");
+      $(this).attr("direction", "active");
+      content.parent(".active").addClass("right");
+      content.filter("." + $(this).attr("trigger")).parent().removeClass("left");
+    }
+    if (!$(this).hasClass('active')){
+      $(this).addClass("active");
+      trigger.not($(this)).removeClass("active");
+      content.filter("." + $(this).attr("trigger")).parent().addClass("active");
+      content.not("." + $(this).attr("trigger")).parent().removeClass("active");
+      var contentHeight = content.filter("." + $(this).attr("trigger")).parent().height(),
+          contentHeightFinal = contentHeight + 32 ;
+      $('.ctlg_view_teaser_leist_content').css("height", contentHeightFinal)
+    }
+    else{
+      $(this).removeClass("active");
+      content.filter("." + $(this).attr("trigger")).parent().addClass("active");
+      content.not("." + $(this).attr("trigger")).parent().removeClass("active");
+      $('.ctlg_view_teaser_leist_content').css("height", 0)
+    }
+  });
 
 ////////////////////////////////////////////////////////////
 });

@@ -1,6 +1,6 @@
 <?php $this->extend('block_searchable'); ?>
 <?php $this->block('content'); ?>
-<div class="<?= $this->catalogTemplate ?>-list">
+<div class="<?= $this->catalogTemplate ?>">
    <?php if ( $this->message ): ?>
       <p class="ctlg_view_message"><?= $this->message; ?></p>
    <?php endif; ?>

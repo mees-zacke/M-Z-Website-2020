@@ -160,6 +160,7 @@
     ////////////////////////////
 
     #kopfbild{
+      margin-bottom: $abstandArtikel;
       #startseiten-slider{
         position: relative;
         >* {
@@ -219,7 +220,14 @@
     /////////////////////////////
     //////// CONTAINER ////////
     ////////////////////////////
-
+#container{
+  .mod_article{
+    margin-bottom: $abstandArtikel;
+    >*{
+      margin-bottom: $abstandElemente;
+    }
+  }
+}
     /////////////////////////////
     //////// FOOTER ////////
     ////////////////////////////

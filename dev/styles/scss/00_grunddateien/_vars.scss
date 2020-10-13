@@ -17,6 +17,7 @@ $break4: 90em; // 1920px
 $pageWidth: 100rem;
 $abstandAussen: 0.75rem;
 $abstandElemente: 1rem;
+$abstandArtikel: (3 * $abstandElemente);
 
 
 ///////////////////////////////////
@@ -83,7 +84,7 @@ $fontSpacing: 0.05em;
 /////////// Überschriften ///////////
 ////// Überschriften Größen //////
 // h1 //
-$max-h1Size: 46;
+$max-h1Size: 40;
 $min-h1Size: 38;
 
 // h2 //
