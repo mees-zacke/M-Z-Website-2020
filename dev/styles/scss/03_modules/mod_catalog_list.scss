@@ -13,6 +13,46 @@
         }
       }
     }
+    &teaser_zahlen{
+      display: flex;
+      justify-content: center;
+      .ctlg_teaser{
+        margin-right: 8%;
+        &:last-of-type{
+          margin-right: 0;
+        }
+      }
+      .zahlen-container{
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 150px;
+        height: 150px;
+        margin: auto;
+        .background{
+          border-radius: 50%;
+          width: 0;
+          height: 0;
+          background-color: $color1;
+          position: absolute;
+        }
+        .zahl{
+          position: relative;
+          color: $white;
+          font-size: calc(#{$h1Size} * 1.5);
+          font-weight: 700;
+        }
+      }
+      .text-container{
+        margin: 1rem auto 0;
+        div{
+          text-align: center;
+          font-size: $linkSize;
+          width: 150px;
+        }
+      }
+    }
   }
   &.active{
     >*{
@@ -43,6 +83,7 @@
             border: 1px solid $color1;
             background-color: $white;
             cursor: pointer;
+            @include hover-height(0);
             &:before{
               @include transition();
               content: "";
@@ -77,6 +118,7 @@
             }
             &:active, &.active{
               background-color: $color1;
+              @include hover-height(5px);
               &:before, &:after{
                 background-color: $color1;
               }
@@ -114,6 +156,9 @@
         }
       }
       &teaser_leist_content{
+        &.inactive{
+        border-color: transparent;
+      }
         position: relative;
         overflow: hidden;
         @include transition();
@@ -148,30 +193,30 @@
 .mod_catalogMasterView{
   grid-column: 1/15;
   .ctlg_master{
-    @include grid();
-    >*:not(.head){
-      grid-column: 2/14;
-    }
     .head{
+      #kopfbild{
+        margin-bottom: 0;
+      }
       position: relative;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       text-align: center;
-      #kopfbild{
-        >*{
-          height: 100%;
-        }
-      }
+      overflow: hidden;
+      margin-bottom: $abstandArtikel;
       .kunde-title{
         background-color: $color1;
         width: 100%;
-        position: relative;
-        margin-top: -5px;
         padding: $abstandElemente;
         *{
           color: $white;
         }
+      }
+    }
+    .catalog_master_content{
+      @include grid();
+      >*{
+        grid-column: 2/14;
       }
     }
   }

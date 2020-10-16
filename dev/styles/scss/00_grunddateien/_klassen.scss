@@ -5,6 +5,24 @@
 .kleiner-text{
   font-size: $linkSize;
 }
+.rot{
+  color: $color1;
+}
 .horizontal-zentriert{
   text-align: center;
+}
+.mehr-abstand-elemente{
+  margin-bottom: (3 * $abstandElemente);
+}
+.mehr-abstand-artikel{
+  margin-bottom: (2 * $abstandArtikel);
+}
+.kundenstimmen{
+  display: flex;
+  align-items: center;
+  &:before{
+    content: "+";
+    font-size: calc(#{$h1Size} * 2);
+    margin: 0 3rem;
+  }
 }

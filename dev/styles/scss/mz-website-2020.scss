@@ -225,6 +225,9 @@
     margin-bottom: $abstandArtikel;
     >*{
       margin-bottom: $abstandElemente;
+      &:last-child{
+        margin-bottom: 0;
+      }
     }
   }
 }

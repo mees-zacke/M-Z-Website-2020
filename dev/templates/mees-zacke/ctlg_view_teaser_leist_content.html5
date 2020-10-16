@@ -1,5 +1,5 @@
 <div class="ctlg_teaser block<?= $this->cssClass ?> right">
-	<div class="leistung-content <?= $this->alias ?>" tabindex="0">
+	<div class="leistung-content <?= $this->alias ?>">
 		<?= $this->beschreibung ?>
 	</div>
 </div>

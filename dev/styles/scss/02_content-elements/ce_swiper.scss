@@ -1,0 +1,37 @@
+.ce_swiperStart{
+  &.linear{
+    .swiper-wrapper{
+      transition-timing-function: linear;
+    }
+  }
+  &.ease{
+    .swiper-wrapper{
+      transition-timing-function: ease;
+    }
+  }
+  &.ease-in-out{
+    .swiper-wrapper{
+      transition-timing-function: ease-in-out;
+    }
+  }
+  &.referenzen-slider{
+    padding: (2 * $abstandElemente) 0;
+    background-color: $color1;
+    box-shadow: inset $shadow;
+    .ce_image.swiper-slide{
+      overflow: visible;
+      figure{
+        overflow: visible;
+      }
+      img{
+        box-shadow: $shadow;
+      }
+    }
+    *:not(a){
+      color:white;
+    }
+    a{
+      @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+    }
+  }
+}

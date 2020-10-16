@@ -1,0 +1,9 @@
+<div class="ctlg_teaser block<?= $this->cssClass ?>">
+	<div class="zahlen-container">
+		<div class="background"></div>
+		<div class="zahl" zahl="<?= $this->nummer ?>"></div>
+	</div>
+	<div class="text-container">
+		<div><?= $this->title ?></div>
+	</div>
+</div>

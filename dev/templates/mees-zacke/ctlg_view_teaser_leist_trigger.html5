@@ -1,5 +1,5 @@
 <div class="ctlg_teaser block<?= $this->cssClass ?>">
-	<div class="leistung-trigger <?= $this->alias ?>" tabindex="0" trigger="<?= $this->alias ?>" direction="right">
+	<div class="leistung-trigger <?= $this->alias ?>" title="<?= $this->seo ?>" tabindex="0" trigger="<?= $this->alias ?>" direction="right">
 		<div class="image_container">
 			<?= $this->icon ?>
 		</div>

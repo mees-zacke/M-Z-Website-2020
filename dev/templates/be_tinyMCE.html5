@@ -62,6 +62,14 @@ setTimeout(function() {
           classes: 'akkordeon-end',
           exact: true,
       },
+      {
+          title: 'Rot',
+          inline: 'span',
+          classes: 'rot',
+          exact: true,
+          wrapper: true,
+      },
+
         ]}
     ]
   });

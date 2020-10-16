@@ -1,0 +1,90 @@
+.start-vorschau{
+  &-links, &-rechts{
+    $pfeilSize:45px;
+    $pfeilWidth:20;
+    position: relative;
+    overflow: visible;
+    .image_container{
+      position: relative;
+      overflow: hidden;
+      margin-bottom: (($pfeilSize / 2) + $pfeilWidth);
+      filter: drop-shadow($shadow);
+      cursor: pointer;
+      transition: 0.3s ease;
+      transition-property: transform, filter;
+      &:after{
+        @include transition();
+        $MZplusColor: $color1;
+        $MZplusColorIEHex: ie_hex_str($MZplusColor);
+        $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
+        $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
+        content: $MZplus;
+        position: absolute;
+        $position: calc(-1rem - 14px);
+        bottom: $position;
+        right: $position;
+        width: 5rem;
+        height: 5rem;
+      }
+      &:hover, &.active, &:focus{
+        @include hover-height();
+        &:after{
+          opacity: 0;
+        }
+      }
+    }
+    .text{
+      display: none;
+      position: absolute;
+      background-color: $color1;
+      width: 150%;
+      padding: 2rem 1rem;
+      z-index: 3;
+      filter: drop-shadow($shadow);
+      transform: translateY(4px);
+      transition: 0.3s ease;
+      transition-property: transform, filter;
+      &.active{
+        @include hover-height();
+      }
+      &:after{
+        content: "";
+        @include transition();
+        display: block;
+        height: $pfeilSize;
+        width: $pfeilSize;
+        background-color: $color1;
+        position: absolute;
+        top: -($pfeilSize / 2);
+        transform: rotate(45deg) skew(#{$pfeilWidth}deg, #{$pfeilWidth}deg);
+        z-index: 2;
+      }
+      >*{
+        position: relative;
+        z-index: 3;
+      }
+      *{
+        color: $white;
+      }
+      a{
+        @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+      }
+    }
+  }
+  &-links{
+    .text{
+      left: 0;
+      &:after{
+        left: calc(10%  - 18px);
+      }
+    }
+  }
+  &-rechts{
+    .text{
+      right: 0;
+      &:after{
+        right: calc(10%  - 18px);
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.textblock{
+  .text{
+    padding: $abstandElemente;
+    background-color: $color1;
+    text-align: center;
+    *:not(a){
+      color:white;
+    }
+    a{
+      @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+    }
+  }
+}

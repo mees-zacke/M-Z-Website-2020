@@ -1,0 +1,14 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+    <div class="iframe-container">
+      <figure class="image_container">
+        <?php $this->insert('picture_default', $this->picture); ?>
+      </figure>
+      <div class="iframe-container-inner">
+        <iframe src="<?= $this->url ?>" sandbox="allow-scripts" title="<?php if($this->linkTitle): ?><?= $this->linkTitle ?><?php else: ?>Zu <?= $this->url ?><?php endif; ?>"></iframe>
+      </div>
+    </div>
+
+<?php $this->endblock(); ?>

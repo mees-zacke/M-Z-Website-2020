@@ -1,0 +1,15 @@
+.ce_catalogCatalogEntity{
+  .ctlg_teaser{
+    a{
+      @include hover-overlay-full();
+      .kunde {
+        position: relative;
+
+        figure {
+          margin-bottom: 0;
+          line-height: 0;
+        }
+      }
+    }
+  }
+}

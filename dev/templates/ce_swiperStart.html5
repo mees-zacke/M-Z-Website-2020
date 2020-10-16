@@ -1,0 +1,4 @@
+
+<div class="<?= $this->class ?> block<?php if ($this->gridSpan != 'default'): ?> span-<?= $this->gridSpan ?><?php endif; ?><?php if ($this->gridStart != 'default'): ?> starts-<?= $this->gridStart ?><?php endif; ?>"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
+  <div id="swiper-<?= $this->id ?>" class="swiper-container">
+    <div class="swiper-wrapper">

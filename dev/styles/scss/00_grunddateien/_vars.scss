@@ -17,8 +17,15 @@ $break4: 90em; // 1920px
 $pageWidth: 100rem;
 $abstandAussen: 0.75rem;
 $abstandElemente: 1rem;
-$abstandArtikel: (3 * $abstandElemente);
+$abstandArtikel: (6 * $abstandElemente);
 
+////////////////////////////
+/////////// Grid ///////////
+////////////////////////////
+$columns: 14;
+$rows: auto;
+$column-gap: 2vw;
+$row-gap: (3 * $abstandElemente);
 
 ///////////////////////////////////
 /////////// Animationen ///////////
@@ -45,7 +52,7 @@ $white: white;
 $black: black;
 $backgroundColor1: $white;
 
-$shadow: 0 1px 2px transparentize($black, 0.3);
+$shadow: 2px 2px 3px transparentize($black, 0.3);
 
 
 ////////////////////////////////
@@ -164,24 +171,42 @@ $MZplusColor: $color2;
   }
 }
 
+@mixin hover-height($height:4px){
+    filter: drop-shadow(($height / 2) ($height * (2/3)) ($height * (2/3)) transparentize($black, ($height / 10)));
+    transform: translateY(-$height);
+
+}
+
 @mixin aspect-ratio($width,$aspectRatio) {
   width: $width;
   height: calc(#{$width} / #{$aspectRatio});
 }
 
-@mixin link($color:$linkColor, $colorHover:$linkColorHover, $colorActive:darken($linkColorHover, 40%)) {
+@mixin link($color:$linkColor, $colorHover:$linkColorHover, $colorActive:darken($linkColorHover, 20%), $border:false) {
   @include transition();
   cursor: pointer;
-  border-bottom: none;
-  color: $linkColor;
+  color: $color;
   text-decoration: none;
   font-weight: $linkWidth;
+  @if $border{
+    border-bottom: 1px solid transparent;
+  }
+  @else{
+    border-bottom: none;
+  }
 
   &:hover, &:focus {
-    color: $linkColorHover;
+    color: $colorHover;
+    @if $border{
+      border-color: $colorHover;
+    }
+
   }
   &:active {
     color: $colorActive;
+    @if $border{
+      border-color: $colorActive;
+    }
   }
 }
 

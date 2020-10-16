@@ -44,7 +44,7 @@ contao:
                         media: '(min-width:1921px)'
             kopfbild-klein:
                 width: 500
-                height: 200
+                height: 300
                 resizeMode: 'crop'
                 zoom: 100
                 cssClass: 'kopfbild-klein'
@@ -52,28 +52,28 @@ contao:
                 lazy_loading: true
                 items:
                     -   width: 768
-                        height: 150
+                        height: 350
                         resizeMode: 'crop'
                         zoom: 100
                         densities: '0.5x, 2x'
                         sizes: '100vw'
                         media: '(min-width:480px) and (max-width:767px)'
                     -   width: 1024
-                        height: 150
+                        height: 350
                         resizeMode: 'crop'
                         zoom: 100
                         densities: '0.5x, 2x'
                         sizes: '100vw'
                         media: '(min-width:768px) and (max-width:1023px)'
                     -   width: 1920
-                        height: 150
+                        height: 350
                         resizeMode: 'crop'
                         zoom: 100
                         densities: '0.5x, 2x'
                         sizes: '100vw'
                         media: '(min-width:1024px) and (max-width: 1920px)'
                     -   width: 3000
-                        height: 200
+                        height: 400
                         resizeMode: 'crop'
                         zoom: 100
                         densities: '0.5x, 2x'
