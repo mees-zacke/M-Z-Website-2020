@@ -122,6 +122,16 @@ jQuery(function ($) {
         })
     });
 
+//// Mobile Opener ////
+    var opener_head = $('.linker-header .mobile-opener'),
+        opener_mobile = $('.mobile-menu .mobile-opener');
+
+    opener_head.on('click touch keypress', function(){
+        $('.mobile-menu').addClass('active');
+    });
+    opener_mobile.on('click touch keypress', function(){
+        $('.mobile-menu').removeClass('active');
+    });
 
 ////////////////////////////////////////////////////////////
 });
