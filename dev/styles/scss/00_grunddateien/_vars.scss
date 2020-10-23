@@ -234,6 +234,7 @@ $MZplusColor: $color2;
 
 @mixin hover-overlay-full($bgColor:$color1,$color:$white,$vertikal:center,$horizontal:center) {
   /////// Benötigt Element mit Klasse "hover" innerhalb von auslösendem Element ///////
+  /////// Hover bezieht sich auf Höhe des Elternelements ///////
   .hover {
     @include transition();
     position: absolute;
@@ -242,11 +243,17 @@ $MZplusColor: $color2;
     height: 100%;
     width: 100%;
     text-align: $horizontal;
+    justify-content: $horizontal;
     top: 0;
     left: 0;
     padding: $abstandElemente;
     opacity: 0;
-    background-color: transparentize($bgColor, 0.5);
+    background-color: transparentize($bgColor, 0.2);
+
+    >*{
+      @include transition();
+      transform: translateY(200%);
+    }
 
     * {
       margin: 0;
@@ -256,6 +263,9 @@ $MZplusColor: $color2;
   &:hover, &:focus {
     .hover {
       opacity: 1;
+      >*{
+        transform: translateY(0);
+      }
     }
   }
   &:active {
@@ -267,6 +277,7 @@ $MZplusColor: $color2;
 
 @mixin hover-overlay-content($bgColor:$color1,$color:$white,$vertikal:flex-end,$horizontal:center) {
   /////// Benötigt Element mit Klasse "hover" innerhalb von auslösendem Element ///////
+  /////// Hover bezieht sich auf Höhe des Inhalts ///////
   .hover {
     position: absolute;
     display: flex;

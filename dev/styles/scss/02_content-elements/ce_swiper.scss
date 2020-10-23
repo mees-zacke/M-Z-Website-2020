@@ -14,6 +14,16 @@
       transition-timing-function: ease-in-out;
     }
   }
+  &.hervorgehoben{
+    .swiper-slide{
+      transition: transform 15s linear;
+      &-active, &-duplicate-active{
+        transform: scale(1.5);
+        position: relative;
+        z-index: 2;
+      }
+    }
+  }
   &.referenzen-slider{
     padding: (2 * $abstandElemente) 0;
     background-color: $color1;

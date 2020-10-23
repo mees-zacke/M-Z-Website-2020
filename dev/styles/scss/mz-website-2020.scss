@@ -24,8 +24,12 @@
  .inside{
    grid-column: 2/14;
    display: flex;
+   .linker-header, .rechter-header{
+     @include transition();
+     padding: $abstandElemente;
+   }
    .linker-header{
-     padding: $abstandElemente $abstandElemente $abstandElemente 0;
+     padding-left: 0 !important;
      width: 50%;
      display: flex;
      align-items: center;
@@ -110,7 +114,7 @@
      }
    }
    .rechter-header{
-     padding: $abstandElemente 0 $abstandElemente $abstandElemente;
+     padding-right: 0 !important;
      width: 50%;
    }
    .logo{
@@ -242,6 +246,9 @@ body.onScroll{
   #header{
     background-color: transparentize($white, 0.1);
     box-shadow: 2px 0 7px rgba(0,0,0,0.25);
+    .linker-header, .rechter-header{
+      padding: ($abstandElemente / 4);
+    }
     .linker-header{
       .linker-header-container{
         height: 50px;
@@ -285,6 +292,11 @@ body.onScroll{
             }
           }
         }
+      }
+    }
+    &:hover, &:focus-within{
+      .linker-header, .rechter-header{
+        padding: $abstandElemente;
       }
     }
   }

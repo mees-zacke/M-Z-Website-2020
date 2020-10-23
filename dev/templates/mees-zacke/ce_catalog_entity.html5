@@ -1,7 +1,7 @@
 <?php $this->extend('block_searchable'); ?>
 <?php $this->block('content'); ?>
 <div class="ctlg_teaser block<?= $this->cssClass ?>">
-    <a href="/kunden/<?= $this->origin[name] ?>/#<?= $this->alias ?>" title="Zu Projekten von <?= $this->kunde ?>">
+    <a href="/kunden/<?= $this->origin[name] ?>/#<?= $this->alias ?>" title="Zu Projekten von <?= $this->origin[name] ?>">
         <div class="kunde">
             <?= $this->bild ?>
             <div class="hover">

@@ -7,7 +7,7 @@
   padding: calc(((#{$heightHeader} - 2rem) / 2) - ( #{$heightOpener} / 2)) 4rem 4rem calc(100vw / 14);
   background: $white;
   box-shadow: $shadow;
-  @include transition($time: 0.5s);
+  transition: top ease 0.5s, padding ease $transitionTime;
   .mobile-opener{
     &:hover, &:focus{
       .hamburger-icon-container{
@@ -30,6 +30,7 @@
     }
   }
   .mod_navigation{
+    @include transition();
     margin-top: calc(((#{$heightHeader} - 2rem) / 2) + 2rem);
     ul{
       li{

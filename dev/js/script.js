@@ -57,8 +57,9 @@ jQuery(function ($) {
         trigger.parent().first().children(trigger).attr("direction", "active");
         content.parent().first().addClass("active").removeClass("right");
         $('.ctlg_view_teaser_leist_content').css("height", 0).addClass("inactive");
-    });
+        $('.leistung-content a').attr('tabindex', '-1');
 
+    });
     trigger.on('click keypress', function () {
         if ($(this).attr("direction") == "right") {
             trigger.filter("[direction = 'active']").attr("direction", "left");
@@ -86,7 +87,6 @@ jQuery(function ($) {
             $('.ctlg_view_teaser_leist_content').css("height", 0).addClass("inactive");
         }
     });
-
 //// Startseiten-Projekte ////
 
     var projekt_mitglied = $('.start-vorschau figure');

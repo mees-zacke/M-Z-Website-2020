@@ -23,6 +23,7 @@
       }
 
       li{
+        @include hover-scale-up();
         > * {
           margin-bottom: $abstandRow;
         }
