@@ -70,6 +70,11 @@ function fontsTransport() {
 			.pipe(dest('dist/files/layout/fonts/'))
 }
 
+function webTransfer() {
+	return src('dev/web/websites/**')
+			.pipe(dest('dist/web/websites/'))
+}
+
 function htaccess() {
 	return src('dev/web/.htaccess')
 			.pipe(dest('dist/web/'))
@@ -118,6 +123,7 @@ function watcher() {
 	watch('dev/templates/**/*.+(html|html5|tl)', templates);
 	watch('dev/js/**/*.js', javaScript);
 	watch('dev/php/**/*.php', phpScript);
+	watch('dev/web/websites/**', webTransfer);
 	watch('dev/config/*.yml', ymlTransport);
 	watch([
 				'dev/contao/dca/**/*.php',
@@ -139,7 +145,7 @@ function clear() {
 
 // Complex Tasks
 const style = series(makeSass, compressCSS, makeCSS);
-const copy = series(templates/*,fontawesome*/, ymlTransport, appResTransport, fontsTransport);
+const copy = series(templates/*,fontawesome*/,webTransfer, ymlTransport, appResTransport, fontsTransport);
 const pwa = series(pwaFiles, pwaWeb);
 const build = series(clear, parallel(style, javaScript, copy, images));
 
