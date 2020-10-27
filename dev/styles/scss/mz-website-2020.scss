@@ -299,5 +299,8 @@ body.onScroll{
         padding: $abstandElemente;
       }
     }
+    &.hidden:not(.visible){
+      top: -58px;
+    }
   }
 }

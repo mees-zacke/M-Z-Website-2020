@@ -133,5 +133,45 @@ jQuery(function ($) {
         $('.mobile-menu').removeClass('active');
     });
 
+// Header Funktionen
+    $(window).ready(function setHeaderStates() {
+
+        // Höhe des Headers bestimmen
+        var headerHeight = $('#header').height();
+        var resizeTimer;
+        $(window).resize(function () {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(itsResized, 250)
+        });
+
+        function itsResized() {
+            headerHeight = $('#header').height();
+        }
+
+
+// Menü bei Scroll verstecken und wieder anzeigen
+        var body = $('body');
+        $(window).ready(function () {
+            hiddenClass()
+        });
+
+        function hiddenClass() {
+            var prev = 0;
+            var header = $('#header');
+            $(window).on('scroll', function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(classHidden, 0)
+            });
+
+            function classHidden() {
+                var scrollTop = $(window).scrollTop();
+                header.toggleClass('hidden', scrollTop > prev);
+                header.toggleClass('visible', scrollTop < headerHeight);
+                prev = scrollTop;
+            }
+
+        }
+    });
+
 ////////////////////////////////////////////////////////////
 });
