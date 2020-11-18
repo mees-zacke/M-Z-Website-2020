@@ -103,24 +103,43 @@ jQuery(function ($) {
 //// Startseiten-Zahlen ////
 
     var zahl_container = $('.ctlg_view_teaser_zahlen .zahlen-container'),
-        zahl = zahl_container.children('.zahl');
+        text_container = $('.ctlg_view_teaser_zahlen .text-container');
 
-    $(window).ready(function(){
-        zahl_container.each(function () {
-            var delay = Math.floor((Math.random() * 1000) + 1);
+    function checkVisible( elm, eval ) {
+        eval = eval || "object visible";
+        var viewportHeight = $(window).height(), // Viewport Height
+            scrolltop = $(window).scrollTop(), // Scroll Top
+            y = $(elm).offset().top,
+            elementHeight = $(elm).height();
 
-            var $this = $(this).children('.zahl');
-            $({ Counter: 0 }).delay(delay).animate({ Counter: $this.attr('zahl') }, {
-                duration: 2000,
-                easing: 'swing',
-                step: function () {
-                    $this.text(Math.ceil(this.Counter));
-                }
-            });
-            var $background = $(this).children('.background');
-            $background.delay(delay).animate({width:"150px", height:"150px"}, 2000)
-        })
-    });
+        if (eval == "object visible") return ((y < (viewportHeight + scrolltop)) && (y > (scrolltop - elementHeight)));
+        if (eval == "above") return ((y < (viewportHeight + scrolltop)));
+    }
+
+    if ($('body').hasClass('startseite') === true){
+        $(window).on('scroll',function growNumbers() {
+            if (checkVisible(zahl_container)) {
+                zahl_container.each(function () {
+                    var delay = Math.floor((Math.random() * 1000) + 1);
+
+                    var $this = $(this).children('.zahl');
+                    $({ Counter: 0 }).delay(delay).animate({ Counter: $this.attr('zahl') }, {
+                        duration: 1000,
+                        easing: 'swing',
+                        step: function () {
+                            $this.text(Math.ceil(this.Counter));
+                        }
+                    });
+                    var $background = $(this).children('.background');
+                    $background.delay(delay).animate({width:"150px", height:"150px"}, 1000)
+                    $(this).siblings().addClass("fadeInUp animated")
+                })
+                $(window).off('scroll', growNumbers);
+            } else {
+                // do nothing
+            }
+        });
+    }
 
 //// Mobile Opener ////
     var opener_head = $('.linker-header .mobile-opener'),

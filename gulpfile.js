@@ -19,7 +19,9 @@ function makeSass() {
 // Minify CSS
 function compressCSS()  {
 	return src('dev/styles/css/*.css')
-			.pipe(cssnano())
+			.pipe(cssnano({
+				reduceIdents: false
+			}))
 			.pipe(dest('dev/styles/css'))
 }
 

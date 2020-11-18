@@ -26,7 +26,9 @@
     "vinyl-ftp": "^0.6.1"
   },
   "dependencies": {
+    "animate.css": "^4.1.1",
     "autoprefixer": "^9.7.6",
-    "browserlist": "^1.0.1"
+    "browserlist": "^1.0.1",
+    "wowjs": "^1.1.3"
   }
 }
