@@ -9,5 +9,26 @@
     a{
       @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
     }
+    ul{
+      li{
+        &:before{
+          color: $white;
+        }
+      }
+    }
+  }
+  &.volle-hoehe{
+    .text{
+      height: 100%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  &:not(.horizontal){
+    .text{
+      .text-container{
+        text-align: left;
+      }
+    }
   }
 }

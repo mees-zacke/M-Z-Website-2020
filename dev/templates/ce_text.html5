@@ -4,7 +4,9 @@
 
   <?php if (!$this->addBefore): ?>
 	  <div class="text">
-	    <?= $this->text ?>
+      <div class="text-container">
+        <?= $this->text ?>
+      </div>
 	  </div>
   <?php endif; ?>
 
