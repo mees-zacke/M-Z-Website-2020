@@ -47,4 +47,9 @@
       @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
     }
   }
+  &.verschiedene-breiten{
+    *{
+      width: fit-content;
+    }
+  }
 }

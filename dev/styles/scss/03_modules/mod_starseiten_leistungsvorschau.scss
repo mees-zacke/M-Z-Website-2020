@@ -1,0 +1,126 @@
+.mod_catalogUniversalView{
+  &.leistung-trigger-container{
+    overflow: visible;
+    .ctlg_view_{
+      &teaser_leist_trigger{
+        display: flex;
+        justify-content: space-between;
+        .ctlg_teaser{
+          overflow: visible;
+          width: 16%;
+          .leistung-trigger{
+            @include transition();
+            height: 100px;
+            text-align: center;
+            margin: 1px;
+            padding: 5px 1rem 1rem;
+            position: relative;
+            border: 1px solid $color1;
+            background-color: $white;
+            cursor: pointer;
+            @include hover-height(0);
+            &:before{
+              @include transition();
+              content: "";
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: 0;
+              background-color: white;
+              z-index: 3;
+            }
+            &:after{
+              content: "";
+              @include transition();
+              display: block;
+              height: 35px;
+              width: 35px;
+              background-color: #fff;
+              position: absolute;
+              bottom: 7px;
+              transform: rotate(45deg);
+              border-right: 1px solid;
+              border-bottom: 1px solid;
+              border-color: $color1;
+              z-index: 2;
+              right: calc(50%  - 18px);
+            }
+            &:hover, &:focus ,&.active{
+              &:after{
+                bottom: -19px;
+              }
+            }
+            &:active, &.active{
+              background-color: $color1;
+              @include hover-height(5px);
+              &:before, &:after{
+                background-color: $color1;
+              }
+              .image_container{
+                svg{
+                  fill: $white;
+                }
+              }
+              .title{
+                color: $white;
+              }
+            }
+          }
+          .image_container{
+            margin: auto;
+            width: 50px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 4;
+            svg{
+              @include transition();
+              width: 100%;
+              fill: $color1;
+            }
+          }
+          .title{
+            @include transition();
+            position: relative;
+            font-weight: 600;
+            color: $color2;
+            z-index: 4;
+          }
+        }
+      }
+      &teaser_leist_content{
+        &.inactive{
+          border-color: transparent;
+        }
+        position: relative;
+        overflow: hidden;
+        @include transition();
+        border-top: 1px solid $color1;
+        border-bottom: 1px solid $color1;
+        .ctlg_teaser{
+          width: 100%;
+          padding: 1rem 0;
+          position: absolute;
+          @include transition();
+          .leistung-content{
+            width: 60%;
+            >*:last-child{
+              margin: 0;
+            }
+          }
+          &.active{
+            transform: translateX(0);
+          }
+          &.right{
+            transform: translateX(100%);
+          }
+          &.left{
+            transform: translateX(-100%);
+          }
+        }
+      }
+    }
+  }
+}

@@ -52,7 +52,7 @@ $white: white;
 $black: black;
 $backgroundColor1: $white;
 
-$shadow: 2px 2px 3px transparentize($black, 0.3);
+$shadow: 2px 2px 3px transparentize($black, 0.7);
 
 
 ////////////////////////////////
@@ -172,7 +172,7 @@ $MZplusColor: $color2;
 }
 
 @mixin hover-height($height:4px){
-    filter: drop-shadow(($height / 2) ($height * (2/3)) ($height * (2/3)) transparentize($black, ($height / 10)));
+    filter: drop-shadow(($height / 2) ($height * (2/3)) ($height * (2/3)) transparentize($black, ($height / 20)));
     transform: translateY(-$height);
 
 }

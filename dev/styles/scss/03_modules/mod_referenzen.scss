@@ -1,0 +1,28 @@
+#referenzen-liste{
+  .ctlg_teaser{
+    margin-bottom: 0;
+    @include image();
+    a{
+      @include hover-overlay-full();
+      .kunde {
+        position: relative;
+
+        figure {
+          margin-bottom: 0;
+        }
+      }
+    }
+    &.width-2{
+      width: ((2/3)*100%) ;
+    }
+    &.width-3{
+      width: 100%;
+    }
+  }
+  .grid-sizer, .ctlg_teaser{
+    width: ((1/3)*100%);
+  }
+  .gutter-sizer{
+    width: 0;
+  }
+}
