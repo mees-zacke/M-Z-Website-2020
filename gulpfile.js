@@ -77,6 +77,11 @@ function webTransfer() {
 			.pipe(dest('dist/web/websites/'))
 }
 
+function animateCss(){
+	return src('animate.min.css')
+			.pipe(dest('dist/files/layout/styles/css'))
+}
+
 function htaccess() {
 	return src('dev/web/.htaccess')
 			.pipe(dest('dist/web/'))
@@ -149,7 +154,7 @@ function clear() {
 const style = series(makeSass, compressCSS, makeCSS);
 const copy = series(templates/*,fontawesome*/,webTransfer, ymlTransport, appResTransport, fontsTransport);
 const pwa = series(pwaFiles, pwaWeb);
-const build = series(clear, parallel(style, javaScript, copy, images));
+const build = series(clear, parallel(style, javaScript, copy, images, animateCss));
 
 
 // Exports

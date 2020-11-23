@@ -10,10 +10,10 @@
           width: 16%;
           .leistung-trigger{
             @include transition();
-            height: 100px;
+            height: 140px;
             text-align: center;
             margin: 1px;
-            padding: 5px 1rem 1rem;
+            padding: 2rem 1rem;
             position: relative;
             border: 1px solid $color1;
             background-color: $white;

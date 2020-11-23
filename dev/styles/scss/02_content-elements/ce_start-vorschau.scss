@@ -1,13 +1,13 @@
 .start-vorschau{
   &-links, &-rechts{
     $pfeilSize:45px;
-    $pfeilWidth:20;
+    $pfeilWidth:0;
     position: relative;
     overflow: visible;
     .image_container{
       position: relative;
       overflow: hidden;
-      margin-bottom: (($pfeilSize / 2) + $pfeilWidth);
+      margin-bottom: 36px;
       filter: drop-shadow($shadow);
       cursor: pointer;
       transition: 0.3s ease;
@@ -25,7 +25,7 @@
         width: 5rem;
         height: 5rem;
       }
-      &:hover, &.active, &:focus{
+      &:hover, &.active{
         &:after{
           $position: calc(-1rem - 14px);
           bottom: $position;
@@ -41,11 +41,12 @@
       padding: 2rem 1rem;
       z-index: 3;
       filter: drop-shadow($shadow);
-      transform: translateY(4px);
-      transition: 0.3s ease;
+      transition-duration: 0.4s;
+      transition-timing-function: ease;
       transition-property: transform, filter;
+      transform: translateY(4px);
       &.active{
-        @include hover-height();
+        transform: translateY(-4px);
       }
       &:after{
         content: "";
