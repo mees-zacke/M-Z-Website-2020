@@ -18,6 +18,12 @@ jQuery(function ($) {
         alert('Ihr Browser wird nicht mehr Unterstützt. Bitte verwenden Sie einen neuen. Zum Beispiel: Microsoft Edge, Google Chrome oder Mozilla Firefox');
     }
 //// JS-Module /////////////////////////////////////////////
+
+    $('body a').on('click touch keypress', function (){
+        $('body a').not(this).removeClass('clicked');
+        $(this).addClass('clicked');
+    });
+
 //// Funktionalität beim Scrollen ////
 
     $(window).scroll(onScroll);

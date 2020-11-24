@@ -3,7 +3,7 @@
 <div class="<?= $this->catalogTemplate ?>">
 
    <div class="ctlg_teaser block alles ?> " >
-      <div data-av-animation="fadeInUp" class="animated leistung-trigger alles" title="Alle Referenzen" tabindex="0" filter="alles">
+      <div data-av-animation="fadeInUp" class="animated referenzen-filter alles" title="Alle Referenzen" tabindex="0" filter="alles">
          <div class="image_container">
             <svg></svg>
          </div>

@@ -18,7 +18,7 @@
             border: 1px solid $color1;
             background-color: $white;
             cursor: pointer;
-            @include hover-height(0);
+            @include hover-height(5px, $activator:"&:hover, &:focus, &.active");
             &:before{
               @include transition();
               content: "";
@@ -53,7 +53,6 @@
             }
             &:active, &.active{
               background-color: $color1;
-              @include hover-height(5px);
               &:before, &:after{
                 background-color: $color1;
               }
