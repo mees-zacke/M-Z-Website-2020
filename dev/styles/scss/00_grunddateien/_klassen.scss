@@ -12,10 +12,10 @@
   text-align: center;
 }
 .mehr-abstand-elemente{
-  margin-bottom: (3 * $abstandElemente);
+  margin-bottom: (3 * $abstandElemente) !important;
 }
 .mehr-abstand-artikel{
-  margin-bottom: (2 * $abstandArtikel);
+  margin-bottom: (2 * $abstandArtikel) !important;
 }
 .kundenstimmen{
   display: flex;
@@ -25,4 +25,7 @@
     font-size: calc(#{$h1Size} * 2);
     margin: 0 3rem;
   }
+}
+.kein-abstand-unten-artikel{
+  margin-bottom: 0 !important;
 }

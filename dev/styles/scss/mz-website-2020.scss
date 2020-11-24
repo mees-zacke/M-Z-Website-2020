@@ -239,6 +239,79 @@
     //////// FOOTER ////////
     ////////////////////////////
 
+#footer{
+  border-top: 1px solid $color1;
+  padding-top: 1rem;
+    .footer{
+      &-oben, &-unten{
+        @include grid();
+      }
+      &-oben{
+        margin-bottom: 2rem;
+        .schlagworte{
+          font-size: calc(#{$linkSize} * 0.8);
+          grid-column: 2/7;
+          ul{
+            display: flex;
+            li{
+              color: lighten($fontColor, 50%);
+              &:after{
+                content: "/";
+                margin: 0 1em;
+              }
+              &:last-of-type{
+                &:after{
+                  content: none;
+                }
+              }
+            }
+          }
+        }
+        #meta-nav{
+          grid-column: 10/14;
+          font-size: $linkSize;
+          ul{
+            li{
+              color: lighten($fontColor, 50%);
+            }
+          }
+        }
+      }
+      &-unten{
+        .linke-spalte,.rechte-spalte{
+          display: flex;
+          align-items: flex-end;
+          flex-wrap: wrap;
+          .ce_image{
+            width: 100%;
+          }
+          .ce_text{
+            width: 100%;
+            .text-container{
+              display: flex;
+              flex-wrap: wrap;
+              >p{
+                color: lighten($fontColor, 50%);
+                margin-right: 2rem;
+              }
+            }
+          }
+        }
+        .linke-spalte{
+          font-size: $linkSize;
+          grid-column: 2/9;
+          .ce_image{
+            margin-bottom: 1rem;
+          }
+        }
+        .rechte-spalte{
+          font-size: calc(#{$linkSize} * 0.8);
+          grid-column: 10/14;
+        }
+      }
+    }
+}
+
 /////////////////////////////
 //////// OnScroll ////////
 ////////////////////////////
