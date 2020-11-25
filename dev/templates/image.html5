@@ -28,6 +28,5 @@
     <?php if ($this->href): ?>
   </a>
   <?php endif; ?>
-  <?= $this->showTemplateVars(); ?>
 </div>
 
