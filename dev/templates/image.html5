@@ -16,6 +16,9 @@
     $objImageTemplate = new stdClass();
     \Controller::addImageToTemplate($objImageTemplate, [
     'singleSRC' => $objHoverFile->path,
+    'size' => $this->size,
+    'alt' => $objHoverFile->alt,
+    'title' => $objHoverFile->title,
     ],
     \Config::get('maxImageWidth'), null, $objHoverFile);
     $this->insert('image_hover', (array) $objImageTemplate);
@@ -25,5 +28,6 @@
     <?php if ($this->href): ?>
   </a>
   <?php endif; ?>
+  <?= $this->showTemplateVars(); ?>
 </div>
 
