@@ -5,12 +5,33 @@ $grid = $('#referenzen-liste .ctlg_view_teaser').masonry({
   percentPosition: true
 });
 
-$grid.imagesLoaded().progress( function() {
-  $grid.masonry('layout')
-});
 
+
+//// Listen nach Leistung filtern ////
+var hash = $(location).prop('hash').substr(1);
 var refFilter = $('.referenzen-filter-container .referenzen-filter'),
     refListe = $('#referenzen-liste .ctlg_teaser');
+
+$(window).ready(function (){
+  if (hash === ""){
+    $('.referenzen-filter.alles').addClass("active");
+  }
+  else {
+    $('.referenzen-filter.' + hash).addClass("active");
+    $('.referenzen-filter').not('.' + hash).removeClass("active");
+    refListe.each(function (){
+      if (~$(this).attr('leistungen').indexOf(hash)){
+        $(this).css('display', 'block');
+      }
+      else {
+        $(this).css('display', 'none');
+      }
+    });
+  }
+  $grid.imagesLoaded().progress( function() {
+    $grid.masonry('layout')
+  });
+});
 
 refFilter.on('click touch keypress', function(){
   $(this).addClass('active');

@@ -37,24 +37,6 @@ jQuery(function ($) {
     }
 
 //// Eigenes JS ////////////////////////////////////////////
-//// Listen nach Leistung filtern ////
-    var leistungen = ['all', 'print', 'web', '360grad',];
-    var hash = $(location).prop('hash').substr(1);
-
-    leistungen.forEach(function (leistung) {
-        $('.leistungen .' + leistung).on('click', function filter_leistung() {
-            $('.mod_catalogUniversalView.' + leistung).removeClass('inactive').addClass('active');
-            $('.mod_catalogUniversalView').not('.' + leistung).removeClass('active').addClass('inactive');
-        });
-
-        $(document).ready(function () {
-            if (hash == leistung) {
-                $('.mod_catalogUniversalView.' + leistung).removeClass('inactive').addClass('active');
-                $('.mod_catalogUniversalView').not('.' + leistung).removeClass('active').addClass('inactive');
-            }
-        })
-    });
-
 //// Leistungsvorschau ////
     var trigger = $(".leistung-trigger"),
         content = $(".leistung-content");

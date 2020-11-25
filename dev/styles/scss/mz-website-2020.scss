@@ -18,7 +18,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: transparentize($white, 1);
+  background-color: transparentize($white, 0.5);
   box-shadow: 2px 0 7px transparent;
 
  .inside{
@@ -374,6 +374,9 @@ body.onScroll{
     }
     &.hidden:not(.visible){
       top: -58px;
+      &:focus-within{
+        top: -82px;
+      }
     }
   }
 }
