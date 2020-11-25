@@ -1,4 +1,5 @@
 .start-vorschau{
+  @include transition();
   &-links, &-rechts{
     $pfeilSize:45px;
     $pfeilWidth:0;
@@ -12,6 +13,9 @@
       cursor: pointer;
       transition: 0.3s ease;
       transition-property: transform, filter;
+      figure{
+        margin-bottom: 0;
+      }
       &:after{
         @include transition();
         $MZplusColor: $color1;

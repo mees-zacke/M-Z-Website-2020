@@ -15,7 +15,7 @@ jQuery(function ($) {
 
     /* Create an alert to show if the browser is IE or not */
     if (isIE()) {
-        alert('Ihr Browser wird nicht mehr Unterstützt. Bitte verwenden Sie einen neuen. Zum Beispiel: Microsoft Edge, Google Chrome oder Mozilla Firefox');
+        alert('Ihr Browser wird nicht mehr entwickelt und stellt daher ein Hindernis für Funktionalität, sowie ein hohes Sicherheitsrisiko dar. Daher wird er nicht mehr unterstützt. Bitte benutzen Sie einen aktuellen Browser, wie Google Chrome, Mozilla Firefox oder Microsoft Edge! Vielen Dank, dass Sie das Internet sicherer und besser machen.');
     }
 //// JS-Module /////////////////////////////////////////////
 
@@ -77,7 +77,7 @@ jQuery(function ($) {
     });
 //// Startseiten-Projekte ////
 
-    var projekt_mitglied = $('.start-vorschau figure');
+    var projekt_mitglied = $('.startseite .start-vorschau .image_container');
 
     $(window).ready(function () {
         projekt_mitglied.attr("tabindex", "0")
@@ -178,6 +178,30 @@ jQuery(function ($) {
             }
 
         }
+    });
+
+// Team Boxen
+
+    var team_mitglied = $('.team-mitglied .image_container');
+
+    $(window).ready(function () {
+        team_mitglied.attr("tabindex", "0")
+    });
+
+    team_mitglied.on('click keypress', function () {
+        $(this).siblings('.text').toggleClass('active').fadeToggle();
+        $(this).toggleClass('active');
+        console.log($(this).hasClass('active'));
+        if ($(this).hasClass('active') === false){
+            $(this).parent().css("margin-bottom", "1rem");
+        }
+        else {
+            $(this).parent().css("margin-bottom", ($(this).siblings('.text').height() + 44));
+        }
+
+        team_mitglied.not($(this)).siblings('.text').removeClass('active').fadeOut();
+        team_mitglied.not($(this)).parent().css("margin-bottom", "1rem");
+        team_mitglied.not($(this)).removeClass('active');
     });
 
 ////////////////////////////////////////////////////////////

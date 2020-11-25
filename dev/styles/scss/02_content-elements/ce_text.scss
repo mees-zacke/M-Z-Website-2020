@@ -33,7 +33,7 @@
 
   @include image();
 
-  figure {
+  .image_container {
     margin-bottom: 1em;
 
     &.float_left {

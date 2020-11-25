@@ -1,17 +1,29 @@
-<figure class="image_container<?= $this->floatClass ?>"<?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?> itemscope itemtype="http://schema.org/ImageObject" itemprop="associatedMedia">
-  <?php if ($this->href): ?>
-    <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?> itemprop="contentUrl">
-      <div class="image-content">
-  <?php endif; ?>
-    <?php $this->insert('picture_default', $this->picture); ?>
-    <?php if ($this->caption): ?>
+<div class="image_container <?= $this->floatClass ?>" <?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>    <?php if ($this->href): ?>
+  <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?> itemprop="contentUrl">
+    <?php endif; ?>
+
+    <figure class="main-image" itemscope itemtype="http://schema.org/ImageObject" itemprop="associatedMedia">
+      <?php $this->insert('picture_default', $this->picture); ?>
+      <?php if ($this->caption): ?>
       <figcaption class="caption" itemprop="caption"><?= $this->caption ?></figcaption>
-    <?php endif; ?>
-    <?php if ($this->copyright): ?>
+      <?php endif; ?>
+      <?php if ($this->copyright): ?>
       <span class="imageCopy">&copy; <?= $this->copyright ?></span>
-    <?php endif; ?>
-  <?php if ($this->href): ?>
-      </div>
-    </a>
+      <?php endif; ?>
+    </figure>
+  <?php if($this->singleSRC2): ?>
+    <?php if (null !== ($objHoverFile = \FilesModel::findByUuid($this->singleSRC2))) {
+    $objImageTemplate = new stdClass();
+    \Controller::addImageToTemplate($objImageTemplate, [
+    'singleSRC' => $objHoverFile->path,
+    ],
+    \Config::get('maxImageWidth'), null, $objHoverFile);
+    $this->insert('image_hover', (array) $objImageTemplate);
+    }
+    ?>
   <?php endif; ?>
-</figure>
+    <?php if ($this->href): ?>
+  </a>
+  <?php endif; ?>
+</div>
+

@@ -135,6 +135,7 @@ function watcher() {
 	watch([
 				'dev/contao/dca/**/*.php',
 				'dev/contao/languages/**/*.php',
+				'dev/contao/elements/**/*.php',
 				'dev/contao/config/**/*.php'
 			],
 			appResTransport);
