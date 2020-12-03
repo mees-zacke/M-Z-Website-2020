@@ -11,6 +11,10 @@
 .horizontal-zentriert{
   text-align: center;
 }
+.vertikal-unten{
+  display: flex !important;
+  align-items: flex-end !important;
+}
 .mehr-abstand-elemente{
   margin-bottom: (3 * $abstandElemente) !important;
 }

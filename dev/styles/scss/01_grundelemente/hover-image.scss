@@ -7,7 +7,7 @@
     opacity: 0;
     @include transition();
   }
-  &:hover, &:focus-visible, &.active{
+  &:hover, &.active{
     .hover-image{
       opacity: 1;
     }

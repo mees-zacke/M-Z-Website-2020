@@ -1,4 +1,15 @@
 .ce_swiperStart{
+  .textblock{
+    .text{
+      background: $color1;
+    }
+    *:not(a){
+      color: $white;
+    }
+    a{
+      @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+    }
+  }
   &.linear{
     .swiper-wrapper{
       transition-timing-function: linear;

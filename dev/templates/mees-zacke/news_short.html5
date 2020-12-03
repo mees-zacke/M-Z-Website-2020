@@ -1,0 +1,3 @@
+<div class="layout_short arc_<?= $this->archive->id ?> block<?= $this->class ?>" newsId="<?= $this->id ?>" itemscope itemtype="http://schema.org/Article">
+  <p itemprop="name"><?= $this->linkHeadline ?></p>
+</div>

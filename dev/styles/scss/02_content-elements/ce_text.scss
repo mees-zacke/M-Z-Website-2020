@@ -57,8 +57,10 @@
   }
 
   .text{
-    >*:last-child {
-      margin-bottom: 0;
+    .text-container{
+      >*:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

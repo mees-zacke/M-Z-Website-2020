@@ -1,0 +1,21 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('field'); ?>
+<div class="kontakt-buttons">
+  <div class="telefon">
+    <a href="tel:0712117414" title="Rufen Sie uns an!">
+      {{file::mees-zacke/kontakt-svg.html5}}
+    </a>
+  </div>
+  <div class="email">
+    <a href="mailto:info@mees-zacke.de" title="Schreiben Sie uns eine E-Mail!">
+      {{file::mees-zacke/email-svg.html5}}
+    </a>
+  </div>
+</div>
+  <?php if ($this->src): ?>
+    <input type="image" src="<?= $this->src ?>" id="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>" title="<?= Contao\StringUtil::specialchars($this->slabel) ?>" alt="<?= Contao\StringUtil::specialchars($this->slabel) ?>"<?= $this->getAttributes() ?>>
+  <?php else: ?>
+    <button type="submit" id="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>"<?= $this->getAttributes() ?>><?= $this->slabel ?></button>
+  <?php endif; ?>
+<?php $this->endblock(); ?>

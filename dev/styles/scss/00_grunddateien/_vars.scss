@@ -41,15 +41,15 @@ $galerieAbstandRow: $galerieAbstand;
 ////////////////////////////////
 /////////// Farben /////////////
 ////////////////////////////////
+$white: white;
+$black: black;
 $color1: #e3000b;
 $color2: #6E706F;
-$color3: blue;
+$color3: lighten($black , 60%);
 $color4: cyan;
 $color5: magenta;
 $color6: yellow;
 $color7: black;
-$white: white;
-$black: black;
 $backgroundColor1: $white;
 
 $shadow: 2px 2px 3px transparentize($black, 0.7);

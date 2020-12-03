@@ -1,0 +1,67 @@
+.ce_comments {
+  padding-left: 2rem;
+
+  .comment_default {
+    padding: 2rem 0;
+    position: relative;
+    &:before{
+      content: "";
+      width: calc(100% + 2rem);
+      height: 1px;
+      background: darken($white, 20%);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .info {
+      font-size: $linkSize;
+      color: $color3;
+
+      .name {
+        &:after {
+          content: "|";
+          margin: 0 1em;
+        }
+      }
+    }
+    .comment{
+      display: grid;
+      grid-template-columns: 15% calc(85% - 1rem);
+      grid-column-gap: 1rem;
+      >*{
+        grid-column: 2/3;
+      }
+    }
+  }
+
+  h3 {
+    padding-top: 2rem;
+    position: relative;
+
+    &:before {
+      content: "";
+      width: calc(100% + 2rem);
+      height: 1px;
+      background: darken($white, 20%);
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  @include formular($labelWidth:15%);
+
+  .form {
+    .formbody {
+
+      .widget-text:not(.mandatory) {
+        display: none;
+      }
+
+      .widget-checkbox {
+        display: none;
+      }
+    }
+
+  }
+}

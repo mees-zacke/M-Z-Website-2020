@@ -155,6 +155,7 @@ jQuery(function ($) {
             headerHeight = $('#header').height();
         }
 
+        $('.header-placeholder').css("height", headerHeight);
 
 // Menü bei Scroll verstecken und wieder anzeigen
         var body = $('body');
@@ -203,6 +204,46 @@ jQuery(function ($) {
         team_mitglied.not($(this)).parent().css("margin-bottom", "1rem");
         team_mitglied.not($(this)).removeClass('active');
     });
+
+// Kontakt-Button
+
+    var kontaktForm = $('.kontakt-button-container');
+    var kontaktOpener = kontaktForm.children('.kontakt-opener');
+
+    kontaktOpener.on('click keydown' , function (){
+       kontaktForm.toggleClass('active');
+    });
+    kontaktOpener.on('click keydown mouseover', function (){
+        kontaktForm.addClass('clicked');
+        localStorage.setItem("kontaktOpened" , "true");
+    });
+
+    $(document).on('click keydown', function(event) {
+        var $target = $(event.target);
+        if(!$target.closest(kontaktForm).length &&
+            kontaktForm.hasClass('active')) {
+            kontaktForm.removeClass('active');
+        }
+    });
+
+    $(window).ready(function (){
+        if (localStorage.kontaktOpened === 'true'){
+            kontaktForm.addClass('clicked')
+        }
+    })
+
+
+// Blog aktiver Punkt
+
+    $(window).ready(function(){
+        var activeNews = $('.layout_full').attr('newsId'),
+            newsList = $(".layout_short[newsId='" + activeNews + "']");
+
+        newsList.addClass("active");
+        newsList.find("a >*").addClass('active').unwrap();
+
+        $("body.blog #header .blog a >*").addClass("active").unwrap();
+    })
 
 ////////////////////////////////////////////////////////////
 });

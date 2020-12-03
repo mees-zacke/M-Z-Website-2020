@@ -1,0 +1,23 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+  <?= $this->articles ?>
+
+  <!-- indexer::stop -->
+  <div class="kommentare">
+    {{insert_}}
+  </div>
+  <!-- indexer::continue -->
+
+  <?php if ($this->allowComments): ?>
+    <div class="ce_comments block">
+      <<?= $this->hlc ?>><?= $this->hlcText ?></<?= $this->hlc ?>>
+      <?= implode('', $this->comments) ?>
+      <?= $this->pagination ?>
+      <<?= $this->hlc ?>><?= $this->addComment ?></<?= $this->hlc ?>>
+      <?php $this->insert('mod_comment_form', $this->arrData); ?>
+    </div>
+  <?php endif; ?>
+
+<?php $this->endblock(); ?>

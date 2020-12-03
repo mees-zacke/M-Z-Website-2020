@@ -40,7 +40,8 @@
     .text{
       display: none;
       position: absolute;
-      background-color: $color1;
+      background-color: $white;
+      border: 1px solid $color1;
       width: 150%;
       padding: 2rem 1rem;
       z-index: 3;
@@ -52,13 +53,25 @@
       &.active{
         transform: translateY(-4px);
       }
+      &:before{
+        content: "";
+        display: block;
+        height: 100%;
+        width: 100%;
+        background: $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+      }
       &:after{
         content: "";
         @include transition();
         display: block;
         height: $pfeilSize;
         width: $pfeilSize;
-        background-color: $color1;
+        background-color: $white;
+        border: 1px solid $color1;
         position: absolute;
         top: -($pfeilSize / 2);
         transform: rotate(45deg) skew(#{$pfeilWidth}deg, #{$pfeilWidth}deg);
@@ -68,11 +81,8 @@
         position: relative;
         z-index: 3;
       }
-      *{
-        color: $white;
-      }
       a{
-        @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+        @include link()
       }
     }
   }

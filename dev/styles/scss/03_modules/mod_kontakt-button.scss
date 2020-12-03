@@ -1,0 +1,141 @@
+.kontakt-button-container{
+  @include transition();
+  position: absolute;
+  right: -411px;
+  top: 100%;
+  z-index: 200;
+  .kontakt-opener{
+    @include transition();
+    position: absolute;
+    display: flex;
+    z-index: 200;
+    top: 0;
+    right: 244px;
+    background: $color1;
+    align-items: center;
+    cursor: pointer;
+    .symbol{
+      width: 30px;
+      height: 30px;
+      box-sizing: content-box;
+      padding: 10px 15px 10px 10px;
+      position: relative;
+      fill: $white;
+      &:after{
+        content: "";
+        height: 80%;
+        width: 1px;
+        position: absolute;
+        right: 0;
+        top: 10%;
+        background: $white;
+      }
+    }
+    .text{
+      padding: 0 15px;
+      p{
+        color: $white;
+        font-weight: 600;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .kontakt-container{
+    position: relative;
+    z-index: 300;
+    padding: $abstandElemente;
+    font-size: $linkSize;
+    background: $color1;
+    .head{
+      font-size: $h3Size;
+      font-weight: 600;
+      color: $white;
+      p{
+        margin-bottom: 1rem;
+      }
+    }
+    .kontakt-form{
+      color: $white;
+      .ce_form{
+        font-size: calc(#{$linkSize} * 0.8);
+        label .mandatory{
+          color: $white;
+        }
+        .kontakt-buttons{
+          display: flex;
+          justify-content: flex-end;
+          >div{
+            position: relative;
+            fill: $white;
+            margin-left: 1rem;
+            a{
+              border: 1px $white solid;
+              box-sizing: content-box;
+              padding: 10px;
+              display: flex;
+              align-items: center;
+              width: 30px;
+              height: 30px;
+              svg{
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+        }
+        .widget-submit{
+          font-size: $linkSize;
+        }
+        input, textarea{
+          color: $fontColor;
+        }
+      }
+    }
+  }
+  &:not(.active){
+    .kontakt-opener{
+      &:hover{
+        right: 100%;
+      }
+    }
+  }
+  &:not(.clicked){
+    .kontakt-opener{
+      @keyframes wobble {
+        0% {
+          transform: translateX(0);
+          animation-timing-function: ease-in;
+        }
+        25% {
+          transform: translateX(0);
+          animation-timing-function: ease-in;
+        }
+        37.5%{
+          transform: translateX(-20px);
+          animation-timing-function: ease-out;
+        }
+        50%{
+          transform: translateX(0);
+          animation-timing-function: ease-in;
+        }
+        62.5%{
+          transform: translateX(-20px);
+          animation-timing-function: ease-out;
+        }
+        75%{
+          transform: translateX(0);
+          animation-timing-function: ease-in;
+        }
+        100%{
+          transform: translateX(0);
+          animation-timing-function: ease-in;
+        }
+
+      }
+      animation: wobble 3s infinite;
+    }
+  }
+  &.active{
+    right: 0;
+  }
+}

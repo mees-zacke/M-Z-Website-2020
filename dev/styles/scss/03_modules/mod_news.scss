@@ -2,4 +2,22 @@
   &.news_latest-list{
     @include news-list($counter: 2)
   }
+  .layout_short{
+    font-size: $teaserSize;
+    .active{
+      font-weight: 600;
+    }
+  }
+  .layout_full{
+    .content{
+      @include grid();
+    }
+  }
+}
+.mod_newsreader{
+  .layout_full{
+    .content{
+      @include grid();
+    }
+  }
 }

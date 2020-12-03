@@ -5,9 +5,22 @@
    <div class="ctlg_teaser block alles ?> " >
       <div data-av-animation="fadeInUp" class="animated referenzen-filter alles" title="Alle Referenzen" tabindex="0" filter="alles">
          <div class="image_container">
-            <svg></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.62 14.03">
+               <defs>
+                  <clipPath id="clip-path">
+                     <path fill="none" d="M0 0h22.62v14.03H0z"/>
+                  </clipPath>
+               </defs>
+               <g id="Ebene_2" data-name="Ebene 2">
+                  <g id="Ebene_1-2" clip-path="url(#clip-path)" data-name="Ebene 1">
+                     <path d="M9.27 7.46h1.59v1.6a.19.19 0 00.19.18h.52a.19.19 0 00.19-.18v-1.6h1.59a.2.2 0 00.19-.19v-.52a.19.19 0 00-.19-.18h-1.59V5a.2.2 0 00-.19-.19h-.52a.2.2 0 00-.19.19v1.6H9.27a.2.2 0 00-.19.18v.52a.2.2 0 00.19.19" class="cls-3"/>
+                     <path d="M1.29 7c1-1.26 5.17-6 10-6s9 4.73 10 6c-1 1.26-5.17 6-10 6s-9-4.73-10-6m21.11.31l.22-.31-.22-.3C22.19 6.44 17.39 0 11.31 0S.42 6.44.22 6.71L0 7l.22.31c.2.27 5 6.71 11.09 6.71s10.88-6.43 11.09-6.7" class="cls-3"/>
+                     <path d="M8.39 7a2.92 2.92 0 112.92 2.93A2.92 2.92 0 018.39 7m7.23 0a4.31 4.31 0 10-4.31 4.31A4.31 4.31 0 0015.62 7" class="cls-3"/>
+                  </g>
+               </g>
+            </svg>
          </div>
-         <div class="title">Alles</div>
+         <div class="title">Alle</div>
       </div>
    </div>
 

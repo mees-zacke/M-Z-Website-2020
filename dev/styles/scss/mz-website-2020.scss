@@ -22,6 +22,7 @@
   box-shadow: 2px 0 7px transparent;
 
  .inside{
+   position: static;
    grid-column: 2/14;
    display: flex;
    .linker-header, .rechter-header{
@@ -51,7 +52,24 @@
          }
        }
        .blog{
-         a {
+         @keyframes wave {
+           0% {
+             transform: translateX(0);
+             animation-timing-function: linear;
+           }
+           25% {
+             transform: translateX(2px);
+             animation-timing-function: ease-in-out;
+           }
+           75% {
+             transform: translateX(-2px);
+             animation-timing-function: ease-in;
+           }
+           100% {
+             transform: translateX(0);
+             animation-timing-function: linear;
+           }
+         }
            .blog-container{
              display: flex;
              align-items: center;
@@ -63,48 +81,29 @@
            }
            circle {
              transition: all ease 0.2s;
-             @keyframes wave {
-               0% {
-                 transform: translateX(0);
-                 animation-timing-function: linear;
+           }
+           #circle {
+             &-3 {
+               circle {
+                 animation-delay: 0.5s;
                }
-               25% {
-                 transform: translateX(2px);
-                 animation-timing-function: ease-in-out;
-               }
-               75% {
-                 transform: translateX(-2px);
-                 animation-timing-function: ease-in;
-               }
-               100% {
-                 transform: translateX(0);
-                 animation-timing-function: linear;
+             }
+
+             &-2 {
+               circle {
+                 animation-delay: 0.25s;
                }
              }
            }
-
-           &:hover,&:focus {
-             #circle {
-               &-3 {
-                 circle {
-                   animation-delay: 0.5s;
-                 }
-               }
-
-               &-2 {
-                 circle {
-                   animation-delay: 0.25s;
-                 }
-               }
-             }
-
-             circle {
-               animation: wave 1s infinite;
-             }
-           }
+         a:hover,a:focus{
            @include button-push-inner();
            >p{
              transform: none !important;
+           }
+         }
+         a:hover, a:focus , .blog-container.active{
+           circle {
+             animation: wave 1s infinite;
            }
          }
        }
@@ -164,6 +163,10 @@
     ////////////////////////////
 
     #kopfbild{
+      .header-placeholder{
+        border-bottom: 10px solid $color1;
+        box-sizing: content-box;
+      }
       margin-bottom: $abstandArtikel;
       #startseiten-slider{
         position: relative;
@@ -240,6 +243,9 @@
     ////////////////////////////
 
 #footer{
+  a{
+    @include link($color:$color3,$border:false)
+  }
   border-top: 1px solid $color1;
   padding-top: 1rem;
     .footer{
@@ -254,7 +260,7 @@
           ul{
             display: flex;
             li{
-              color: lighten($fontColor, 50%);
+              color: $color3;
               &:after{
                 content: "/";
                 margin: 0 1em;
@@ -272,7 +278,7 @@
           font-size: $linkSize;
           ul{
             li{
-              color: lighten($fontColor, 50%);
+              color: $color3;
             }
           }
         }
@@ -291,7 +297,7 @@
               display: flex;
               flex-wrap: wrap;
               >p{
-                color: lighten($fontColor, 50%);
+                color: $color3;
                 margin-right: 2rem;
               }
             }
@@ -328,6 +334,7 @@ body.onScroll{
         .mobile-opener{
         }
         .blog{
+
         }
       }
     }
