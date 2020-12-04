@@ -1,0 +1,33 @@
+<div class="image_container <?= $this->floatClass ?>" <?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>    <?php if ($this->href): ?>
+  <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?> itemprop="contentUrl">
+    <?php endif; ?>
+
+    <figure class="main-image" itemscope itemtype="http://schema.org/ImageObject" itemprop="associatedMedia">
+      <?php $this->insert('picture_default', $this->picture); ?>
+      <?php if ($this->caption): ?>
+      <figcaption class="caption" itemprop="caption"><?= $this->caption ?></figcaption>
+      <?php endif; ?>
+      <?php if ($this->copyright): ?>
+      <span class="imageCopy">&copy; <?= $this->copyright ?></span>
+      <?php endif; ?>
+    </figure>
+  <?php if($this->singleSRC2): ?>
+    <?php if (null !== ($objHoverFile = \FilesModel::findByUuid($this->singleSRC2))) {
+    $objImageTemplate = new stdClass();
+    \Controller::addImageToTemplate($objImageTemplate, [
+    'singleSRC' => $objHoverFile->path,
+    'size' => $this->size,
+    'alt' => $objHoverFile->alt,
+    'title' => $objHoverFile->title,
+    ],
+    \Config::get('maxImageWidth'), null, $objHoverFile);
+    $this->insert('image_hover', (array) $objImageTemplate);
+    }
+    ?>
+  <?php endif; ?>
+    <?php if ($this->href): ?>
+  </a>
+  <?php endif; ?>
+  {{file::mees-zacke/mz-plus-svg.html5}}
+</div>
+

@@ -7,7 +7,7 @@
       color: $white;
     }
     a{
-      @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+      @include link($color:lightness($color1, 45%),$colorHover:$white, $border:true)
     }
   }
   &.linear{
@@ -55,7 +55,7 @@
       color:white;
     }
     a{
-      @include link($color:lighten($color1, 45%),$colorHover:$white, $border:true)
+      @include link($color:lightness($color1, 45%),$colorHover:$white, $border:true)
     }
   }
   &.verschiedene-breiten{

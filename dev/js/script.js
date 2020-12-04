@@ -245,6 +245,22 @@ jQuery(function ($) {
         $("body.blog #header .blog a >*").addClass("active").unwrap();
     })
 
+// Startslider Plus Navigation
+
+    $(window).ready(function(){
+        var plus = $('#kopfbild .plus-container'),
+            navPoints = $('.mod_rocksolid_slider .rsts-nav .rsts-nav-item a');
+        plus.appendTo(navPoints);
+    });
+
+// Startseite Pfeil nach unten Scrolling
+
+    $('.pfeil-unten').on("click touchend keyup", function(){
+        var headline = $('h1');
+        $('html, body').animate({
+            scrollTop: (headline.offset().top - 16)
+        }, 2000);
+    });
 ////////////////////////////////////////////////////////////
 });
 

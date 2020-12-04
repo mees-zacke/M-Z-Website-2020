@@ -27,23 +27,19 @@
     position: relative;
     transition: transform ease-out 0.2s;
     transform: scale(0.8);
-    &:before, &:after{
+    .open, .close{
       @include transition();
-      content: "";
       display: block;
       width: 2rem;
       height: 2rem;
-      background-size: contain;
-      background-repeat: no-repeat;
+      svg{
+        fill: $color1;
+      }
     }
-    &:before{
-      background-image: $minus;
-    }
-    &:after{
+    .open{
       position: absolute;
       top: 0;
       left: 0;
-      background-image: $plus;
     }
   }
   &:hover{
@@ -58,7 +54,7 @@
   }
   &.active{
     .icon{
-      &:after{
+       .open{
         transform: rotateX(90deg);
       }
     }

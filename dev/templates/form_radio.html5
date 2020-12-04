@@ -23,7 +23,7 @@
       <?php endif; ?>
 
       <?php if ('option' == $option['type']): ?>
-      <span><input type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="radio" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>> <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>"><?= $option['label'] ?></label></span>
+      <span><input type="radio" name="<?= $option['name'] ?>" id="opt_<?= $option['id'] ?>" class="radio" value="<?= $option['value'] ?>"<?= $option['checked'] ?><?= $option['attributes'] ?>> <label id="lbl_<?= $option['id'] ?>" for="opt_<?= $option['id'] ?>">{{file::radio-button-svg.html5}}<?= $option['label'] ?></label></span>
       <?php endif; ?>
 
       <?php if ('group_end' == $option['type']): ?>

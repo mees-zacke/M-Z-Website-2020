@@ -26,7 +26,7 @@
       }
 
       h2 {
-        background-color: transparentize($white, 0.1);
+        background-color: alpha($white, 0.9);
         border-radius: 2px;
         padding: $abstandElemente;
         min-width: 40vw;
@@ -35,11 +35,6 @@
         filter: drop-shadow($shadow);
 
         &:before {
-          $MZplusColor: $color1;
-          $MZplusColorIEHex: ie_hex_str($MZplusColor);
-          $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
-          $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
-          content: $MZplus;
           position: absolute;
           $position: calc(-2.5rem - 10px);
           top: $position;
@@ -74,11 +69,6 @@
       ul{
         .rsts-nav-item{
           a{
-            $MZplusColor: $white;
-            $MZplusColorIEHex: ie_hex_str($MZplusColor);
-            $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
-            $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
-            background-image: $MZplus;
             border-radius: 0;
             outline: none;
             border: none;
@@ -89,22 +79,26 @@
             box-shadow: none;
             filter: drop-shadow($shadow);
             background-color: transparent;
+            svg{
+              @include transition();
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              fill: $white;
+            }
             &.active{
-              $MZplusColor: $color1;
-              $MZplusColorIEHex: ie_hex_str($MZplusColor);
-              $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
-              $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
-              background-image: $MZplus;
+              svg{
+                fill: $color1;
+              }
             }
             &:not(.active){
               @include button-push();
               @include transition();
               &:hover{
-                $MZplusColor: lighten($color1 , 45% );
-                $MZplusColorIEHex: ie_hex_str($MZplusColor);
-                $MZplusColorFinal: unquote(str_slice($MZplusColorIEHex, 4));
-                $MZplus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' data-name='Ebene 1' viewBox='0 0 40.65 40.65'%3E%3Cg data-name='Ebene 2'%3E%3Cpath fill='%23#{$MZplusColorFinal}' d='M15.26 0v15.26H0v10.13h15.26v15.26h10.13V25.39h15.26V15.26H25.39V0H15.26z' data-name='Ebene 1-2'/%3E%3C/g%3E%3C/svg%3E%0A");
-                background-image: $MZplus;
+                svg{
+                  fill: lightness($color1, 45%);
+                }
               }
             }
           }

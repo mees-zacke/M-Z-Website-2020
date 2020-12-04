@@ -8,7 +8,7 @@
       content: "";
       width: calc(100% + 2rem);
       height: 1px;
-      background: darken($white, 20%);
+      background: lightness($white, -20%);
       position: absolute;
       top: 0;
       right: 0;
@@ -42,7 +42,7 @@
       content: "";
       width: calc(100% + 2rem);
       height: 1px;
-      background: darken($white, 20%);
+      background: lightness($white, -20%);
       position: absolute;
       top: 0;
       right: 0;

@@ -7,7 +7,7 @@
       @include transition();
       width: 6rem;
       min-height: 6rem;
-      background-color: $color7;
+      background-color: $color4;
       padding: 10px;
       text-align: center;
       .tag{
@@ -54,7 +54,7 @@
         font-weight: 400;
       }
       a{
-        background-color: $color7;
+        background-color: $color4;
         color: $black;
         grid-column: span 3;
         border: 1px solid $white;
@@ -64,8 +64,8 @@
         text-align: center;
         &:hover, &:focus{
           background-color: $white;
-          color: $color7;
-          border-color: $color7;
+          color: $color4;
+          border-color: $color4;
         }
       }
     }

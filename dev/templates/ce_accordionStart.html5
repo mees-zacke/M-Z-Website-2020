@@ -6,6 +6,12 @@
 	    <?= $this->headline ?>
   	</div>
   	<div class="icon">
+			<div class="open">
+				{{file::plus-svg.html5}}
+			</div>
+			<div class="close">
+				{{file::minus-svg.html5}}
+			</div>
   	</div>
   </div>
 

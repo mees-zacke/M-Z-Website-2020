@@ -1,0 +1,8 @@
+<?php $this->extend('form_row'); ?>
+
+<?php $this->block('field'); ?>
+    <input type="submit" id="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>" title="<?= Contao\StringUtil::specialchars($this->slabel) ?>" alt="<?= Contao\StringUtil::specialchars($this->slabel) ?>"<?= $this->getAttributes() ?>>
+    <label for="ctrl_<?= $this->id ?>" class="submit<?php if ($this->class): ?> <?= $this->class ?><?php endif; ?>" title="<?= Contao\StringUtil::specialchars($this->slabel) ?>" alt="<?= Contao\StringUtil::specialchars($this->slabel) ?>"<?= $this->getAttributes() ?>>
+  {{file::lupe-svg.html5}}
+</label>
+<?php $this->endblock(); ?>

@@ -1,0 +1,293 @@
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+@mixin defineColorHSL($color, $hue, $saturation, $lightness){
+  #{$color}: unquote("hsl(#{$hue}, #{$saturation}, #{$lightness})");
+  #{$color}-h: #{$hue};
+  #{$color}-s: #{$saturation};
+  #{$color}-l: #{$lightness};
+}
+
+@function alpha($color, $opacity){
+  $index-hsl: str-index($color,'hsl');
+  @if $index-hsl {
+    $index-alpha: str-index($color,'hsla(');
+    @if $index-alpha{
+      $alpha: str-slice($color, str-index($color, '-l'), -2);
+      $color: str-replace($color, 'hsla(');
+      $alpha: str-slice($alpha, (str-index($alpha, '),') + 2), -1);
+      $alpha: calc(#{$alpha} * #{$opacity});
+      $color: str-slice($color, 0, -2);
+      $color-h-right: str-slice($color, str-index($color, '-h'), str-index($color, '-s'));
+      $color-h-left: str-slice($color, 0, (str-index($color, '-h') - 1));
+      $color-s-right: str-slice($color, str-index($color, '-s'), str-index($color, '-l'));
+      $color-s-left: str-slice($color, str-index($color, '-h'), (str-index($color, '-s') - 1));
+      $color-l: str-slice($color, str-index($color, '-s') , - 1);
+      $index-l: str-index($color-l, 'calc');
+
+
+      @if $index-l{
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), -1);
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), (str-index($color-l, '),')));
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'calc') - 3));
+      }
+      @else {
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), -1);
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), (str-index($color-l, '),')));
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'var') - 3));
+      }
+      $index-s: str-index($color-s-left, 'calc');
+      @if $index-s{
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'calc'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'calc') - 3));
+      }
+      @else {
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'var'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'var') - 3));
+      }
+      $color-s: (#{$color-s-left}#{$color-s-right});
+      $color-h: (#{$color-h-left}#{$color-h-right});
+
+      $color: hsla($color-h, $color-s, $color-l, $alpha);
+
+    }
+    @else {
+      $color: str-replace($color, 'hsl(');
+      $color: str-slice($color, 0, -2);
+      $color-h-right: str-slice($color, str-index($color, '-h'), str-index($color, '-s'));
+      $color-h-left: str-slice($color, 0, (str-index($color, '-h') - 1));
+      $color-s-right: str-slice($color, str-index($color, '-s'), str-index($color, '-l'));
+      $color-s-left: str-slice($color, str-index($color, '-h'), (str-index($color, '-s') - 1));
+      $color-l: str-slice($color, str-index($color, '-s') , - 1);
+      $index-l: str-index($color-l, 'calc');
+      @if $index-l{
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), -1);
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'calc') - 3));
+      }
+      @else {
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), -1);
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'var') - 3));
+      }
+      $index-s: str-index($color-s-left, 'calc');
+      @if $index-s{
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'calc'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'calc') - 3));
+      }
+      @else {
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'var'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'var') - 3));
+      }
+      $color-s: (#{$color-s-left}#{$color-s-right});
+      $color-h: (#{$color-h-left}#{$color-h-right});
+      $color: hsla($color-h, $color-s, $color-l, $opacity);
+    }
+    @return $color;
+  }
+  @else {
+    $color: str-replace($color, 'var(');
+    $color: str-replace($color, ')');
+    $color-h: var(#{$color+'-h'});
+    $color-s: var(#{$color+'-s'});
+    $color-l: var(#{$color+'-l'});
+    @return hsla($color-h, $color-s, $color-l, $opacity);
+  }
+}
+
+@function lightness($color, $lightnessAmount){
+  $index-hsl: str-index($color,'hsl');
+  @if $index-hsl {
+    $index-alpha: str-index($color,'hsla(');
+    $alpha: str-slice($color, str-index($color, '-l'), -2);
+    @if $index-alpha{
+      $color: str-replace($color, 'hsla(');
+      $alpha: str-slice($alpha, (str-index($alpha, '),') + 2), -1);
+      $color: str-slice($color, 0, -2);
+      $color-h-right: str-slice($color, str-index($color, '-h'), str-index($color, '-s'));
+      $color-h-left: str-slice($color, 0, (str-index($color, '-h') - 1));
+      $color-s-right: str-slice($color, str-index($color, '-s'), str-index($color, '-l'));
+      $color-s-left: str-slice($color, str-index($color, '-h'), (str-index($color, '-s') - 1));
+      $color-l: str-slice($color, str-index($color, '-s') , - 1);
+      $index-l: str-index($color-l, 'calc');
+
+
+      @if $index-l{
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), -1);
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), (str-index($color-l, '),')));
+        $color-l: str-insert($color-l, ' + #{$lightnessAmount}', (str-index($color-l, '-l)') + 3));
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'calc') - 3));
+      }
+      @else {
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), -1);
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), (str-index($color-l, '),')));
+        $color-l: str-insert($color-l, 'calc(', 0);
+        $color-l: str-insert($color-l, ' + #{$lightnessAmount}', (str-index($color-l, '-l)') + 3));
+        $color-l: str-insert($color-l, ')', -1);
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'var') - 3));
+      }
+      $index-s: str-index($color-s-left, 'calc');
+      @if $index-s{
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'calc'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'calc') - 3));
+      }
+      @else {
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'var'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'var') - 3));
+      }
+      $color-s: (#{$color-s-left}#{$color-s-right});
+      $color-h: (#{$color-h-left}#{$color-h-right});
+
+      $color: hsla($color-h, $color-s, $color-l, $alpha);
+
+    }
+    @else {
+      $color: str-replace($color, 'hsl(');
+      $color: str-slice($color, 0, -2);
+      $color-h-right: str-slice($color, str-index($color, '-h'), str-index($color, '-s'));
+      $color-h-left: str-slice($color, 0, (str-index($color, '-h') - 1));
+      $color-s-right: str-slice($color, str-index($color, '-s'), str-index($color, '-l'));
+      $color-s-left: str-slice($color, str-index($color, '-h'), (str-index($color, '-s') - 1));
+      $color-l: str-slice($color, str-index($color, '-s') , - 1);
+      $index-l: str-index($color-l, 'calc');
+      @if $index-l{
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), -1);
+        $color-l: str-insert($color-l, ' + #{$lightnessAmount}', (str-index($color-l, '-l)') + 3));
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'calc') - 3));
+      }
+      @else {
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), -1);
+        $color-l: str-insert($color-l, 'calc(', 0);
+        $color-l: str-insert($color-l, ' + #{$lightnessAmount}', (str-index($color-l, '-l)') + 3));
+        $color-l: str-insert($color-l, ')', -1);
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'var') - 3));
+      }
+      $index-s: str-index($color-s-left, 'calc');
+      @if $index-s{
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'calc'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'calc') - 3));
+      }
+      @else {
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'var'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'var') - 3));
+      }
+      $color-s: (#{$color-s-left}#{$color-s-right});
+      $color-h: (#{$color-h-left}#{$color-h-right});
+      $color: hsl($color-h, $color-s, $color-l)
+    }
+    @return $color;
+  }
+  @else {
+    $color: str-replace($color, 'var(');
+    $color: str-replace($color, ')');
+    $color-h: var(#{$color+'-h'});
+    $color-s: var(#{$color+'-s'});
+    $color-l: calc(var(#{$color+'-l'}) + #{$lightnessAmount});
+    @return hsl($color-h, $color-s, $color-l);
+  }
+}
+
+@function saturation($color, $saturationAmount){
+  $index-hsl: str-index($color,'hsl');
+  @if $index-hsl {
+    $index-alpha: str-index($color,'hsla(');
+    $alpha: str-slice($color, str-index($color, '-l'), -2);
+    @if $index-alpha{
+      $color: str-replace($color, 'hsla(');
+      $alpha: str-slice($alpha, (str-index($alpha, '),') + 2), -1);
+      $color: str-slice($color, 0, -2);
+      $color-h-right: str-slice($color, str-index($color, '-h'), str-index($color, '-s'));
+      $color-h-left: str-slice($color, 0, (str-index($color, '-h') - 1));
+      $color-s-right: str-slice($color, str-index($color, '-s'), str-index($color, '-l'));
+      $color-s-left: str-slice($color, str-index($color, '-h'), (str-index($color, '-s') - 1));
+      $color-l: str-slice($color, str-index($color, '-s') , - 1);
+      $index-l: str-index($color-l, 'calc');
+
+
+      @if $index-l{
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), -1);
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), (str-index($color-l, '),')));
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'calc') - 3));
+      }
+      @else {
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), -1);
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), (str-index($color-l, '),')));
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'var') - 3));
+      }
+      $index-s: str-index($color-s-left, 'calc');
+      @if $index-s{
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'calc'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'calc') - 3));
+      }
+      @else {
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'var'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'var') - 3));
+      }
+      $color-s: (#{$color-s-left}#{$color-s-right});
+      @if $index-s {
+        $color-s: str-insert($color-s, ' + #{$saturationAmount}', (str-index($color-s, '-s)') + 3));
+      }
+      @else {
+        $color-s: str-insert($color-s, 'calc(', 0);
+        $color-s: str-insert($color-s, ' + #{$saturationAmount}', (str-index($color-s, '-s)') + 3));
+        $color-s: str-insert($color-s, ')', -1);
+      }
+      $color-h: (#{$color-h-left}#{$color-h-right});
+
+      $color: hsla($color-h, $color-s, $color-l, $alpha);
+
+    }
+    @else {
+      $color: str-replace($color, 'hsl(');
+      $color: str-slice($color, 0, -2);
+      $color-h-right: str-slice($color, str-index($color, '-h'), str-index($color, '-s'));
+      $color-h-left: str-slice($color, 0, (str-index($color, '-h') - 1));
+      $color-s-right: str-slice($color, str-index($color, '-s'), str-index($color, '-l'));
+      $color-s-left: str-slice($color, str-index($color, '-h'), (str-index($color, '-s') - 1));
+      $color-l: str-slice($color, str-index($color, '-s') , - 1);
+      $index-l: str-index($color-l, 'calc');
+      @if $index-l{
+        $color-l: str-slice($color-l, str-index($color-l, 'calc'), -1);
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'calc') - 3));
+      }
+      @else {
+        $color-l: str-slice($color-l, str-index($color-l, 'var'), -1);
+        $color-s-right: str-slice($color-s-right, 0 , (str-index($color-s-right, 'var') - 3));
+      }
+      $index-s: str-index($color-s-left, 'calc');
+      @if $index-s{
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'calc'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'calc') - 3));
+      }
+      @else {
+        $color-s-left: str-slice($color-s-left, str-index($color-s-left, 'var'), - 1);
+        $color-h-right: str-slice($color-h-right, 0 , (str-index($color-h-right, 'var') - 3));
+      }
+      $color-s: (#{$color-s-left}#{$color-s-right});
+      @if $index-s {
+        $color-s: str-insert($color-s, ' + #{$saturationAmount}', (str-index($color-s, '-s)') + 3));
+      }
+      @else {
+        $color-s: str-insert($color-s, 'calc(', 0);
+        $color-s: str-insert($color-s, ' + #{$saturationAmount}', (str-index($color-s, '-s)') + 3));
+        $color-s: str-insert($color-s, ')', -1);
+      }
+      $color-h: (#{$color-h-left}#{$color-h-right});
+      $color: hsl($color-h, $color-s, $color-l)
+    }
+    @return $color;
+  }
+  @else {
+    $color: str-replace($color, 'var(');
+    $color: str-replace($color, ')');
+    $color-h: var(#{$color+'-h'});
+    $color-s: var(#{$color+'-s'});
+    $color-l: var(#{$color+'-l'});
+    @return hsl($color-h, calc(#{$color-s} + #{$saturationAmount}), $color-l);
+  }
+}

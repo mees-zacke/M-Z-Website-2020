@@ -1,0 +1,13 @@
+@import "css-vars-to-sass";
+//// Farben für barrierefreiheit
+
+body{
+  @include defineColorHSL(--color1-red, 357, 100%, 45%);
+  @include defineColorHSL(--color2-grey, 150, 1%, 44%);
+  @include defineColorHSL(--color-black, 0, 0%, 0%);
+  @include defineColorHSL(--color-white, 0, 0%, 100%);
+  &.black{
+  }
+  &.white{
+  }
+}
