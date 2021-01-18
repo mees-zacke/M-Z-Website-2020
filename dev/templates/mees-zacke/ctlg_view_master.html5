@@ -3,7 +3,7 @@
 	<div class="head">
 		<div id="kopfbild"><?= $this->kopfbild ?></div>
 		<div class="kunde-title">
-			<h1>+ <?= $this->name ?></h1>
+			<h1><span class="rot">+</span> <?= $this->name ?></h1>
 			<?= $this->beschreibung ?>
 		</div>
 	</div>

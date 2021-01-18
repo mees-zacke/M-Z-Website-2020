@@ -40,7 +40,6 @@
        overflow: hidden;
        height: 77px;
        @include transition();
-
        .mobile-opener{
          @include transition();
          width: 100%;
@@ -52,6 +51,7 @@
          }
        }
        .blog{
+         margin-right: 2rem;
          @keyframes wave {
            0% {
              transform: translateX(0);
@@ -76,6 +76,7 @@
              height: 50px;
            }
            svg{
+             fill: $color1;
              width: 40px;
              height: 40px;
            }
@@ -110,6 +111,24 @@
        p{
          margin-bottom: 0;
        }
+       .color-switch-container{
+         .color-switch{
+           @include link();
+           .blog-container{
+             display: flex;
+             align-items: center;
+             height: 50px;
+           }
+           svg{
+             fill: $color1;
+             width: 40px;
+             height: 40px;
+           }
+         }
+         .tooltip{
+           display: none;
+         }
+       }
      }
    }
    .rechter-header{
@@ -131,12 +150,15 @@
            @include transition();
          }
          #mees{
+           fill: $color1;
            transform-origin: right;
          }
          #zacke{
+           fill: $color1;
            transform-origin: top;
          }
          #plus-container{
+           fill: $color2;
            transform: translate(35%, -41%);
            #plus{
              transform-origin: center;
@@ -329,7 +351,7 @@
 body.onScroll{
   #header{
     background-color: alpha($white, 0.9);
-    box-shadow: 2px 0 7px rgba(0,0,0,0.25);
+    box-shadow: 2px 0 7px alpha($black,0.25);
     .linker-header, .rechter-header{
       padding: ($abstandElemente / 4);
     }

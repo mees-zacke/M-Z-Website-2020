@@ -27,7 +27,7 @@
               height: 100%;
               top: 0;
               left: 0;
-              background-color: white;
+              background-color: $white;
               z-index: 3;
             }
             &:after{
@@ -36,7 +36,7 @@
               display: block;
               height: 35px;
               width: 35px;
-              background-color: #fff;
+              background-color: $white;
               position: absolute;
               bottom: 7px;
               transform: rotate(45deg);

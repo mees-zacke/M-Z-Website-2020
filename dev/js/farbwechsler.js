@@ -39,7 +39,7 @@ jQuery(function ($) {
             }
         }
 
-        $('.colorSwitch').on('click touch', function () {
+        $('.color-switch').on('click touch', function () {
             if (body.hasClass('normal')) {
                 localStorage.setItem('Farbe', 'white');
                 $bodyColor = localStorage.getItem('Farbe');

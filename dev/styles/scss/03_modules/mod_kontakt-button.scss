@@ -1,7 +1,7 @@
 .kontakt-button-container{
   @include transition();
   position: absolute;
-  right: -411px;
+  right: -100%;
   top: 100%;
   z-index: 200;
   .kontakt-opener{
@@ -10,7 +10,7 @@
     display: flex;
     z-index: 200;
     top: 0;
-    right: 244px;
+    right: 0;
     background: $color1;
     align-items: center;
     cursor: pointer;
@@ -95,7 +95,7 @@
   &:not(.active){
     .kontakt-opener{
       &:hover{
-        right: 100%;
+        right: 100% !important;
       }
     }
   }
@@ -136,6 +136,6 @@
     }
   }
   &.active{
-    right: 0;
+    right: 0 !important;
   }
 }

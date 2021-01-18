@@ -169,10 +169,10 @@ $MZplusColor: $color2;
 }
 
 @mixin hover-height($height:20px, $activator:"&:hover"){
-  filter: drop-shadow(0 0 0 rgba(0,0,0,0.4));
+  filter: drop-shadow(0 0 0 alpha($black , 0.4));
   #{$activator}{
     transform: translateY(-$height);
-    filter: drop-shadow( ($height / 4) $height ($height / 4) rgba(0,0,0,0.1));
+    filter: drop-shadow( ($height / 4) $height ($height / 4) alpha($black , 0.1));
   }
 }
 
@@ -306,7 +306,7 @@ $MZplusColor: $color2;
       @include transition();
       padding: $abstandElemente;
       opacity: 0;
-      background-color: transparentize($bgColor, 0.5);
+      background-color: alpha($bgColor, 0.5);
       transform: translateY(200%);
       position: relative;
       &:after{

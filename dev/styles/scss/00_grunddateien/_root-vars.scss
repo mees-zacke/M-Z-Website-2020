@@ -1,4 +1,3 @@
-@import "css-vars-to-sass";
 //// Farben für barrierefreiheit
 
 body{
@@ -7,7 +6,27 @@ body{
   @include defineColorHSL(--color-black, 0, 0%, 0%);
   @include defineColorHSL(--color-white, 0, 0%, 100%);
   &.black{
+    @include defineColorHSL(--color1-red, 357, 100%, 45%);
+    @include defineColorHSL(--color2-grey, 0, 0%, 100%);
+    @include defineColorHSL(--color-black, 0, 0%, 100%);
+    @include defineColorHSL(--color-white, 0, 0%, 0%);
+    .referenzen-slider, .kontakt-button-container{
+      @include defineColorHSL(--color-white, 0, 0%, 100%);
+    }
+    #header{
+      background-color: $white;
+    }
+    #kopfbild .mod_rocksolid_slider .rsts-slide .ce_text *{
+      color: $black;
+    }
   }
   &.white{
+    @include defineColorHSL(--color1-red, 357, 100%, 45%);
+    @include defineColorHSL(--color2-grey, 0, 0%, 0%);
+    @include defineColorHSL(--color-black, 0, 0%, 0%);
+    @include defineColorHSL(--color-white, 0, 0%, 100%);
+    .referenzen-slider{
+      @include defineColorHSL(--color-black, 0, 0%, 100%);
+    }
   }
 }

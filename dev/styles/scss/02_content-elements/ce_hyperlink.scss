@@ -2,7 +2,7 @@
   a {
     @include button();
     text-decoration: none;
-    color: white;
+    color: $white;
     text-align: center;
   }
 

@@ -226,6 +226,18 @@ jQuery(function ($) {
         }
     });
 
+    $(window).on("load", function (){
+        console.log(kontaktForm.width())
+        kontaktForm.css("right", "-" + kontaktForm.width() + "px")
+        kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
+    });
+    $(window).resize(function (){
+        console.log(kontaktForm.width())
+        kontaktForm.css("right", "-" + kontaktForm.width() + "px")
+        kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
+    });
+
+
     $(window).ready(function (){
         if (localStorage.kontaktOpened === 'true'){
             kontaktForm.addClass('clicked')
@@ -260,6 +272,16 @@ jQuery(function ($) {
         $('html, body').animate({
             scrollTop: (headline.offset().top - 16)
         }, 2000);
+    });
+
+// Kunden Detail Titel
+
+    $(window).ready(function (){
+        var kopfbild = $('.ctlg_master .head'),
+        kundeTitel = $('.kunde-title');
+        kopfbild.css('marginBottom', 'calc((' + kundeTitel.height() + 'px + 6rem) - ' + kundeTitel.children('h1').height() + 'px - 0.5rem)');
+        kundeTitel.css('top', 'calc( 100% - ' + kundeTitel.children('h1').height() +'px - 0.5rem - 1rem');
+
     });
 ////////////////////////////////////////////////////////////
 });

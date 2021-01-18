@@ -6,10 +6,10 @@
   .ui-menu-item {
     border-left: $border;
     border-right: $border;
-    background-color: #fff;
+    background-color: $white;
     text-indent: 2px;
     cursor: pointer;
-    color: black;
+    color: $black;
 
     &:first-of-type {
       border-top: $border;

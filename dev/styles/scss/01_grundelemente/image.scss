@@ -25,8 +25,8 @@
       top: 0.25rem;
       padding: 0.125em 0.25em;
       display: inline-block;
-      color: rgb(230,230,230);
-      text-shadow: 0 0 0.125em black;
+      color: lightness($white, -5%);
+      text-shadow: 0 0 0.125em $black;
       writing-mode: vertical-lr;
       transform: rotate(180deg);
       @media (min-width: $break2) {

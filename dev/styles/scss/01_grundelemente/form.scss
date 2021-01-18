@@ -51,7 +51,7 @@
           }
 
           input, textarea {
-            border: 1px solid lightness2($inputColor, 60%);
+            border: 1px solid lightness($inputColor, 60%);
             padding: 5px;
             border-radius: $textRadius;
             background-color: $fieldBG;
@@ -98,7 +98,7 @@
                     width: 1em;
                     height: 1em;
                     @include transition();
-                    border: 1px solid lightness2($inputColor, 60%);
+                    border: 1px solid lightness($inputColor, 60%);
                     grid-column: 1/2;
                     grid-row: 1/2;
                     background-color: $fieldBG;
@@ -169,7 +169,7 @@
           select{
             border-radius: $textRadius;
             background-color: $fieldBG;
-            border: 1px solid lightness2($inputColor, 60%);
+            border: 1px solid lightness($inputColor, 60%);
             padding: 5px;
           }
         }
@@ -204,5 +204,4 @@
       }
     }
   }
-
 }

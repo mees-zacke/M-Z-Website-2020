@@ -41,7 +41,6 @@
   &.referenzen-slider{
     padding: (2 * $abstandElemente) 0;
     background-color: $color1;
-    box-shadow: inset $shadow;
     .ce_image.swiper-slide{
       overflow: visible;
       figure{
@@ -52,7 +51,7 @@
       }
     }
     *:not(a){
-      color:white;
+      color:$white;
     }
     a{
       @include link($color:lightness($color1, 45%),$colorHover:$white, $border:true)
