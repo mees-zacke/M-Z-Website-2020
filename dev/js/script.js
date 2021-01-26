@@ -119,7 +119,7 @@ jQuery(function ($) {
                         }
                     });
                     var $background = $(this).children('.background');
-                    $background.delay(delay).animate({width:"150px", height:"150px"}, 1000)
+                    $background.delay(delay).animate({width: $(this).width() + "px", height:$(this).height() + "px"}, 1000)
                     $(this).siblings().addClass("fadeInUp animated")
                 })
                 $(window).off('scroll', growNumbers);
@@ -128,17 +128,6 @@ jQuery(function ($) {
             }
         });
     }
-
-//// Mobile Opener ////
-    var opener_head = $('.linker-header .mobile-opener'),
-        opener_mobile = $('.mobile-menu .mobile-opener');
-
-    opener_head.on('click touch keypress', function(){
-        $('.mobile-menu').addClass('active');
-    });
-    opener_mobile.on('click touch keypress', function(){
-        $('.mobile-menu').removeClass('active');
-    });
 
 // Header Funktionen
     $(window).ready(function setHeaderStates() {
@@ -227,12 +216,10 @@ jQuery(function ($) {
     });
 
     $(window).on("load", function (){
-        console.log(kontaktForm.width())
         kontaktForm.css("right", "-" + kontaktForm.width() + "px")
         kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
     });
     $(window).resize(function (){
-        console.log(kontaktForm.width())
         kontaktForm.css("right", "-" + kontaktForm.width() + "px")
         kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
     });
@@ -282,7 +269,72 @@ jQuery(function ($) {
         kopfbild.css('marginBottom', 'calc((' + kundeTitel.height() + 'px + 6rem) - ' + kundeTitel.children('h1').height() + 'px - 0.5rem)');
         kundeTitel.css('top', 'calc( 100% - ' + kundeTitel.children('h1').height() +'px - 0.5rem - 1rem');
 
+
     });
+
+// Blogliste Tablett/Mobile //
+
+    $(window).ready(function (){
+       $(".linke-spalte").css("left", "-" + $(".linke-spalte").outerWidth() + "px");
+    });
+    $(window).resize(function (){
+        $(".linke-spalte").css("left", "-" + $(".linke-spalte").outerWidth() + "px");
+    });
+
+    $(".left-bar-opener").on("click touch keypress", function (){
+       $(this).parent(".linke-spalte").toggleClass("active");
+    });
+    $(".linke-spalte").on("focusin", function (){
+        $(this).addClass("active");
+    });
+    $(".linke-spalte").on("focusout", function (){
+        $(this).removeClass("active");
+    });
+
+    $(document).on('click keydown', function(event) {
+        var $target = $(event.target);
+        if(!$target.closest($(".linke-spalte")).length &&
+            $(".linke-spalte").hasClass('active')) {
+            $(".linke-spalte").removeClass('active');
+        }
+    });
+
+// Mobile Menu //
+
+    var opener_head = $('#header .mobile-opener'),
+        opener_mobile = $('.mobile-menu .mobile-opener'),
+        mobileMenu = $('.mobile-menu');
+
+    function mobileMenuOpen (){
+        mobileMenu.addClass('active');
+        mobileMenu.focus();
+    }
+    function mobileMenuClose (){
+        mobileMenu.removeClass('active');
+        $('#kopfbild').focus();
+    }
+
+    mobileMenu.on('focusin', function (){
+        mobileMenuOpen();
+    });
+    mobileMenu.on('focusout', function (){
+        mobileMenuClose()
+    });
+
+    opener_head.on('click touch keypress', function (){
+        mobileMenuOpen();
+    });
+    opener_mobile.on('click touch keypress', function (){
+        mobileMenuClose();
+    });
+
+    $(window).ready(function (){
+        mobileMenu.css("top" , "-" + (mobileMenu.height() + 10) + "px")
+    });
+    $(window).resize(function (){
+        mobileMenu.css("top" , "-" + (mobileMenu.height() + 10) + "px")
+    });
+
 ////////////////////////////////////////////////////////////
 });
 

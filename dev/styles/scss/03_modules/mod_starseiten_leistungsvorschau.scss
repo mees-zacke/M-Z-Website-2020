@@ -1,14 +1,18 @@
-.mod_catalogUniversalView{
-  &.leistung-trigger-container{
+.mod_catalogUniversalView {
+  &.leistung-trigger-container {
     overflow: visible;
-    .ctlg_view_{
-      &teaser_leist_trigger{
+
+    .ctlg_view_ {
+      &teaser_leist_trigger {
         display: flex;
         justify-content: space-between;
-        .ctlg_teaser{
+        flex-wrap: wrap;
+
+        .ctlg_teaser {
           overflow: visible;
-          width: 16%;
-          .leistung-trigger{
+          width: (100% / 6);
+
+          .leistung-trigger {
             @include transition();
             height: 140px;
             text-align: center;
@@ -18,8 +22,9 @@
             border: 1px solid $color1;
             background-color: $white;
             cursor: pointer;
-            @include hover-height(5px, $activator:"&:hover, &:focus, &.active");
-            &:before{
+            @include hover-height(5px, $activator: "&:hover, &:focus, &.active");
+
+            &:before {
               @include transition();
               content: "";
               position: absolute;
@@ -30,7 +35,8 @@
               background-color: $white;
               z-index: 3;
             }
-            &:after{
+
+            &:after {
               content: "";
               @include transition();
               display: block;
@@ -44,29 +50,38 @@
               border-bottom: 1px solid;
               border-color: $color1;
               z-index: 2;
-              right: calc(50%  - 18px);
+              right: calc(50% - 18px);
             }
-            &:hover, &:focus ,&.active{
-              &:after{
+
+            &:hover, &:focus, &.active {
+              z-index: 1;
+
+              &:after {
                 bottom: -19px;
               }
             }
-            &:active, &.active{
+
+            &:active, &.active {
+              z-index: 1;
               background-color: $color1;
-              &:before, &:after{
+
+              &:before, &:after {
                 background-color: $color1;
               }
-              .image_container{
-                svg{
+
+              .image_container {
+                svg {
                   fill: $white;
                 }
               }
-              .title{
+
+              .title {
                 color: $white;
               }
             }
           }
-          .image_container{
+
+          .image_container {
             margin: auto;
             width: 50px;
             height: 55px;
@@ -74,13 +89,15 @@
             align-items: center;
             position: relative;
             z-index: 4;
-            svg{
+
+            svg {
               @include transition();
               width: 100%;
               fill: $color1;
             }
           }
-          .title{
+
+          .title {
             @include transition();
             position: relative;
             font-weight: 600;
@@ -89,34 +106,114 @@
           }
         }
       }
-      &teaser_leist_content{
-        &.inactive{
+
+      &teaser_leist_content {
+        &.inactive {
           border-color: transparent;
         }
+
         position: relative;
         overflow: hidden;
         @include transition();
         border-top: 1px solid $color1;
         border-bottom: 1px solid $color1;
-        .ctlg_teaser{
+
+        .ctlg_teaser {
           width: 100%;
           padding: 1rem 0;
           position: absolute;
-          @include transition();
-          .leistung-content{
-            width: 60%;
-            >*:last-child{
-              margin: 0;
+          @include transition($time: 1s);
+
+          .leistung-content-container {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            .beschreibung{
+              padding-right: 2rem;
+              width: 100%;
+              > *:last-child {
+                margin: 0;
+              }
+            }
+            .aufzaehlung{
+              width: 50%;
+
+              ul {
+                > li {
+                  padding-left: 1.5rem;
+
+                  &:before {
+                    content: '›';
+                    color: $color1;
+                    font-size: 1.5rem;
+                    display: inline-block;
+                    margin-right: 1rem;
+                    margin-left: -1rem;
+                    width: 0;
+                  }
+                }
+              }
             }
           }
-          &.active{
+
+          &.active {
             transform: translateX(0);
           }
-          &.right{
+
+          &.right {
             transform: translateX(100%);
           }
-          &.left{
+
+          &.left {
             transform: translateX(-100%);
+          }
+        }
+      }
+    }
+
+    @media all and (max-width: $break2) {
+      .ctlg_view_ {
+        &teaser_leist_trigger {
+          .ctlg_teaser {
+            width: (100% / 3);
+
+            .leistung-trigger {
+              height: 115px;
+              padding: 1rem 1rem;
+            }
+          }
+        }
+        &teaser_leist_content {
+          .ctlg_teaser{
+            .leistung-content-container{
+              flex-wrap: wrap;
+              width: 100%;
+              .beschreibung{
+                width: 100%;
+              }
+              .aufzaehlung{
+                margin-top: $abstandElemente;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    @media all and (max-width: $break1) {
+      .ctlg_view_ {
+        &teaser_leist_trigger {
+          .ctlg_teaser {
+            width: (100% / 2);
+
+            .leistung-trigger {
+              height: 100px;
+              padding: 0.5rem;
+            }
+          }
+        }
+        &teaser_leist_content {
+          .ctlg_teaser{
           }
         }
       }

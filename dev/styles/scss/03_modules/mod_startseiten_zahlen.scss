@@ -3,9 +3,10 @@
     &teaser_zahlen {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
 
       .ctlg_teaser {
-        margin-right: 8%;
+        width: 25%;
 
         &:last-of-type {
           margin-right: 0;
@@ -39,6 +40,8 @@
 
       .text-container {
         margin: 1rem auto 0;
+        display: flex;
+        justify-content: center;
 
         div {
           text-align: center;
@@ -47,5 +50,32 @@
         }
       }
     }
+  }
+
+  @media all and (max-width: $break2) {
+    .ctlg_view_ {
+      &teaser_zahlen {
+        .ctlg_teaser{
+          margin-bottom: 1rem;
+          width: 50%;
+        }
+      }
+    }
+  }
+  @media all and (max-width: $break1){
+    .ctlg_view_ {
+      &teaser_zahlen {
+        .ctlg_teaser{
+          .zahlen-container{
+            width: 100px;
+            height: 100px;
+            .zahl{
+              font-size: $h1Size;
+            }
+          }
+        }
+      }
+    }
+
   }
 }

@@ -6,6 +6,7 @@
       &teaser_refFilter {
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
 
         .ctlg_teaser {
           overflow: visible;
@@ -53,6 +54,7 @@
             }
 
             &:hover, &:focus, &.active {
+              z-index: 1;
               &:after {
                 bottom: -19px;
               }
@@ -99,6 +101,34 @@
             font-weight: 600;
             color: $color2;
             z-index: 4;
+          }
+        }
+        @media all and (max-width: $break3){
+          .ctlg_teaser{
+            width: 20%;
+          }
+        }
+        @media all and (max-width: $break2) {
+          justify-content: center;
+          .ctlg_teaser {
+            width: (100% / 3);
+          }
+        }
+        @media all and (max-width: $break2) {
+          justify-content: center;
+          .ctlg_teaser {
+            width: (100% / 3);
+            .referenzen-filter {
+              height: 100px;
+              padding: 0.4rem;
+              .image_container{
+                width: 40px;
+                height: 45px;
+              }
+              .title{
+                line-height: 1.3;
+              }
+            }
           }
         }
       }

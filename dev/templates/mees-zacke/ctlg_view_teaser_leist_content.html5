@@ -1,5 +1,15 @@
 <div class="ctlg_teaser block<?= $this->cssClass ?> right">
 	<div class="leistung-content <?= $this->alias ?>">
-		<?= $this->beschreibung ?>
+		<div class="leistung-content-container">
+			<div class="beschreibung">
+				<?= $this->beschreibung ?>
+			</div>
+			<div class="aufzaehlung">
+				<?= $this->aufzaehlung ?>
+			</div>
+		</div>
+		<div class="link">
+			<?= $this->link ?>
+		</div>
 	</div>
 </div>

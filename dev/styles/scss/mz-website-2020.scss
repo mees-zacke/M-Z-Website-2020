@@ -18,7 +18,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: alpha($white, 0.5);
   box-shadow: 2px 0 7px transparent;
 
  .inside{
@@ -179,6 +178,30 @@
      }
    }
  }
+  @media all and (max-width: $break2){
+    .linker-header{
+      .mobile-opener{
+        .hamburger-icon-container{
+          >p{
+            display: none;
+          }
+        }
+      }
+      .blog{
+        display: none;
+      }
+    }
+    .rechter-header{
+      .logo{
+        a{
+          max-width: 100px;
+          width: 50%;
+          min-width: 70px;
+          height: auto;
+        }
+      }
+    }
+  }
 }
     /////////////////////////////
     ////////// CUSTOM //////////
@@ -210,11 +233,16 @@
           }
         }
         .ce_player{
-          height: 100vh;
+          height: 90vh;
+          @media all and (max-width: $break2) {
+            height: 105vh;
+          }
           figure{
-            height: 500px;
+            height: 100%;
             video{
+              height: 100%;
               width: 100%;
+              object-fit: cover;
             }
           }
         }
@@ -270,6 +298,7 @@
     ////////////////////////////
 
 #footer{
+  padding-bottom: 1rem;
   a{
     @include link($color:$color3,$border:false)
   }
@@ -281,11 +310,13 @@
       }
       &-oben{
         margin-bottom: 2rem;
+        grid-row-gap: 1rem;
         .schlagworte{
           font-size: calc(#{$linkSize} * 0.8);
-          grid-column: 2/7;
+          grid-column: 2/10;
           ul{
             display: flex;
+            flex-wrap: wrap;
             li{
               color: $color3;
               &:after{
@@ -309,6 +340,24 @@
             }
           }
         }
+        @media all and (max-width: 680px) {
+          .schlagworte{
+            grid-column: 2/8;
+          }
+          #meta-nav{
+            display: flex;
+            justify-content: flex-end;
+            grid-column: 8/14;
+          }
+        }
+        @media all and (max-width: $break1) {
+          .schlagworte{
+            grid-column: 2/14;
+          }
+          #meta-nav{
+            grid-column: 2/14;
+          }
+        }
       }
       &-unten{
         .linke-spalte,.rechte-spalte{
@@ -321,8 +370,6 @@
           .ce_text{
             width: 100%;
             .text-container{
-              display: flex;
-              flex-wrap: wrap;
               >p{
                 color: $color3;
                 margin-right: 2rem;
@@ -340,6 +387,19 @@
         .rechte-spalte{
           font-size: calc(#{$linkSize} * 0.8);
           grid-column: 10/14;
+        }
+        @media all and (max-width: $break1) {
+          .linke-spalte{
+            grid-column: 2/14;
+          }
+          .rechte-spalte{
+            grid-column: 2/14;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            .ce_image, .ce_text{
+              width: fit-content;
+            }
+          }
         }
       }
     }

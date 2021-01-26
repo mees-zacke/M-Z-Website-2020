@@ -50,6 +50,12 @@ setTimeout(function() {
             classes: 'kleiner-text',
             exact: true,
           },
+          {
+              title: 'zweispaltig',
+              inline: 'span',
+              classes: 'zweispaltig',
+              exact: true,
+          },
       {
           title: 'Akkordeon Anfang',
           block: 'p',

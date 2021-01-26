@@ -1,3 +1,18 @@
 .ce_gallery {
   @include gallery-flex();
+  figure{
+    img{
+      @include transition();
+      filter: grayscale(1);
+    }
+  }
+  a{
+    &:hover, &:focus{
+      figure{
+        img{
+          filter: none;
+        }
+      }
+    }
+  }
 }

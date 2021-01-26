@@ -22,14 +22,16 @@
         position: absolute;
         bottom: 0;
         right: 0;
-        width: 5rem;
-        height: 5rem;
+        width: 25%;
+        g{
+          @include transition();
+        }
       }
       &:hover, &.active{
         svg{
-          $position: calc(-1rem - 14px);
-          bottom: $position;
-          right: $position;
+          g{
+            transform: translate(38%, 38%);
+          }
         }
       }
     }
@@ -38,7 +40,9 @@
       position: absolute;
       background-color: $white;
       border: 1px solid $color1;
-      width: 150%;
+      min-width: 100%;
+      max-width: 70vw;
+      width: 600px;
       padding: 2rem 1rem;
       z-index: 3;
       filter: drop-shadow($shadow);

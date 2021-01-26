@@ -1,5 +1,5 @@
 <div class="ctlg_teaser block<?= $this->cssClass ?> wow fadeInUp <?php if($this->width !== 'default'): ?><?= $this->origin[width] ?><?php endif;?>" leistungen="<?= $this->origin[leistungen] ?>">
-	<a href="/kunden/<?= $this->origin[alias] ?>/#projekt" title="Zu Projekten von <?= $this->kunde ?>">
+	<a href="<?= $this->masterUrl ?>#projekt" title="Zu Projekten von <?= $this->kunde ?>">
 		<div class="kunde">
 			<?= $this->bild_galerie ?>
 			<div class="hover">

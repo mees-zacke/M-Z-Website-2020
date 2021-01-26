@@ -25,4 +25,14 @@
   .gutter-sizer{
     width: 0;
   }
+  @media all and (max-width: $break1){
+    .grid-sizer, .ctlg_teaser{
+      width: 50%;
+    }
+    .ctlg_teaser{
+      &.width-2, &.width-3{
+        width: 100%;
+      }
+    }
+  }
 }

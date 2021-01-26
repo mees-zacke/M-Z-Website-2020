@@ -3,6 +3,7 @@
     height: 100%!important;
     .rsts-crop{
       height: 100% !important;
+      background: linear-gradient(90deg, alpha($black, 0.4) 60%, rgba(0,0,0,0) 100%);
       .rsts-slides{
         height: 100% !important;
         .rsts-slide{
@@ -14,11 +15,13 @@
   .rsts-slide {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     .ce_text {
       overflow: visible;
-
+      margin-left: 10vw;
+      max-width: 70vw;
+      
       >*{
         font-size: $h3Size;
         font-family: $font1;
@@ -26,13 +29,10 @@
       }
 
       h2 {
-        background-color: alpha($white, 0.9);
         border-radius: 2px;
-        padding: $abstandElemente;
         min-width: 40vw;
         position: relative;
-        margin-right: 20vw;
-        filter: drop-shadow($shadow);
+        color: $white;
 
         &:before {
           position: absolute;
@@ -46,16 +46,30 @@
 
       p {
         width: fit-content;
-        background-color: $color1;
         color: $white;
         padding: $abstandElemente;
-        box-shadow: $shadow;
         &:nth-of-type(1){
-          margin-left: 20vw;
+          margin-left: 15vw;
         }
         &:nth-of-type(2){
-          margin-left: 10vw;
-          margin-right: 10vw;
+          margin-left: 12.5vw;
+        }
+      }
+    }
+  }
+  @media all and (max-width: $break3) {
+    .rsts-slide{
+      .ce_text{
+        margin-left: calc(#{$abstandAussen} + 2vw);
+      }
+    }
+  }
+  @media all and (max-width: $break2) {
+    .rsts-slide{
+      .ce_text{
+        max-width: 80vw ;
+        p:first-of-type{
+          margin-left: 5vw;
         }
       }
     }

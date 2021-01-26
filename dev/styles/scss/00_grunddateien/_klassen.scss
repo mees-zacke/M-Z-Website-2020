@@ -5,6 +5,14 @@
 .kleiner-text{
   font-size: $linkSize;
 }
+.zweispaltig{
+  columns: 2;
+  display: block;
+  column-gap: 1rem;
+  @media all and (max-width: $break1){
+    columns: 1;
+  }
+}
 .rot{
   color: $color1;
 }

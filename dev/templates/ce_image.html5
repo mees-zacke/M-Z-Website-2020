@@ -12,6 +12,20 @@
             <?php if ($this->copyright): ?>
                 <span class="imageCopy">&copy; <?= $this->copyright ?></span>
             <?php endif; ?>
+            <?php if($this->singleSRC2): ?>
+            <?php if (null !== ($objHoverFile = \FilesModel::findByUuid($this->singleSRC2))) {
+            $objImageTemplate = new stdClass();
+            \Controller::addImageToTemplate($objImageTemplate, [
+            'singleSRC' => $objHoverFile->path,
+            'size' => $this->size,
+            'alt' => $objHoverFile->alt,
+            'title' => $objHoverFile->title,
+            ],
+            \Config::get('maxImageWidth'), null, $objHoverFile);
+            $this->insert('image_hover', (array) $objImageTemplate);
+            }
+            ?>
+            <?php endif; ?>
         <?php if ($this->href): ?>
             </div>
         </a>

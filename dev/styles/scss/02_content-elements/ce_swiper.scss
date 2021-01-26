@@ -57,9 +57,46 @@
       @include link($color:lightness($color1, 45%),$colorHover:$white, $border:true)
     }
   }
+  &.kundenstimmen{
+    &:before{
+      color: $white;
+    }
+    .swiper-container{
+      margin-right: 3rem;
+      .ce_text{
+        display: flex;
+        align-items: center;
+      }
+    }
+    @media all and (max-width: $break1){
+      align-items: flex-start;
+      &:before{
+        margin: 0 1rem;
+      }
+      .swiper-container{
+        margin-right: 1rem;
+        .ce_text{
+          align-items: flex-start;
+        }
+      }
+    }
+  }
   &.verschiedene-breiten{
     *{
       width: fit-content;
+    }
+  }
+  .swiper-container{
+    .swiper-wrapper{
+      >* {
+        width: 25%;
+        @media all and (max-width: $break2) {
+          width: (100% / 3) !important;
+        }
+        @media all and (max-width: $break1) {
+          width: 75% !important;
+        }
+      }
     }
   }
 }
