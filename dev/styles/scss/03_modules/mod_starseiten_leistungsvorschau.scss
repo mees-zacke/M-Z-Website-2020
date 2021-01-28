@@ -6,7 +6,8 @@
       &teaser_leist_trigger {
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
+        padding-top: 5px;
+        padding-bottom: 1.5rem;
 
         .ctlg_teaser {
           overflow: visible;
@@ -114,9 +115,10 @@
 
         position: relative;
         overflow: hidden;
-        @include transition();
+        @include transition(1s);
         border-top: 1px solid $color1;
         border-bottom: 1px solid $color1;
+        margin-top: -4rem;
 
         .ctlg_teaser {
           width: 100%;
@@ -174,9 +176,14 @@
     @media all and (max-width: $break2) {
       .ctlg_view_ {
         &teaser_leist_trigger {
+          font-size: $linkSize;
+          overflow-x: scroll;
           .ctlg_teaser {
-            width: (100% / 3);
-
+            min-width: 120px;
+            .image_container{
+              width: 30px;
+              height: 35px;
+            }
             .leistung-trigger {
               height: 115px;
               padding: 1rem 1rem;
@@ -204,7 +211,10 @@
       .ctlg_view_ {
         &teaser_leist_trigger {
           .ctlg_teaser {
-            width: (100% / 2);
+            .image_container{
+              width: 30px;
+              height: 35px;
+            }
 
             .leistung-trigger {
               height: 100px;
@@ -213,6 +223,7 @@
           }
         }
         &teaser_leist_content {
+          transition-duration: 1s;
           .ctlg_teaser{
           }
         }

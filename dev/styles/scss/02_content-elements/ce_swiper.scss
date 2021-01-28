@@ -1,4 +1,11 @@
 .ce_swiperStart{
+
+  .ce_image.swiper-slide{
+    figure{
+      margin-bottom: 0;
+    }
+  }
+
   .textblock{
     .text{
       background: $color1;
@@ -44,6 +51,7 @@
     .ce_image.swiper-slide{
       overflow: visible;
       figure{
+        margin-bottom: 0;
         overflow: visible;
       }
       img{
@@ -86,15 +94,17 @@
       width: fit-content;
     }
   }
-  .swiper-container{
-    .swiper-wrapper{
-      >* {
-        width: 25%;
-        @media all and (max-width: $break2) {
-          width: (100% / 3) !important;
-        }
-        @media all and (max-width: $break1) {
-          width: 75% !important;
+  &:not(.swiper-mode-fade){
+    .swiper-container{
+      .swiper-wrapper{
+        >* {
+          width: 25%;
+          @media all and (max-width: $break2) {
+            width: (100% / 3) !important;
+          }
+          @media all and (max-width: $break1) {
+            width: 75% !important;
+          }
         }
       }
     }

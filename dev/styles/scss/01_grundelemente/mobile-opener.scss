@@ -59,7 +59,7 @@
   .hamburger-icon-container{
     >p{
       @include transition($affects:color);
-      color: $color2;
+      color: $white;
     }
     &:hover, &:focus{
       >p{

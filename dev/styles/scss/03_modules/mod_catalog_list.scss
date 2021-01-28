@@ -23,6 +23,9 @@
         width: 60%;
         padding: $abstandElemente;
         position: absolute;
+        @media all and (max-width: $break1){
+          width: 100%;
+        }
         h1{
           font-weight: 600;
         }

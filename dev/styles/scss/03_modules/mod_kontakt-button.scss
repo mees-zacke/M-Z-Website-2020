@@ -47,31 +47,32 @@
     z-index: 300;
     padding: $abstandElemente;
     font-size: $linkSize;
-    background: $color1;
+    background: $white;
+    border: 1px solid $color1;
     .head{
       font-size: $h3Size;
       font-weight: 600;
-      color: $white;
+      color: $color1;
       p{
         margin-bottom: 1rem;
       }
     }
     .kontakt-form{
-      color: $white;
+      color: $fontColor;
       .ce_form{
         font-size: calc(#{$linkSize} * 0.8);
         label .mandatory{
-          color: $white;
+          color: $color1;
         }
         .kontakt-buttons{
           display: flex;
           justify-content: flex-end;
           >div{
             position: relative;
-            fill: $white;
+            fill: $color1;
             margin-left: 1rem;
             a{
-              border: 1px $white solid;
+              border: 1px $color1 solid;
               box-sizing: content-box;
               padding: 10px;
               display: flex;

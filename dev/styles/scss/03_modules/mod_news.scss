@@ -1,66 +1,42 @@
 .mod_newslist{
-  &.news_latest-list{
-    @include news-list($counter: 2)
-  }
-  .layout_short{
-    font-size: $teaserSize;
-    .active{
-      font-weight: 600;
+  h2{
+    &:before{
+      content: "+";
+      color: $color1;
+      margin-right: 0.25em;
     }
   }
-  .layout_full{
-    .content{
-      @include grid();
+  .news-content{
+    @include news-list();
+    a{
+      color: $fontColor;
+      margin-bottom: 1rem;
+      .image_container{
+        width: 100%;
+        &.no-image{
+          padding-top: 50%;
+          background-image: url("/files/layout/images/mz-platzhalter.jpg");
+          background-size: contain;
+        }
+      }
+      .more-container{
+        margin-bottom: 0;
+        font-size: $linkSize;
+      }
+      &:hover, &:focus{
+        color: $color1;
+      }
     }
   }
 }
-
-.mod_newsreader{
-  .layout_full{
-    .content{
-      @include grid();
-    }
+.layout_full{
+  max-width: 900px;
+  .breadcrumb{
+    margin-bottom: 5rem;
   }
 }
 
-.mod_newslist.news_full-list, .mod_newsreader{
-  @media all and (max-width: $break2) {
-    grid-column: 2/-2;
-  }
-}
-
-.mod_newslist.linke-spalte{
-  @include transition();
-  overflow: visible;
-  .left-bar-opener{
-    position: absolute;
-    left: 100%;
-    top: -2px;
-    height: 50px;
-    width: 50px;
-    padding: 8px;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background-color: $color1;
-    svg{
-      fill: $white;
-    }
-  }
-  @media all and (max-width: $break2){
-    position: absolute;
-    left: -100%;
-    top: -106px;
-    padding: 1rem;
-    border: 2px solid $color1;
-    border-left: none;
-    background-color: white;
-    max-width: 80vw;
-    .left-bar-opener{
-      display: flex;
-    }
-    &.active{
-      left: 0 !important;
-    }
-  }
+.blog-headline{
+  font-weight: 600;
+  font-size: calc(#{$h1Size} * 1.5);
 }

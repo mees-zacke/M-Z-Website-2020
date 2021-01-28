@@ -78,7 +78,7 @@
     &-bullets{
       right: 0;
       left: 0;
-      bottom: 60px;
+      bottom: 20px;
       text-align: center;
       ul{
         .rsts-nav-item{
@@ -94,7 +94,7 @@
             filter: drop-shadow($shadow);
             background-color: transparent;
             svg{
-              @include transition();
+              @include transition($time: 1500ms);
               position: absolute;
               top: 0;
               left: 0;

@@ -1,0 +1,18 @@
+<div class="layout_latest arc_<?= $this->archive->id ?> block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
+
+  <a href="<?= $this->link ?>" title="<?= $this->linkTitle; ?>" class="link-block" itemprop="url">
+
+    <figure class="image_container<?= $this->floatClass ?><?php if (!$this->addImage): ?> no-image<?php endif; ?>" itemscope="" itemtype="http://schema.org/ImageObject" itemprop="associatedMedia">
+      <?php if ($this->addImage): ?>
+       <?php $this->insert('picture_default', $this->picture); ?>
+      <?php endif; ?>
+    </figure>
+
+    <?php if ($this->hasText || $this->hasTeaser): ?>
+    <div class="more-container">
+      <p class="more weiterlesen" itemprop="name"><?= $this->headline ?></p>
+    </div>
+    <?php endif; ?>
+  </a>
+
+</div>

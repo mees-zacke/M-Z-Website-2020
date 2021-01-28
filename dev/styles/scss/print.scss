@@ -1,77 +1,61 @@
 @media print {
-  *, body {
-    font: 10pt Arial, Verdana, sans-serif;
-  }
-  img {
-    filter: grayscale(100%);
-
-  }
-  h1,h2,h3,h4,h5,h6 {
-    color: black!important;
-  }
-  .meta, .headersection-1-social, .headersection-2-menu {
-    display: none!important;
-  }
-  .imageCopy {
-    left: 0;
-    right: initial;
-  }
-  .partner-wrapper {
-    img {
-      max-width: 200px;
+  body{
+    font-size: $min-fontSize-rem !important;
+    .teaser{
+      font-size: $min-teaserSize-rem !important;
     }
-  }
-  .headersection-1-wrapper {
-    float: left;
-  }
-  .headersection-2-wrapper {
-    background: none!important;
-    img {
-      filter: invert(1);
+    .kleiner-text{
+      font-size: $min-linkSize-rem !important;
     }
-  }
-  .mitHintergrundbild {
-    background: linear-gradient(black, black), url("/files/daten/hintergrundbilder/Kopfbild-KI.jpg")!important;
-    background-blend-mode: saturation!important;
-  }
-  .leaflet-container {
-    img {
-      filter: grayscale(1)!important;
+    h1{
+      font-size: $min-h1Size-rem !important;
     }
-  }
-  body {
-    #wrapper {
-      #header {
-        .inside {
-          .mod_article {
-            display: none;
-          }
+    h2{
+      font-size: $min-h2Size-rem !important;
+    }
+    h3{
+      font-size: $min-h3Size-rem !important;
+    }
+    .no-print{
+      display: none !important;
+    }
+    .wow{
+      visibility: visible !important;
+    }
+    #header{
+      position: relative !important;
+      .linker-header{
+        .mobile-opener{
+          display: none!important;
         }
-
-      }
-
-      #footer {
-        background-color: initial!important;
-        color: black!important;
-        .inside {
-          display: block!important;
-          >* {
-            float: left;
-            margin-right: 20px;
-          }
-          .bildAnsprechpartner {
-            img {
-              max-width: 80px;
-            }
-          }
-          .traeger {
-            img {
-              filter: invert(1);
-            }
-          }
+        .suche {
+          display: none !important;
+        }
+        .barrierefrei-buttons{
+          display: none!important;
         }
       }
     }
-  }
+    #mobile-menu, .mobile-menu{
+      display: none!important;
+    }
+    .custom{
+      margin-top: 0!important;
+    }
+    #kopfbild{
+    }
+    #main{
 
+    }
+    .ce_comments{
+      .form{
+        display: none !important;
+      }
+    }
+    #footer{
+      #meta-nav{
+        display: none!important;
+      }
+    }
+  }
 }

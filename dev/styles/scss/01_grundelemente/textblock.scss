@@ -7,13 +7,6 @@
     a{
       @include link();
     }
-    ul{
-      li{
-        &:before{
-          color: $white;
-        }
-      }
-    }
   }
   &.volle-hoehe{
     .text{

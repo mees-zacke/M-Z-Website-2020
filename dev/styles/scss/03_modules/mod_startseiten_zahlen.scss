@@ -6,7 +6,7 @@
       flex-wrap: wrap;
 
       .ctlg_teaser {
-        width: 25%;
+        width: 20%;
 
         &:last-of-type {
           margin-right: 0;
@@ -44,9 +44,9 @@
         justify-content: center;
 
         div {
+          padding: 0 1rem;
           text-align: center;
           font-size: $linkSize;
-          width: 150px;
         }
       }
     }

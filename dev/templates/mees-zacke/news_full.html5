@@ -1,19 +1,12 @@
-<div class="layout_full block<?= $this->class ?>" newsId="<?= $this->id ?>" itemscope itemtype="http://schema.org/Article">
 
-  <h1 itemprop="name"><?= $this->newsHeadline ?></h1>
+<div class="layout_full block<?= $this->class ?>" itemscope itemtype="http://schema.org/Article">
 
-  <?php if ($this->hasMetaFields): ?>
-    <p class="info"><time datetime="<?= $this->datetime ?>" itemprop="datePublished"><?= $this->date ?></time> <?= $this->author ?> <?= $this->commentCount ?></p>
-  <?php endif; ?>
-
-  <?php if ($this->hasSubHeadline): ?>
-    <h2 itemprop="headline"><?= $this->subHeadline ?></h2>
-  <?php endif; ?>
+  <div class="breadcrumb">
+    <strong><?= $this->categories["1"]["title"] ?> </strong><span>/ <?= $this->headline ?></span>
+  </div>
 
   <?php if ($this->hasText): ?>
-  <div class="content">
     <?= $this->text ?>
-  </div>
   <?php else: ?>
     <div class="ce_text block">
       <?php if (!$this->addBefore): ?>
@@ -30,13 +23,4 @@
     </div>
   <?php endif; ?>
 
-  <?php if ($this->enclosure): ?>
-    <ul class="enclosure">
-      <?php foreach ($this->enclosure as $enclosure): ?>
-        <li class="download-element ext-<?= $enclosure['extension'] ?>">
-           <a href="<?= $enclosure['href'] ?>" title="<?= $enclosure['title'] ?>"><?= $enclosure['link'] ?> <span class="size">(<?= $enclosure['filesize'] ?>)</span></a>
-        </li>
-      <?php endforeach; ?>
-    </ul>
-  <?php endif; ?>
 </div>

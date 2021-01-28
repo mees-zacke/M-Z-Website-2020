@@ -11,7 +11,7 @@ var
 
 
 function makeSass() {
-	return src(['dev/styles/scss/**/style.scss', 'dev/styles/scss/**/tinymce.scss','dev/styles/scss/**/mz_be.scss','dev/styles/scss/**/print.scss'])
+	return src(['dev/styles/scss/**/style.scss', 'dev/styles/scss/**/tinymce.scss','dev/styles/scss/**/mz_be.scss'])
 			.pipe(sass()).on('error', sass.logError)
 			.pipe(dest('dev/styles/css'));
 }

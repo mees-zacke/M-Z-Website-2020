@@ -102,4 +102,34 @@
       }
     }
   }
+  &:not(.team-mitglied){
+    @media all and (max-width: $break2)  {
+      &.start-vorschau-links, &.start-vorschau-rechts{
+        width: 130%;
+      }
+      &.start-vorschau-rechts{
+        margin-left: -30%;
+      }
+    }
+    @media all and (max-width: $break1)  {
+      &.start-vorschau-links, &.start-vorschau-rechts{
+        margin-top: -6rem;
+        width: 100%;
+        .image_container{
+          width: 70%;
+        }
+      }
+      &.start-vorschau-rechts{
+        margin-left: 0;
+        .image_container{
+          margin-left: auto;
+        }
+      }
+      &.start-vorschau-links{
+        .image_container{
+          margin-right: auto;
+        }
+      }
+    }
+  }
 }

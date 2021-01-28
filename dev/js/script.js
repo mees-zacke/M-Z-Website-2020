@@ -19,7 +19,7 @@ jQuery(function ($) {
     }
 //// JS-Module /////////////////////////////////////////////
 
-    $('body a').on('click touch keypress', function (){
+    $('body a').on('click touch keypress', function () {
         $('body a').not(this).removeClass('clicked');
         $(this).addClass('clicked');
     });
@@ -88,12 +88,27 @@ jQuery(function ($) {
         $(this).toggleClass('active')
     });
 
+    function mediaQuery(x) {
+        $('.start-vorschau-links').each(function (){
+
+            if (x.matches) { // If media query matches
+                $(this).insertAfter($(this).next(".ce_image"));
+            } else {
+                $(this).insertBefore($(this).prev(".ce_image"));
+            }
+        })
+    }
+
+    var x = window.matchMedia("(max-width: 480px)")
+    mediaQuery(x) // Call listener function at run time
+    x.addListener(mediaQuery) // Attach listener function on state changes
+
 //// Startseiten-Zahlen ////
 
     var zahl_container = $('.ctlg_view_teaser_zahlen .zahlen-container'),
         text_container = $('.ctlg_view_teaser_zahlen .text-container');
 
-    function checkVisible( elm, eval ) {
+    function checkVisible(elm, eval) {
         eval = eval || "object visible";
         var viewportHeight = $(window).height(), // Viewport Height
             scrolltop = $(window).scrollTop(), // Scroll Top
@@ -104,14 +119,14 @@ jQuery(function ($) {
         if (eval == "above") return ((y < (viewportHeight + scrolltop)));
     }
 
-    if ($('body').hasClass('startseite') === true){
-        $(window).on('scroll',function growNumbers() {
+    if ($('body').hasClass('startseite') === true) {
+        $(window).on('scroll', function growNumbers() {
             if (checkVisible(zahl_container)) {
                 zahl_container.each(function () {
                     var delay = Math.floor((Math.random() * 1000) + 1);
 
                     var $this = $(this).children('.zahl');
-                    $({ Counter: 0 }).delay(delay).animate({ Counter: $this.attr('zahl') }, {
+                    $({Counter: 0}).delay(delay).animate({Counter: $this.attr('zahl')}, {
                         duration: 1000,
                         easing: 'swing',
                         step: function () {
@@ -119,7 +134,10 @@ jQuery(function ($) {
                         }
                     });
                     var $background = $(this).children('.background');
-                    $background.delay(delay).animate({width: $(this).width() + "px", height:$(this).height() + "px"}, 1000)
+                    $background.delay(delay).animate({
+                        width: $(this).width() + "px",
+                        height: $(this).height() + "px"
+                    }, 1000)
                     $(this).siblings().addClass("fadeInUp animated")
                 })
                 $(window).off('scroll', growNumbers);
@@ -182,10 +200,9 @@ jQuery(function ($) {
         $(this).siblings('.text').toggleClass('active').fadeToggle();
         $(this).toggleClass('active');
         console.log($(this).hasClass('active'));
-        if ($(this).hasClass('active') === false){
+        if ($(this).hasClass('active') === false) {
             $(this).parent().css("margin-bottom", "1rem");
-        }
-        else {
+        } else {
             $(this).parent().css("margin-bottom", ($(this).siblings('.text').height() + 44));
         }
 
@@ -199,34 +216,34 @@ jQuery(function ($) {
     var kontaktForm = $('.kontakt-button-container');
     var kontaktOpener = kontaktForm.children('.kontakt-opener');
 
-    kontaktOpener.on('click keydown' , function (){
-       kontaktForm.toggleClass('active');
+    kontaktOpener.on('click keydown', function () {
+        kontaktForm.toggleClass('active');
     });
-    kontaktOpener.on('click keydown mouseover', function (){
+    kontaktOpener.on('click keydown mouseover', function () {
         kontaktForm.addClass('clicked');
-        localStorage.setItem("kontaktOpened" , "true");
+        localStorage.setItem("kontaktOpened", "true");
     });
 
-    $(document).on('click keydown', function(event) {
+    $(document).on('click keydown', function (event) {
         var $target = $(event.target);
-        if(!$target.closest(kontaktForm).length &&
+        if (!$target.closest(kontaktForm).length &&
             kontaktForm.hasClass('active')) {
             kontaktForm.removeClass('active');
         }
     });
 
-    $(window).on("load", function (){
+    $(window).on("load", function () {
         kontaktForm.css("right", "-" + kontaktForm.width() + "px")
         kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
     });
-    $(window).resize(function (){
+    $(window).resize(function () {
         kontaktForm.css("right", "-" + kontaktForm.width() + "px")
         kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
     });
 
 
-    $(window).ready(function (){
-        if (localStorage.kontaktOpened === 'true'){
+    $(window).ready(function () {
+        if (localStorage.kontaktOpened === 'true') {
             kontaktForm.addClass('clicked')
         }
     })
@@ -234,7 +251,7 @@ jQuery(function ($) {
 
 // Blog aktiver Punkt
 
-    $(window).ready(function(){
+    $(window).ready(function () {
         var activeNews = $('.layout_full').attr('newsId'),
             newsList = $(".layout_short[newsId='" + activeNews + "']");
 
@@ -246,7 +263,7 @@ jQuery(function ($) {
 
 // Startslider Plus Navigation
 
-    $(window).ready(function(){
+    $(window).ready(function () {
         var plus = $('#kopfbild .plus-container'),
             navPoints = $('.mod_rocksolid_slider .rsts-nav .rsts-nav-item a');
         plus.appendTo(navPoints);
@@ -254,7 +271,7 @@ jQuery(function ($) {
 
 // Startseite Pfeil nach unten Scrolling
 
-    $('.pfeil-unten').on("click touchend keyup", function(){
+    $('.pfeil-unten').on("click touchend keyup", function () {
         var headline = $('h1');
         $('html, body').animate({
             scrollTop: (headline.offset().top - 16)
@@ -263,40 +280,13 @@ jQuery(function ($) {
 
 // Kunden Detail Titel
 
-    $(window).ready(function (){
+    $(window).ready(function () {
         var kopfbild = $('.ctlg_master .head'),
-        kundeTitel = $('.kunde-title');
+            kundeTitel = $('.kunde-title');
         kopfbild.css('marginBottom', 'calc((' + kundeTitel.height() + 'px + 6rem) - ' + kundeTitel.children('h1').height() + 'px - 0.5rem)');
-        kundeTitel.css('top', 'calc( 100% - ' + kundeTitel.children('h1').height() +'px - 0.5rem - 1rem');
+        kundeTitel.css('top', 'calc( 100% - ' + kundeTitel.children('h1').height() + 'px - 0.5rem - 1rem');
 
 
-    });
-
-// Blogliste Tablett/Mobile //
-
-    $(window).ready(function (){
-       $(".linke-spalte").css("left", "-" + $(".linke-spalte").outerWidth() + "px");
-    });
-    $(window).resize(function (){
-        $(".linke-spalte").css("left", "-" + $(".linke-spalte").outerWidth() + "px");
-    });
-
-    $(".left-bar-opener").on("click touch keypress", function (){
-       $(this).parent(".linke-spalte").toggleClass("active");
-    });
-    $(".linke-spalte").on("focusin", function (){
-        $(this).addClass("active");
-    });
-    $(".linke-spalte").on("focusout", function (){
-        $(this).removeClass("active");
-    });
-
-    $(document).on('click keydown', function(event) {
-        var $target = $(event.target);
-        if(!$target.closest($(".linke-spalte")).length &&
-            $(".linke-spalte").hasClass('active')) {
-            $(".linke-spalte").removeClass('active');
-        }
     });
 
 // Mobile Menu //
@@ -305,35 +295,53 @@ jQuery(function ($) {
         opener_mobile = $('.mobile-menu .mobile-opener'),
         mobileMenu = $('.mobile-menu');
 
-    function mobileMenuOpen (){
+    function mobileMenuOpen() {
         mobileMenu.addClass('active');
         mobileMenu.focus();
     }
-    function mobileMenuClose (){
+
+    function mobileMenuClose() {
         mobileMenu.removeClass('active');
         $('#kopfbild').focus();
     }
 
-    mobileMenu.on('focusin', function (){
+    mobileMenu.on('focusin', function () {
         mobileMenuOpen();
     });
-    mobileMenu.on('focusout', function (){
+    mobileMenu.on('focusout', function () {
         mobileMenuClose()
     });
 
-    opener_head.on('click touch keypress', function (){
+    opener_head.on('click touch keypress', function () {
         mobileMenuOpen();
     });
-    opener_mobile.on('click touch keypress', function (){
+    opener_mobile.on('click touch keypress', function () {
         mobileMenuClose();
     });
 
-    $(window).ready(function (){
-        mobileMenu.css("top" , "-" + (mobileMenu.height() + 10) + "px")
+    $(window).ready(function () {
+        mobileMenu.css("top", "-" + (mobileMenu.height() + 10) + "px")
     });
-    $(window).resize(function (){
-        mobileMenu.css("top" , "-" + (mobileMenu.height() + 10) + "px")
+    $(window).resize(function () {
+        mobileMenu.css("top", "-" + (mobileMenu.height() + 10) + "px")
     });
+
+    // Mute Button für Head Video //
+
+    var video = $(".head-video video")
+
+    $('.video-mute-button').on("click touch keypress", function (){
+        if (!$(this).hasClass("active")){
+            video.prop('muted', false);
+            $(this).addClass("active");
+        }
+        else {
+            console.log("hey")
+            video.prop('muted', true);
+            $(this).removeClass("active");
+        }
+    });
+
 
 ////////////////////////////////////////////////////////////
 });
