@@ -48,7 +48,7 @@ function phpScript() {
 
 // Transports
 function templates() {
-	return src('dev/templates/**/*.+(html|html5|tl)')
+	return src('dev/templates/**/*.+(html|html5|tl|php)')
 			.pipe(dest('dist/templates'))
 }
 /*function fontawesome() {
@@ -56,6 +56,11 @@ function templates() {
 		.pipe(dest('dist/files/layout/'));
 
 }*/
+
+function favicons() {
+	return src('dev/favicons/**/*')
+			.pipe(dest('dist/files/layout/favicons'))
+}
 
 function ymlTransport() {
 	return src('dev/config/*.yml')
@@ -128,6 +133,7 @@ function watcher() {
 	watch('dev/styles/scss/**/*.scss',style);
 	watch('dev/fonts/**', fontsTransport);
 	watch('dev/templates/**/*.+(html|html5|tl)', templates);
+	watch('dev/favicons/**/*', favicons)
 	watch('dev/js/**/*.js', javaScript);
 	watch('dev/php/**/*.php', phpScript);
 	watch('dev/web/websites/**', webTransfer);
@@ -153,7 +159,7 @@ function clear() {
 
 // Complex Tasks
 const style = series(makeSass, compressCSS, makeCSS);
-const copy = series(templates/*,fontawesome*/,webTransfer, ymlTransport, appResTransport, fontsTransport);
+const copy = series(templates/*,fontawesome*/, webTransfer, favicons, ymlTransport, appResTransport, fontsTransport);
 const pwa = series(pwaFiles, pwaWeb);
 const build = series(clear, parallel(style, javaScript, copy, images, animateCss));
 

@@ -1,5 +1,8 @@
 .ce_comments {
   padding-left: 2rem;
+  .mod_newsreader &{
+    max-width: 900px;
+  }
 
   .comment_default {
     padding: 2rem 0;

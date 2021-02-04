@@ -40,7 +40,19 @@
       display: block;
       position: relative;
       @include hover-scale-up-inner($time:$hoverTime,$scale:$hoverScale);
-      @include button-push-inner($time:$pushTime,$scale:$pushScale);
+    }
+    .greyscale & {
+      img{
+        transition: filter 0.3s ease-in-out, transform 0.3s $bounceTransition;
+        filter: grayscale(1);
+      }
+      a{
+        &:hover, &:focus{
+          img{
+            filter: none;
+          }
+        }
+      }
     }
   }
 }

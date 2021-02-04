@@ -8,8 +8,8 @@
     .image_container{
       position: relative;
       overflow: hidden;
+      z-index: 1;
       margin-bottom: 36px;
-      filter: drop-shadow($shadow);
       cursor: pointer;
       transition: 0.3s ease;
       transition-property: transform, filter;
@@ -45,7 +45,6 @@
       width: 600px;
       padding: 2rem 1rem;
       z-index: 3;
-      filter: drop-shadow($shadow);
       transition-duration: 0.4s;
       transition-timing-function: ease;
       transition-property: transform, filter;

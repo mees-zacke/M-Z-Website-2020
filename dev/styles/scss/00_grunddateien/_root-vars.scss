@@ -3,30 +3,31 @@
 body{
   @include defineColorHSL(--color1-red, 357, 100%, 45%);
   @include defineColorHSL(--color2-grey, 150, 1%, 44%);
+  @include defineColorHSL(--color3-lightgrey, 0, 0%, 60%);
   @include defineColorHSL(--color-black, 0, 0%, 0%);
   @include defineColorHSL(--color-white, 0, 0%, 100%);
+  @include defineColorHSL(--color-all-white, 0, 0%, 100%);
+  --color-border: hsla(0,0%,0%,0);
+  --color-border-revert: hsla(0,0%,0%,0);
+
   &.black{
     @include defineColorHSL(--color1-red, 357, 100%, 45%);
     @include defineColorHSL(--color2-grey, 0, 0%, 100%);
+    @include defineColorHSL(--color3-lightgrey, 0, 0%, 100%);
     @include defineColorHSL(--color-black, 0, 0%, 100%);
     @include defineColorHSL(--color-white, 0, 0%, 0%);
-    .referenzen-slider, .kontakt-button-container{
-      @include defineColorHSL(--color-white, 0, 0%, 100%);
-    }
-    #header{
-      background-color: $white;
-    }
-    #kopfbild .mod_rocksolid_slider .rsts-slide .ce_text *{
-      color: $black;
-    }
+    @include defineColorHSL(--color-all-white, 0, 0%, 100%);
+    @include defineColorHSL(--color-border, 0, 0%, 100%);
+    @include defineColorHSL(--color-border-revert, 0, 0%, 0%);
   }
   &.white{
     @include defineColorHSL(--color1-red, 357, 100%, 45%);
     @include defineColorHSL(--color2-grey, 0, 0%, 0%);
+    @include defineColorHSL(--color3-lightgrey, 0, 0%, 0%);
     @include defineColorHSL(--color-black, 0, 0%, 0%);
     @include defineColorHSL(--color-white, 0, 0%, 100%);
-    .referenzen-slider{
-      @include defineColorHSL(--color-black, 0, 0%, 100%);
-    }
+    @include defineColorHSL(--color-all-white, 0, 0%, 100%);
+    @include defineColorHSL(--color-border, 0, 0%, 0%);
+    @include defineColorHSL(--color-border-revert, 0, 0%, 100%);
   }
 }

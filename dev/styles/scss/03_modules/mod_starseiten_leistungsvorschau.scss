@@ -11,7 +11,7 @@
 
         .ctlg_teaser {
           overflow: visible;
-          width: (100% / 6);
+          width: 16%;
 
           .leistung-trigger {
             @include transition();
@@ -129,16 +129,16 @@
           .leistung-content-container {
             width: 100%;
             display: flex;
-            justify-content: space-between;
             .beschreibung{
               padding-right: 2rem;
-              width: 100%;
+              width: 50%;
               > *:last-child {
                 margin: 0;
               }
             }
             .aufzaehlung{
-              width: 50%;
+              margin-left: 2rem;
+              width: 30%;
 
               ul {
                 > li {

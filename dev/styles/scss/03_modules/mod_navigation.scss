@@ -6,3 +6,37 @@
         }
     }
 }
+#meta-nav{
+    display: flex;
+    align-items: baseline;
+    .color-switch{
+        @include link($color:$color3);
+        &:before{
+            content: "|";
+            color: $color1;
+            margin: 0 0.5em;
+        }
+        display: flex;
+        align-items: baseline;
+        p{
+            @include transition();
+            margin-bottom: 0;
+            border-bottom: 1px solid transparent;
+        }
+        svg{
+            @include transition();
+            margin-left: 0.25em;
+            width: 0.75em;
+            height: 0.75em;
+            fill: $color3;
+        }
+        &:hover, &:focus{
+            p{
+                border-color: $borderColor;
+            }
+            svg{
+                fill: $color1;
+            }
+        }
+    }
+}

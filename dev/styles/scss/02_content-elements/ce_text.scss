@@ -1,4 +1,5 @@
 .ce_text {
+  margin-bottom: 1.25em;
   p, h1, h2, h3, h4, h5, h6 {
     & + ul, & + ol {
       margin-top: -1em;
@@ -57,11 +58,9 @@
   }
 
   .text{
-    .text-container{
       >*:last-child {
         margin-bottom: 0;
       }
-    }
   }
   @media all and (max-width: $break1){
     padding: 0 1rem;

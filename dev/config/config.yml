@@ -88,7 +88,7 @@ contao:
                 cssClass: '2zu1-image'
                 densities: '1x, 2x'
                 sizes: '100vw'
-                lazy_loading: true
+                lazy_loading: false
                 items:
                     - width: 1200
                       height: 600
@@ -119,7 +119,7 @@ contao:
                 cssClass: '2zu1-image'
                 densities: '1x, 2x'
                 sizes: '100vw'
-                lazy_loading: true
+                lazy_loading: false
                 items:
                     - width: 1200
                       height: 900

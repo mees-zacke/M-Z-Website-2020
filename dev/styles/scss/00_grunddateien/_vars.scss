@@ -33,9 +33,11 @@ $row-gap: (3 * $abstandElemente);
 $transitionTime: 0.3s;
 $buttonPushScale: 0.8;
 $imageHoverScale: 1.2;
+$bounceTransition: cubic-bezier(0.550, 1.650, 0.700, 0.985);
+
 
 /////////// Galerien ///////////
-$galerieAbstand: 2%;
+$galerieAbstand: 10%;
 $galerieAbstandRow: $galerieAbstand;
 
 ////////////////////////////////
@@ -45,8 +47,10 @@ $white: var(--color-white);
 $black: var(--color-black);
 $color1: var(--color1-red);
 $color2: var(--color2-grey);
-$color3: lightness($black , 60%);
+$color3: var(--color3-lightgrey);
 $color4: cyan;
+$borderColor: var(--color-border);
+
 $backgroundColor1: $white;
 
 $shadow: 2px 2px 3px alpha($black, 0.7);
@@ -181,36 +185,39 @@ $MZplusColor: $color2;
   height: calc(#{$width} / #{$aspectRatio});
 }
 
-@mixin link($color:$linkColor, $colorHover:$linkColorHover, $colorActive:lightness($linkColorHover, -20%), $border:false) {
+@mixin link($color:$linkColor, $colorHover:$linkColorHover, $border:"none", $borderHover:$colorHover, $colorOnly: false, $colorActive:lightness($linkColorHover, -40%)) {
   @include transition();
   cursor: pointer;
-  color: $color;
   text-decoration: none;
   font-weight: $linkWidth;
-  @if $border{
+  color: $color;
+
+  @if($colorOnly){
     border-bottom: 1px solid transparent;
   }
-  @else{
+  @else if($border != "none"){
+    border-bottom: 1px solid $border;
+  }
+  @else {
     border-bottom: none;
   }
 
   &:hover, &:focus {
-    color: $colorHover;
-    @if $border{
-      border-color: $colorHover;
+    color: $linkColorHover;
+    @if($colorOnly){
+      border-color: $borderColor;
     }
-
+    @else if($border != "none"){
+      border-color: $borderHover;
+    }
   }
   &:active {
     color: $colorActive;
-    @if $border{
-      border-color: $colorActive;
-    }
   }
 }
 
 @mixin hover-scale-up($time:$transitionTime,$scale:$imageHoverScale) {
-  transition: transform ease-out $time;
+  transition: transform $bounceTransition $time;
   position: relative;
   &:hover, &:focus {
     z-index: 5;
@@ -221,7 +228,7 @@ $MZplusColor: $color2;
 @mixin hover-scale-up-inner($time:$transitionTime,$scale:$imageHoverScale) {
   > * {
     position: relative;
-    transition: transform ease-out $time;
+    transition: transform $bounceTransition $time;
   }
   &:hover, &:focus {
     > * {
@@ -231,7 +238,7 @@ $MZplusColor: $color2;
   }
 }
 
-@mixin hover-overlay-full($bgColor:$color1,$color:$white,$vertikal:center,$horizontal:center) {
+@mixin hover-overlay-full($bgColor:$color1,$color:var(--color-all-white),$vertikal:center,$horizontal:center) {
   /////// Benötigt Element mit Klasse "hover" innerhalb von auslösendem Element ///////
   /////// Hover bezieht sich auf Höhe des Elternelements ///////
   .hover {

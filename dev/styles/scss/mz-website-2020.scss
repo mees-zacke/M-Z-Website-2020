@@ -342,7 +342,7 @@
 #footer{
   padding-bottom: 1rem;
   a{
-    @include link($color:$color3,$border:false)
+    @include link($color:$color3, $colorOnly:true)
   }
   border-top: 1px solid $color1;
   padding-top: 1rem;
