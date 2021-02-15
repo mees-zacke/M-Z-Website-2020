@@ -6,6 +6,11 @@
         }
     }
 }
+.mod_navigation{
+    a{
+        @include link($colorOnly:true);
+    }
+}
 #meta-nav{
     display: flex;
     align-items: baseline;

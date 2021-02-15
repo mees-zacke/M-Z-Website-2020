@@ -142,6 +142,37 @@ contao:
                       densities: '0.5x, 2x'
                       sizes: '100vw'
                       media: '(max-width: 450px)'
+            3zu2:
+              width: 1920
+              height: 1280
+              resizeMode: 'crop'
+              zoom: 100
+              cssClass: '3zu2-image'
+              densities: '1x, 2x'
+              sizes: '100vw'
+              lazy_loading: false
+              items:
+                - width: 1200
+                  height: 800
+                  resizeMode: 'crop'
+                  zoom: 100
+                  densities: '0.5x, 2x'
+                  sizes: '100vw'
+                  media: '(max-width: 1200px)'
+                - width: 900
+                  height: 600
+                  resizeMode: 'crop'
+                  zoom: 100
+                  densities: '0.5x, 2x'
+                  sizes: '100vw'
+                  media: '(max-width: 900px)'
+                - width: 450
+                  height: 300
+                  resizeMode: 'crop'
+                  zoom: 100
+                  densities: '0.5x, 2x'
+                  sizes: '100vw'
+                  media: '(max-width: 450px)'
 doctrine:
   dbal:
     connections:

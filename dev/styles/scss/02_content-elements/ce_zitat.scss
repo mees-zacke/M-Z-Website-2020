@@ -1,0 +1,48 @@
+.ce_rsce_zitat{
+  .zitat-container{
+    max-width: calc(1000px + 6rem);
+    margin: 0 auto;
+  }
+  .zitat{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    .text{
+      width: calc(100% - 6rem);
+
+      >p:last-of-type{
+        margin-bottom: 0;
+      }
+    }
+    svg{
+      width: 3rem;
+      height: 3rem;
+      fill: $color1;
+      &.zitat-unten{
+        margin-top: 1em;
+        margin-right: 0.5em;
+      }
+      &.zitat-oben{
+        align-self: flex-end;
+        margin-bottom: 1em;
+        margin-left: 0.5em;
+      }
+    }
+    @media all and (max-width: $break1) {
+      flex-wrap: wrap;
+      justify-content: unset;
+      .text{
+        width: 100%;
+      }
+      svg.zitat-unten{
+      }
+      svg.zitat-oben{
+        margin-left: auto;
+      }
+    }
+  }
+  .zitat-autor{
+    text-align: right;
+  }
+}

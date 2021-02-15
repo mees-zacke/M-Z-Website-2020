@@ -132,7 +132,7 @@ function images() {
 function watcher() {
 	watch('dev/styles/scss/**/*.scss',style);
 	watch('dev/fonts/**', fontsTransport);
-	watch('dev/templates/**/*.+(html|html5|tl)', templates);
+	watch('dev/templates/**/*.+(html|html5|tl|php)', templates);
 	watch('dev/favicons/**/*', favicons)
 	watch('dev/js/**/*.js', javaScript);
 	watch('dev/php/**/*.php', phpScript);

@@ -1,7 +1,8 @@
 .kontakt-button-container{
-  @include transition();
   position: absolute;
-  right: -100%;
+  right: 0;
+  width: 0;
+  overflow: visible;
   top: 100%;
   z-index: 200;
   .kontakt-opener{
@@ -40,15 +41,25 @@
       }
     }
   }
-  .kontakt-container{
-    max-height: 80vh;
-    overflow-y: scroll;
+  .kontakt-container-outer{
     position: relative;
-    z-index: 300;
-    padding: $abstandElemente;
-    font-size: $linkSize;
-    background: $white;
-    border: 1px solid $color1;
+    min-width: 400px;
+    left: 0;
+  }
+  .kontakt-container{
+    @include transition();
+    position: relative;
+    right: 0;
+    .kontakt-container-inner{
+      position: relative;
+      max-height: 80vh;
+      overflow-y: scroll;
+      z-index: 300;
+      padding: $abstandElemente;
+      font-size: $linkSize;
+      background: $white;
+      border: 1px solid $color1;
+    }
     .head{
       font-size: $h3Size;
       font-weight: 600;
@@ -64,24 +75,37 @@
         label .mandatory{
           color: $color1;
         }
+        fieldset{
+          border: none;
+          margin-bottom: 0;
+        }
         .kontakt-buttons{
           display: flex;
           justify-content: flex-end;
+          .telefon{
+            display: none;
+          }
           >div{
             position: relative;
-            fill: $color1;
             margin-left: 1rem;
             a{
-              border: 1px $color1 solid;
-              box-sizing: content-box;
-              padding: 10px;
+              @include button($background: $color1, $hoverBackground: $white);
+              box-sizing: border-box;
+              padding: 5px;
               display: flex;
               align-items: center;
-              width: 20px;
-              height: 20px;
+              width: 42px;
+              height: 42px;
               svg{
+                @include transition();
+                fill: $white;
                 width: 100%;
                 height: 100%;
+              }
+              &:hover, &:focus{
+                svg{
+                  fill: $color1;
+                }
               }
             }
           }
@@ -106,6 +130,7 @@
             grid-column-gap: 0;
             .kontakt-buttons{
               .telefon{
+                display: block;
                 margin-left: 0;
               }
               .email{
@@ -161,6 +186,8 @@
     }
   }
   &.active{
-    right: 0 !important;
+    .kontakt-container{
+      right: 100%;
+    }
   }
 }

@@ -3,6 +3,18 @@
   figure{
   }
   &.kunden-logos{
-    @include gallery-flex($abstand: 40%, $abstandRow: 40%)
+    @include gallery-flex($abstand: 40%, $abstandRow: 40%);
+    img{
+      @include transition();
+      filter: grayscale(1);
+    }
+    a{
+      &:hover, &:focus{
+        img{
+          filter: none;
+        }
+      }
+    }
+
   }
 }

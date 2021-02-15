@@ -278,7 +278,12 @@
           }
         }
         .ce_player{
+          min-height: 550px;
           height: 90vh;
+          @media all and (max-width: $break2){
+            min-height: 400px;
+            height: 70vh;
+          }
           figure{
             height: 100%;
             video{
@@ -355,7 +360,7 @@
         grid-row-gap: 1rem;
         .schlagworte{
           font-size: calc(#{$linkSize} * 0.8);
-          grid-column: 2/10;
+          grid-column: 2/8;
           ul{
             display: flex;
             flex-wrap: wrap;
@@ -374,7 +379,8 @@
           }
         }
         #meta-nav{
-          grid-column: 10/14;
+          justify-self: end;
+          grid-column: 8/14;
           font-size: $linkSize;
           ul{
             li{
@@ -382,14 +388,14 @@
             }
           }
         }
-        @media all and (max-width: 680px) {
+        @media all and (max-width: $break2) {
           .schlagworte{
-            grid-column: 2/8;
+            grid-column: 2/6;
           }
           #meta-nav{
             display: flex;
             justify-content: flex-end;
-            grid-column: 8/14;
+            grid-column: 6/14;
           }
         }
         @media all and (max-width: $break1) {
@@ -421,7 +427,7 @@
         }
         .linke-spalte{
           font-size: $linkSize;
-          grid-column: 2/9;
+          grid-column: 2/10;
           .ce_image{
             margin-bottom: 1rem;
           }
@@ -441,6 +447,11 @@
               }
             }
           }
+          .rechte-spalte{
+            .oben{
+              display: flex;
+            }
+          }
         }
         @media all and (max-width: $break1) {
           .linke-spalte{
@@ -448,10 +459,26 @@
           }
           .rechte-spalte{
             grid-column: 2/14;
-            flex-wrap: nowrap;
+            flex-wrap: wrap;
             justify-content: space-between;
+            .oben{
+              width: 100%;
+              justify-content: space-between;
+              display: flex;
+            }
             .ce_image, .ce_text{
               width: fit-content;
+              padding: 0;
+            }
+            .ce_text{
+              width: 100%;
+              .text-container{
+                display: flex;
+                justify-content: space-between;
+                >p{
+                  margin-right: 0;
+                }
+              }
             }
           }
         }

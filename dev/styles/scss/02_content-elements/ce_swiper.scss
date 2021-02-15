@@ -1,5 +1,26 @@
 .ce_swiperStart{
 
+  .swiper-wrapper{
+    padding-bottom: 2rem;
+  }
+  .swiper-pagination-bullet{
+    background: none;
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.5;
+    @include transition();
+    svg{
+      fill: $color1;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    &-active{
+      opacity: 1;
+    }
+  }
+
   .ce_image.swiper-slide{
     figure{
       margin-bottom: 0;
@@ -7,11 +28,19 @@
   }
 
   .textblock{
+    margin-bottom: 0;
     .text{
       background: $color1;
     }
     *:not(a){
       color: $white;
+    }
+    ul{
+      li{
+        &:before{
+          color: $white;
+        }
+      }
     }
     a{
       @include link($color:lightness($color1, 45%),$colorHover:$white, $border:true)
@@ -48,7 +77,16 @@
   &.referenzen-slider{
     padding: (2 * $abstandElemente) 0;
     background-color: $color1;
-    .ce_image.swiper-slide{
+    .zitat{
+      svg{
+        fill: $white;
+      }
+    }
+    .swiper-pagination-bullet{
+      svg{
+        fill: $white;
+      }
+    }.ce_image.swiper-slide{
       overflow: visible;
       figure{
         margin-bottom: 0;
@@ -66,14 +104,16 @@
     }
   }
   &.kundenstimmen{
-    &:before{
-      color: $white;
-    }
     .swiper-container{
-      margin-right: 3rem;
+      margin: 0 2rem;
+      .swiper-wrapper{
+        display: flex;
+        align-items: center;
+      }
       .ce_text{
         display: flex;
         align-items: center;
+        justify-content: center;
       }
     }
     @media all and (max-width: $break1){
@@ -94,7 +134,7 @@
       width: fit-content;
     }
   }
-  &:not(.swiper-mode-fade){
+  &.swiper-mode-slide{
     .swiper-container{
       .swiper-wrapper{
         >* {

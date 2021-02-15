@@ -13,6 +13,9 @@
       margin-bottom: 1rem;
       .image_container{
         width: 100%;
+        img{
+          @include transition();
+        }
         &.no-image{
           padding-top: 50%;
           background-image: url("/files/layout/images/mz-platzhalter.jpg");
@@ -25,6 +28,9 @@
       }
       &:hover, &:focus{
         color: $color1;
+        img{
+          transform: scale(1.2);
+        }
       }
     }
   }

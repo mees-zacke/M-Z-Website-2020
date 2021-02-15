@@ -109,6 +109,49 @@
       }
 
       &teaser_leist_content {
+        .link{
+          a{
+            @include link($colorOnly:true);
+          }
+        }
+        .ctlg_teaser {
+          width: 100%;
+          padding: 1rem 0;
+
+          .leistung-content-container {
+            width: 100%;
+            display: flex;
+            .beschreibung{
+              padding-right: 2rem;
+              width: 50%;
+              > *:last-child {
+                margin: 0;
+              }
+            }
+            .aufzaehlung{
+              margin-left: 2rem;
+              width: 30%;
+
+              ul {
+                > li {
+                  padding-left: 1.5rem;
+
+                  &:before {
+                    content: '›';
+                    color: $color1;
+                    font-size: 1.5rem;
+                    display: inline-block;
+                    margin-right: 1rem;
+                    margin-left: -1rem;
+                    width: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      &teaser_leist_content {
         &.inactive {
           border-color: transparent;
         }
@@ -171,6 +214,7 @@
           }
         }
       }
+
     }
 
     @media all and (max-width: $break2) {

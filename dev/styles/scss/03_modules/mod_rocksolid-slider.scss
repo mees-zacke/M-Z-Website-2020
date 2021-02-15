@@ -16,19 +16,27 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    >div{
+      margin-top: 10%;
+    }
 
     .ce_text {
       overflow: visible;
       margin-left: 10vw;
       max-width: 70vw;
-      
+
+      *{
+        color: $white;
+      }
+
       >*{
         font-size: $h3Size;
         font-family: $font1;
         margin-bottom: 0.5rem;
       }
 
-      h2 {
+      h2, h1 {
+        font-size: calc(#{$h1Size} * 1.2);
         border-radius: 2px;
         min-width: 40vw;
         position: relative;
@@ -83,6 +91,7 @@
       ul{
         .rsts-nav-item{
           a{
+            position: relative;
             border-radius: 0;
             outline: none;
             border: none;
@@ -98,13 +107,14 @@
               position: absolute;
               top: 0;
               left: 0;
-              width: 100%;
+              width: 1.5rem;
+              height: 1.5rem;
               fill: $white;
             }
             &.active{
-              svg{
-                fill: $color1;
-              }
+                svg{
+                  fill: $color1;
+                }
             }
             &:not(.active){
               @include button-push();

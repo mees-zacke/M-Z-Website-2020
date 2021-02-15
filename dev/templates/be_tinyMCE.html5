@@ -76,7 +76,6 @@ setTimeout(function() {
           exact: true,
           wrapper: true,
       },
-
         ]}
     ]
   });

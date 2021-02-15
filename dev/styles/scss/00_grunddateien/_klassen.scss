@@ -1,6 +1,7 @@
 // CSS Stile für Backend-Auswahl
 .teaser{
   font-size: $teaserSize;
+  line-height: 1.6;
 }
 .kleiner-text{
   font-size: $linkSize;
@@ -36,11 +37,6 @@
 .kundenstimmen{
   display: flex;
   align-items: center;
-  &:before{
-    content: "+";
-    font-size: calc(#{$h1Size} * 2);
-    margin: 0 3rem;
-  }
 }
 .kein-abstand-unten-artikel{
   margin-bottom: 0 !important;

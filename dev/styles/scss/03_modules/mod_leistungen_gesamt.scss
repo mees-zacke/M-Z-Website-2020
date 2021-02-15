@@ -1,0 +1,44 @@
+.mod_catalogUniversalView {
+  &.leistung-trigger-container {
+    .ctlg_view_teaser_leist_gesamt{
+      .ctlg_teaser{
+        margin-bottom: $abstandArtikel;
+        .leistung-content-container{
+        @include grid($columns:12, $row-gap:$abstandElemente);
+          margin-bottom: 1rem;
+          .beschreibung{
+            grid-column: 3 / 10;
+          }
+          .aufzaehlung{
+            grid-column: 6 /  11;
+          }
+          @media all and (max-width: $break1) {
+            .beschreibung{
+              grid-column: 1 / -1;
+            }
+            .aufzaehlung{
+              grid-column: 1 /  -1;
+            }
+          }
+        }
+        .aufzaehlung{
+          ul {
+            > li {
+              padding-left: 1.5rem;
+
+              &:before {
+                content: '›';
+                color: $color1;
+                margin-right: 1rem;
+                margin-left: -1rem;
+                font-size: 1.5rem;
+                display: inline-block;
+                width: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -139,6 +139,13 @@ figure{
   &.ratio4x3 {
     padding-bottom: 75%;
   }
+  &.retro {
+    max-width: 100%;
+    overflow: scroll;
+    iframe{
+      width: 800px;
+    }
+  }
 }
 
 @media all and (min-width: $break1) {

@@ -11,7 +11,7 @@ body{
   --color-border-revert: hsla(0,0%,0%,0);
 
   &.black{
-    @include defineColorHSL(--color1-red, 357, 100%, 45%);
+    @include defineColorHSL(--color1-red, 0, 0%, 100%);
     @include defineColorHSL(--color2-grey, 0, 0%, 100%);
     @include defineColorHSL(--color3-lightgrey, 0, 0%, 100%);
     @include defineColorHSL(--color-black, 0, 0%, 100%);
@@ -21,7 +21,7 @@ body{
     @include defineColorHSL(--color-border-revert, 0, 0%, 0%);
   }
   &.white{
-    @include defineColorHSL(--color1-red, 357, 100%, 45%);
+    @include defineColorHSL(--color1-red, 0, 0%, 0%);
     @include defineColorHSL(--color2-grey, 0, 0%, 0%);
     @include defineColorHSL(--color3-lightgrey, 0, 0%, 0%);
     @include defineColorHSL(--color-black, 0, 0%, 0%);

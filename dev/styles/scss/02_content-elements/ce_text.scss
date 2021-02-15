@@ -29,7 +29,7 @@
   }
 
   a {
-    @include link($border:true);
+    @include link($border:true , $colorOnly:true);
   }
 
   @include image();
@@ -58,9 +58,11 @@
   }
 
   .text{
+    .text-container{
       >*:last-child {
         margin-bottom: 0;
       }
+    }
   }
   @media all and (max-width: $break1){
     padding: 0 1rem;

@@ -44,7 +44,7 @@
       max-width: 70vw;
       width: 600px;
       padding: 2rem 1rem;
-      z-index: 3;
+      z-index: 20;
       transition-duration: 0.4s;
       transition-timing-function: ease;
       transition-property: transform, filter;
@@ -81,7 +81,7 @@
         z-index: 3;
       }
       a{
-        @include link()
+        @include link($colorOnly:true)
       }
     }
   }

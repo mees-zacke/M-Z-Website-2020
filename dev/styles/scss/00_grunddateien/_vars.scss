@@ -238,7 +238,7 @@ $MZplusColor: $color2;
   }
 }
 
-@mixin hover-overlay-full($bgColor:$color1,$color:var(--color-all-white),$vertikal:center,$horizontal:center) {
+@mixin hover-overlay-full($bgColor:$color1,$color:$white,$vertikal:center,$horizontal:center) {
   /////// Benötigt Element mit Klasse "hover" innerhalb von auslösendem Element ///////
   /////// Hover bezieht sich auf Höhe des Elternelements ///////
   .hover {

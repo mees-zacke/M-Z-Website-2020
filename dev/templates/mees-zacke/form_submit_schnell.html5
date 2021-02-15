@@ -4,7 +4,7 @@
 <div class="kontakt-buttons">
   <div class="telefon">
     <a href="tel:0712117414" title="Rufen Sie uns an!">
-      {{file::mees-zacke/kontakt-svg.html5}}
+      {{file::mees-zacke/anruf-svg.html5}}
     </a>
   </div>
   <div class="email">

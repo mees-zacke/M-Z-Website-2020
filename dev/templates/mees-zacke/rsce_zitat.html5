@@ -1,0 +1,14 @@
+<div class="<?= $this->class ?>">
+    <div class="zitat-container">
+        <div class="zitat">
+            {{file::mees-zacke/anfuehrungszeichen-unten-svg.html5}}
+            <div class="text">
+                <?= $this->zitat ?>
+            </div>
+            {{file::mees-zacke/anfuehrungszeichen-oben-svg.html5}}
+        </div>
+        <div class="zitat-autor">
+            <?= $this->author ?>
+        </div>
+    </div>
+</div>

@@ -77,15 +77,15 @@ jQuery(function ($) {
     });
 //// Startseiten-Projekte ////
 
-    var projekt_mitglied = $('.startseite .start-vorschau .image_container');
+    var projekt_mitglied = $('.startseite .start-vorschau');
 
     $(window).ready(function () {
         projekt_mitglied.attr("tabindex", "0")
     });
 
-    projekt_mitglied.on('click keypress', function () {
-        $(this).siblings('.text').toggleClass('active').fadeToggle();
-        $(this).toggleClass('active')
+    projekt_mitglied.on('mouseenter mouseleave click touch keypress', function () {
+        $(this).children('.text').toggleClass('active').fadeToggle();
+        $(this).children('.image_container').toggleClass('active')
     });
 
     function mediaQuery(x) {
@@ -196,7 +196,7 @@ jQuery(function ($) {
         team_mitglied.attr("tabindex", "0")
     });
 
-    team_mitglied.on('click keypress', function () {
+    team_mitglied.on('mouseenter mouseleave click keypress', function () {
         $(this).siblings('.text').toggleClass('active').fadeToggle();
         $(this).toggleClass('active');
         console.log($(this).hasClass('active'));
@@ -214,7 +214,7 @@ jQuery(function ($) {
 // Kontakt-Button
 
     var kontaktForm = $('.kontakt-button-container');
-    var kontaktOpener = kontaktForm.children('.kontakt-opener');
+    var kontaktOpener = kontaktForm.find('.kontakt-opener');
 
     kontaktOpener.on('click keydown', function () {
         kontaktForm.toggleClass('active');
@@ -233,11 +233,9 @@ jQuery(function ($) {
     });
 
     $(window).on("load", function () {
-        kontaktForm.css("right", "-" + kontaktForm.width() + "px")
         kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
     });
     $(window).resize(function () {
-        kontaktForm.css("right", "-" + kontaktForm.width() + "px")
         kontaktOpener.css("right", "calc(100% - (" + kontaktOpener.children(".text").width() + "px + 31px))")
     });
 
@@ -266,7 +264,18 @@ jQuery(function ($) {
     $(window).ready(function () {
         var plus = $('#kopfbild .plus-container'),
             navPoints = $('.mod_rocksolid_slider .rsts-nav .rsts-nav-item a');
-        plus.appendTo(navPoints);
+        plus.children('svg').unwrap().appendTo(navPoints);
+    });
+
+// Swiper Plus Navigation
+
+    $(window).ready(function () {
+        var swipePlus = $('.ce_swiperStart .plus-container'),
+            swipeNavPoints = $('.ce_swiperStart .swiper-pagination-bullet');
+        swipePlus.each(function (){
+            console.log()
+            $(this).children('svg').unwrap().appendTo(swipeNavPoints)
+        });
     });
 
 // Startseite Pfeil nach unten Scrolling
@@ -320,10 +329,10 @@ jQuery(function ($) {
     });
 
     $(window).ready(function () {
-        mobileMenu.css("top", "-" + (mobileMenu.height() + 10) + "px")
+        mobileMenu.css("top", "-" + (mobileMenu.height() + 200) + "px")
     });
     $(window).resize(function () {
-        mobileMenu.css("top", "-" + (mobileMenu.height() + 10) + "px")
+        mobileMenu.css("top", "-" + (mobileMenu.height() + 200) + "px")
     });
 
     // Mute Button für Head Video //
