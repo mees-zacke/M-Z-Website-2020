@@ -214,6 +214,10 @@
     ////////////////////////////
 
     #kopfbild{
+      margin-bottom: $abstandArtikel;
+      @media all and (max-width: $break3) {
+        margin-bottom: $abstandElemente;
+      }
       .video-mute-button{
         width: 3rem;
         height: 3rem;
@@ -257,7 +261,6 @@
       .header-placeholder{
         box-sizing: content-box;
       }
-      margin-bottom: $abstandArtikel;
       #startseiten-slider{
         position: relative;
         >* {

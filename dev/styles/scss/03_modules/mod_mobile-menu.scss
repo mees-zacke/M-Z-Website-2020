@@ -4,6 +4,7 @@
   position: fixed;
   left: 0;
   top: -100%;
+  min-width: 220px;
   transition: top ease 0.5s, padding ease $transitionTime;
   .inner {
     padding: calc(((#{$heightHeader} - 2rem) / 2) - ( #{$heightOpener} / 2)) 4rem 4rem calc(100vw / 14);
@@ -35,6 +36,9 @@
       }
     }
     .blog{
+      svg{
+        fill: $color1;
+      }
       display: none;
     }
   }

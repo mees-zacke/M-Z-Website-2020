@@ -43,7 +43,8 @@
   }
   .kontakt-container-outer{
     position: relative;
-    min-width: 400px;
+    width: 400px;
+    max-width: 80vw;
     left: 0;
   }
   .kontakt-container{
@@ -113,6 +114,7 @@
         .widget-submit{
           font-size: $linkSize;
           button{
+            line-height: 1.2;
             height: 20px;
             padding: 10px;
             box-sizing: content-box;
@@ -134,8 +136,26 @@
                 margin-left: 0;
               }
               .email{
-                margin-left: 10px;
+                margin-left: 0;
               }
+            }
+          }
+        }
+      }
+      @media all and (max-width: $break1){
+        .ce_form{
+          .kontakt-buttons{
+            >div{
+              a{
+                padding: 10px;
+                height: 54px;
+                width: 54px;
+              }
+            }
+          }
+          .widget-submit{
+            button{
+              height: 32px;
             }
           }
         }

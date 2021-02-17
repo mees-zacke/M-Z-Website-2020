@@ -6,11 +6,15 @@
       &teaser_refFilter {
         display: flex;
         justify-content: space-between;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        width: 100%;
+        overflow-x: scroll;
+        padding: 5px 0 20px;
 
         .ctlg_teaser {
           overflow: visible;
           width: 16%;
+          min-width: 140px;
 
           .referenzen-filter {
             @include transition();
@@ -103,34 +107,34 @@
             z-index: 4;
           }
         }
-        @media all and (max-width: $break3){
-          .ctlg_teaser{
-            width: 20%;
-          }
-        }
         @media all and (max-width: $break2) {
-          justify-content: center;
-          .ctlg_teaser {
-            width: (100% / 3);
-          }
-        }
-        @media all and (max-width: $break2) {
-          justify-content: center;
-          .ctlg_teaser {
-            width: (100% / 3);
-            .referenzen-filter {
-              height: 100px;
-              padding: 0.4rem;
-              .image_container{
-                width: 40px;
-                height: 45px;
+              font-size: $linkSize;
+              .ctlg_teaser {
+                min-width: 120px;
+                .image_container{
+                  width: 30px;
+                  height: 35px;
+                }
+                .referenzen-filter {
+                  height: 115px;
+                  padding: 1rem 1rem;
+                }
               }
-              .title{
-                line-height: 1.3;
-              }
-            }
-          }
         }
+        @media all and (max-width: $break1) {
+              .ctlg_teaser {
+                .image_container{
+                  width: 30px;
+                  height: 35px;
+                }
+
+                .referenzen-filter {
+                  height: 100px;
+                  padding: 0.5rem;
+                }
+              }
+        }
+
       }
     }
   }
