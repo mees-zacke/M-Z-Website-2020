@@ -5,7 +5,23 @@
         <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?> itemprop="contentUrl">
             <div class="image-content">
         <?php endif; ?>
-            <?php $this->insert('picture_default', $this->picture); ?>
+            <?php if (!$this->mobileSRC | !\Environment::get('agent')->mobile ): ?>
+             <?php $this->insert('picture_default', $this->picture); ?>
+            <?php endif; ?>
+            <?php if ($this->mobileSRC && \Environment::get('agent')->mobile ): ?>
+            <?php if (null !== ($objHoverFile = \FilesModel::findByUuid($this->mobileSRC))) {
+            $objImageTemplate = new stdClass();
+            \Controller::addImageToTemplate($objImageTemplate, [
+            'singleSRC' => $objHoverFile->path,
+            'size' => $this->size,
+            'alt' => $objHoverFile->alt,
+            'title' => $objHoverFile->title,
+            ],
+            \Config::get('maxImageWidth'), null, $objHoverFile);
+            $this->insert('image_mobile', (array) $objImageTemplate);
+            }
+            ?>
+            <?php endif; ?>
             <?php if ($this->caption): ?>
                 <figcaption class="caption" itemprop="caption"><?= $this->caption ?></figcaption>
             <?php endif; ?>

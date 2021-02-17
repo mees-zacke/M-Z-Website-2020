@@ -12,6 +12,7 @@ use Contao\CoreBundle\DataContainer\PaletteManipulator;
 PaletteManipulator::create()
 
     ->addField('singleSRC2', 'image_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('mobileSRC', 'image_legend', PaletteManipulator::POSITION_APPEND)
 
     ->applyToSubpalette('addImage', 'tl_content')
     ->applyToSubpalette('useImage', 'tl_content')
@@ -20,6 +21,7 @@ PaletteManipulator::create()
 PaletteManipulator::create()
 
     ->addField('singleSRC2', 'source_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('mobileSRC', 'source_legend', PaletteManipulator::POSITION_APPEND)
 
     ->applyToPalette('image', 'tl_content')
     ;
@@ -39,6 +41,18 @@ $GLOBALS['TL_DCA']['tl_content']['fields']['singleSRC2'] = [
 
 ];
 
+$GLOBALS['TL_DCA']['tl_content']['fields']['mobileSRC'] = [
+            'label' => ['Mobilebild hinzufügen', 'Fügt ein Bild hinzu, welches in der mobilen Ansicht erscheint'],
+			'exclude'                 => true,
+			'inputType'               => 'fileTree',
+			'eval'                    => array('filesOnly'=>true, 'fieldType'=>'radio', 'tl_class'=>'clr'),
+			'load_callback' => array
+			(
+				array('tl_content', 'setSingleSrcFlags')
+			),
+			'sql'                     => "binary(16) NULL"
+
+];
 
 // Auswählbare Position und Breite von Inhaltselementen
 

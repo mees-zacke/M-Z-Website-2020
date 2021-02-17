@@ -12,6 +12,13 @@
     }
   }
 
+  @media screen and (max-width: $break2) {
+    @for $i from 1 through $columns {
+      .span-#{$i} {
+        grid-column: auto / span ($columns);
+      }
+    }
+  }
 
   // alle Breiten
 
