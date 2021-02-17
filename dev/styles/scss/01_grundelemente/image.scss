@@ -1,5 +1,7 @@
 @mixin image($pushTime:$transitionTime,$pushScale:$buttonPushScale,$hoverTime:$transitionTime,$hoverScale:$imageHoverScale){
+  overflow: visible;
   figure{
+    overflow: visible;
     line-height: 0;
     margin-bottom: 0.5rem;
     position: relative;
@@ -39,7 +41,7 @@
     a{
       display: block;
       position: relative;
-      @include hover-scale-up-inner($time:$hoverTime,$scale:$hoverScale);
+      @include hover-scale-up-image($time:$hoverTime,$scale:$hoverScale);
     }
     .greyscale & {
       img{

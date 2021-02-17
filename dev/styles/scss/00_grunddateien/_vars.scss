@@ -225,13 +225,13 @@ $MZplusColor: $color2;
   }
 }
 
-@mixin hover-scale-up-inner($time:$transitionTime,$scale:$imageHoverScale) {
-  > * {
+@mixin hover-scale-up-image($time:$transitionTime,$scale:$imageHoverScale) {
+  img {
     position: relative;
     transition: transform $bounceTransition $time;
   }
   &:hover, &:focus {
-    > * {
+    img {
       z-index: 5;
       transform: scale($scale);
     }
