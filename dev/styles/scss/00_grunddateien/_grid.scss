@@ -71,6 +71,9 @@
   @media all and (min-width: $pageWidth) {
     grid-template-columns: 5vw repeat(#{$columns - 2}, 1fr) 5vw;
   }
+  @media all and (max-width: $break1) {
+    grid-row-gap: calc(#{$row-gap} * 0.75);
+  }
   @include spans($columns, $rows, $column-gap, $row-gap);
   @include starts($columns);
 }

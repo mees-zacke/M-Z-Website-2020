@@ -3,13 +3,15 @@
 		<div class="leistung-content-container">
 			<div class="beschreibung">
 				<?= $this->beschreibung ?>
+				<?php if($this->link): ?>
+				<div class="link">
+					<?= $this->link ?>
+				</div>
+				<?php endif; ?>
 			</div>
 			<div class="aufzaehlung">
 				<?= $this->aufzaehlung ?>
 			</div>
-		</div>
-		<div class="link">
-			<?= $this->link ?>
 		</div>
 	</div>
 </div>

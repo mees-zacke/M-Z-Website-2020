@@ -172,11 +172,11 @@ $MZplusColor: $color2;
   }
 }
 
-@mixin hover-height($height:20px, $activator:"&:hover"){
-  filter: drop-shadow(0 0 0 alpha($black , 0.4));
-  #{$activator}{
+@mixin hover-height($height:20px, $activator:"&:hover") {
+  filter: drop-shadow(0 0 0 alpha($black, 0.4));
+  #{$activator} {
     transform: translateY(-$height);
-    filter: drop-shadow( ($height / 4) $height ($height / 4) alpha($black , 0.1));
+    filter: drop-shadow(($height / 4) $height ($height / 4) alpha($black, 0.1));
   }
 }
 
@@ -192,22 +192,19 @@ $MZplusColor: $color2;
   font-weight: $linkWidth;
   color: $color;
 
-  @if($colorOnly){
+  @if ($colorOnly) {
     border-bottom: 1px solid transparent;
-  }
-  @else if($border != "none"){
+  } @else if ($border != "none") {
     border-bottom: 1px solid $border;
-  }
-  @else {
+  } @else {
     border-bottom: none;
   }
 
   &:hover, &:focus {
     color: $linkColorHover;
-    @if($colorOnly){
+    @if ($colorOnly) {
       border-color: $borderColor;
-    }
-    @else if($border != "none"){
+    } @else if ($border != "none") {
       border-color: $borderHover;
     }
   }
@@ -255,12 +252,33 @@ $MZplusColor: $color2;
     padding: $abstandElemente;
     opacity: 0;
     background-color: $bgColor;
+    @media all and (max-width: $break2) {
+      h2, h3, h4, h5, h6 {
+        font-size: $h3Size;
+        line-height: 1.3;
+      }
+      p {
+        font-size: $linkSize;
+        line-height: 1.3;
+      }
+    }
+    @media all and (max-width: $break1) {
+      h2, h3, h4, h5, h6 {
+        font-size: $teaserSize;
+        line-height: 1.3;
+      }
+      p {
+        font-size: calc(#{$linkSize} * 0.8);
+        line-height: 1.3;
+      }
+    }
 
-    >*{
+    > * {
       position: relative;
       @include transition();
       transform: translateY(200%);
-      &:after{
+
+      &:after {
         @include transition();
         content: "";
         display: block;
@@ -280,15 +298,16 @@ $MZplusColor: $color2;
   &:hover, &:focus {
     .hover {
       opacity: 1;
-      >*{
+
+      > * {
         transform: translateY(0);
       }
     }
   }
   &:active, &.clicked {
     .hover {
-      >*{
-        &:after{
+      > * {
+        &:after {
           transform: scale(1);
         }
       }
@@ -308,6 +327,26 @@ $MZplusColor: $color2;
     text-align: $horizontal;
     top: 0;
     left: 0;
+    @media all and (max-width: $break2) {
+      h2, h3, h4, h5, h6 {
+        font-size: $h3Size;
+        line-height: 1.3;
+      }
+      p {
+        font-size: $linkSize;
+        line-height: 1.3;
+      }
+    }
+    @media all and (max-width: $break1) {
+      h2, h3, h4, h5, h6 {
+        font-size: $teaserSize;
+        line-height: 1.3;
+      }
+      p {
+        font-size: calc(#{$linkSize} * 0.8);
+        line-height: 1.3;
+      }
+    }
 
     > * {
       @include transition();
@@ -316,7 +355,8 @@ $MZplusColor: $color2;
       background-color: alpha($bgColor, 0.5);
       transform: translateY(200%);
       position: relative;
-      &:after{
+
+      &:after {
         @include transition();
         content: "";
         display: block;
@@ -335,7 +375,7 @@ $MZplusColor: $color2;
   }
   &:hover, &:focus {
     .hover {
-      >*{
+      > * {
         opacity: 1;
         transform: translateY(0);
       }
@@ -343,8 +383,8 @@ $MZplusColor: $color2;
   }
   &:active, &.clicked {
     .hover {
-      >*{
-        &:after{
+      > * {
+        &:after {
           transform: scale(1);
         }
       }
@@ -352,7 +392,7 @@ $MZplusColor: $color2;
   }
 }
 
-.wow{
+.wow {
   visibility: hidden;
   animation-delay: 0s !important;
 }

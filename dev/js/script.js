@@ -83,9 +83,24 @@ jQuery(function ($) {
         projekt_mitglied.attr("tabindex", "0")
     });
 
-    projekt_mitglied.on('mouseenter mouseleave click touch keypress', function () {
-        $(this).children('.text').toggleClass('active').fadeToggle();
-        $(this).children('.image_container').toggleClass('active')
+    projekt_mitglied.children(".image_container").on("click touch keypress", function (){
+        if ($(this).hasClass("active")){
+            $(this).next('.text').removeClass('active').fadeOut();
+            $(this).removeClass('active');
+        }
+        else {
+            $(this).next('.text').addClass('active').fadeIn();
+            $(this).addClass('active');
+        }
+    });
+
+    projekt_mitglied.on('mouseenter', function () {
+        $(this).children('.text').addClass('active').fadeIn();
+        $(this).children('.image_container').addClass('active')
+    });
+    projekt_mitglied.on(' mouseleave', function () {
+        $(this).children('.text').removeClass('active').fadeOut();
+        $(this).children('.image_container').removeClass('active')
     });
 
     function mediaQuery(x) {
@@ -278,23 +293,13 @@ jQuery(function ($) {
         });
     });
 
-// Startseite Pfeil nach unten Scrolling
-
-    $('.pfeil-unten').on("click touchend keyup", function () {
-        var headline = $('h1');
-        $('html, body').animate({
-            scrollTop: (headline.offset().top - 16)
-        }, 2000);
-    });
-
 // Kunden Detail Titel
 
-    $(window).ready(function () {
+    $(window).on("load", function () {
         var kopfbild = $('.ctlg_master .head'),
             kundeTitel = $('.kunde-title');
-        kopfbild.css('marginBottom', 'calc((' + kundeTitel.height() + 'px + 6rem) - ' + kundeTitel.children('h1').height() + 'px - 0.5rem)');
+        kopfbild.css('marginBottom', 'calc((' + kundeTitel.height() + 'px + 4rem) - ' + kundeTitel.children('h1').height() + 'px - 0.5rem)');
         kundeTitel.css('top', 'calc( 100% - ' + kundeTitel.children('h1').height() + 'px - 0.5rem - 1rem');
-
 
     });
 
